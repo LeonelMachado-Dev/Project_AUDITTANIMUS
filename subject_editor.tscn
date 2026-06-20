@@ -1,0 +1,232 @@
+[gd_scene format=3 uid="uid://dkrlyr0ue0wwf"]
+
+[ext_resource type="Script" uid="uid://cyfwgx0p3uyib" path="res://subject_editor.gd" id="1_lg5o6"]
+[ext_resource type="Shader" uid="uid://cse6pgsng1i6i" path="res://neblina_animus.gdshader" id="2_ohur5"]
+[ext_resource type="Script" uid="uid://ddgnqnf8j5kei" path="res://plexus_system.gd" id="3_ernmp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eqfkr"]
+shader = ExtResource("2_ohur5")
+shader_parameter/smoke_color = Color(0.85, 0.9, 0.95, 0.15)
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+colors = PackedColorArray(0.66245234, 0.66245234, 0.6624523, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w1b0f"]
+gradient = SubResource("Gradient_lquwl")
+fill = 1
+fill_from = Vector2(0.50427353, 0.51282054)
+fill_to = Vector2(0, 0)
+
+[node name="SubjectEditor" type="Control" unique_id=1562331428]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lg5o6")
+
+[node name="NeblinaAnimus" type="ColorRect" parent="." unique_id=1546591870]
+self_modulate = Color(1, 1, 1, 0.22745098)
+material = SubResource("ShaderMaterial_eqfkr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=1219955712]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8862745, 0.9098039, 0.9411765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1542375873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_w1b0f")
+
+[node name="PlexusSystem" type="Node2D" parent="." unique_id=329504298]
+script = ExtResource("3_ernmp")
+
+[node name="Panel" type="Panel" parent="." unique_id=1413865623]
+custom_minimum_size = Vector2(1000, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -300.0
+offset_right = 500.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FileDialog_Image" type="FileDialog" parent="Panel" unique_id=1038571261]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png", "*.jpg", "*.jpeg")
+
+[node name="PictureEditor" type="ColorRect" parent="Panel" unique_id=843665800]
+clip_contents = true
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VisorContainer" type="Control" parent="Panel/PictureEditor" unique_id=1317312913]
+custom_minimum_size = Vector2(300, 400)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ClipControl" type="Control" parent="Panel/PictureEditor/VisorContainer" unique_id=1655703380]
+clip_children = 2
+custom_minimum_size = Vector2(300, 400)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="originalPicture" type="TextureRect" parent="Panel/PictureEditor/VisorContainer/ClipControl" unique_id=554977791]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Border" type="ReferenceRect" parent="Panel/PictureEditor" unique_id=1559077714]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 400.0
+border_color = Color(0.30578822, 0.57404727, 0.68816876, 1)
+border_width = 2.6
+
+[node name="ConfirmBtn" type="Button" parent="Panel" unique_id=875489113]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -100.0
+offset_bottom = -69.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "CONFIRM PICTURE"
+
+[node name="SelectImageBtn" type="Button" parent="Panel" unique_id=2074620715]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -100.0
+offset_right = -194.0
+offset_bottom = -69.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Select Image"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1002640877]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+scroll_vertical = 100
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=81427528]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="inputName" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1274167042]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+placeholder_text = "Name"
+
+[node name="inputLastName" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=421670273]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "Last Name"
+
+[node name="inputBirthYear" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1368609778]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "Birth_Year"
+
+[node name="inputCommonLocation" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1561060380]
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "Common_Location"
+
+[node name="inputDescription" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=711104406]
+custom_minimum_size = Vector2(400, 240)
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "SUBJECT DESCRIPTION"
+emoji_menu_enabled = false
+scroll_fit_content_width = true
+text_direction = 1
+
+[node name="inputAnalisis" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=516591848]
+custom_minimum_size = Vector2(400, 240)
+layout_mode = 2
+placeholder_text = "PUT THE ANALYSE HERE"
+
+[node name="SaveAllBtn" type="Button" parent="Panel/ScrollContainer/VBoxContainer" unique_id=315512845]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Save All"
+
+[node name="returnBtn" type="Button" parent="." unique_id=903624837]
+layout_mode = 0
+offset_right = 77.0
+offset_bottom = 31.0
+text = "Regresar"
+
+[node name="Advice-PopUp" type="AcceptDialog" parent="." unique_id=485530521]
+title = "Warning!"
+ok_button_text = "Accept"
+
+[node name="Success-Pop_Up" type="AcceptDialog" parent="." unique_id=1740477026]
+ok_button_text = "Success"
+
+[connection signal="gui_input" from="Panel/PictureEditor/VisorContainer/ClipControl" to="." method="_on_clip_control_gui_input"]
+[connection signal="pressed" from="Panel/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]
+[connection signal="pressed" from="Panel/SelectImageBtn" to="." method="_on_select_image_btn_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/SaveAllBtn" to="." method="_on_save_all_btn_pressed"]
+[connection signal="pressed" from="returnBtn" to="." method="_on_return_btn_pressed"]

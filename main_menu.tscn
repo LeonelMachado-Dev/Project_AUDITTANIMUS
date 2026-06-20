@@ -1,0 +1,356 @@
+[gd_scene format=3 uid="uid://b64uawqsompeq"]
+
+[ext_resource type="Shader" uid="uid://cse6pgsng1i6i" path="res://neblina_animus.gdshader" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://cb8pathyrcflw" path="res://main_menu.gd" id="1_glbon"]
+[ext_resource type="Script" uid="uid://ddgnqnf8j5kei" path="res://plexus_system.gd" id="2_jix8l"]
+[ext_resource type="Shader" uid="uid://djeegke2uwutt" path="res://main.gdshader" id="3_glbon"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nlkkf"]
+shader = ExtResource("1_fu7sn")
+shader_parameter/smoke_color = Color(0.85, 0.9, 0.95, 0.15)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dy7ct"]
+shader = ExtResource("3_glbon")
+
+[sub_resource type="Gradient" id="Gradient_qe12f"]
+colors = PackedColorArray(0.66245234, 0.66245234, 0.6624523, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8qtwp"]
+gradient = SubResource("Gradient_qe12f")
+fill = 1
+fill_from = Vector2(0.50427353, 0.51282054)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jix8l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qe12f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qtwp"]
+bg_color = Color(0.45490196, 0.61960787, 0.77254903, 0.7058824)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dy7ct"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0o4t1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_glbon"]
+bg_color = Color(0.45490196, 0.61960787, 0.77254903, 0.7058824)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0k4wn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5v2v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlkkf"]
+bg_color = Color(0.45490196, 0.61960787, 0.77254903, 0.7058824)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glbon"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlkkf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0o4t1"]
+bg_color = Color(0.45490196, 0.61960787, 0.77254903, 0.7058824)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iotk1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w44g7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe12f"]
+bg_color = Color(0.98039216, 0, 0.105882354, 0.47843137)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
+bg_color = Color(0.38431373, 0, 0.03137255, 0.6117647)
+border_width_left = 2
+border_width_top = 3
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5021861, 0.94311506, 0.99999994, 1)
+shadow_size = 14
+
+[node name="MenuPrincipal" type="Control" unique_id=1054793455]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_glbon")
+
+[node name="NeblinaAnimus" type="ColorRect" parent="." unique_id=1370806698]
+self_modulate = Color(1, 1, 1, 0.22745098)
+material = SubResource("ShaderMaterial_nlkkf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FiltroGlitch" type="ColorRect" parent="NeblinaAnimus" unique_id=159056698]
+material = SubResource("ShaderMaterial_dy7ct")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=2041083010]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8862745, 0.9098039, 0.9411765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1721093524]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_8qtwp")
+
+[node name="PlexusSystem" type="Node2D" parent="." unique_id=1958481314]
+script = ExtResource("2_jix8l")
+
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=723924174]
+
+[node name="interface" type="Control" parent="." unique_id=2037702509]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PillarBlocks" type="Control" parent="interface" unique_id=277835985]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="buttonsContainer" type="VBoxContainer" parent="interface" unique_id=1259909383]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -65.5
+offset_right = 87.0
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="subjectsBtn" type="Button" parent="interface/buttonsContainer" unique_id=1757460948]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.111196615, 0.11119693, 0.11119672, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_jix8l")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qe12f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8qtwp")
+text = "SUJETOS"
+
+[node name="lugaresBtn" type="Button" parent="interface/buttonsContainer" unique_id=854345336]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.08468992, 0.08468992, 0.08468992, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dy7ct")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0o4t1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
+text = "LUGARES"
+
+[node name="memoriesBtn" type="Button" parent="interface/buttonsContainer" unique_id=1232339697]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.08627451, 0.08627451, 0.08627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0k4wn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_j5v2v")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
+text = "MEMORIAS"
+
+[node name="EditorBtn" type="Button" parent="interface/buttonsContainer" unique_id=1728686354]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.11489654, 0.114896916, 0.11489666, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_glbon")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_nlkkf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0o4t1")
+text = "EDITOR"
+
+[node name="exitBtn" type="Button" parent="interface/buttonsContainer" unique_id=466405609]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.08627451, 0.08627451, 0.08627451, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_iotk1")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w44g7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qe12f")
+text = "SALIR"
+
+[node name="soundPanel" type="Panel" parent="interface" unique_id=1889884752]
+custom_minimum_size = Vector2(550, 350)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -175.0
+offset_right = 548.0
+offset_bottom = 175.0
+grow_vertical = 2
+
+[node name="soundSlider" type="HSlider" parent="interface/soundPanel" unique_id=1774727810]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -55.0
+offset_right = 100.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="load_musicBtn" type="Button" parent="interface/soundPanel" unique_id=2127816760]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.5
+offset_top = -126.0
+offset_right = 59.5
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Cargar musica"
+
+[node name="returnBtn" type="Button" parent="interface/soundPanel" unique_id=376764992]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 79.0
+offset_bottom = 41.0
+text = "VOLVER"
+
+[node name="VolumeTag" type="Label" parent="interface/soundPanel" unique_id=1614662303]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.5
+offset_top = -84.5
+offset_right = 73.5
+offset_bottom = -61.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Musica del sistema"
+
+[node name="sfxCheckButton" type="CheckButton" parent="interface/soundPanel" unique_id=1888273771]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.5
+offset_top = -12.5
+offset_right = 66.5
+offset_bottom = 18.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Click Effect"
+
+[node name="defaultMusicBtn" type="Button" parent="interface/soundPanel" unique_id=619801771]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -57.5
+offset_top = -61.0
+offset_right = 57.5
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Default Music"
+
+[node name="FileDialogMusic" type="FileDialog" parent="interface" unique_id=187074756]
+access = 2
+filters = PackedStringArray("*.mp3", "*.ogg")
+
+[node name="DisclaimerPanel" type="Panel" parent="." unique_id=872234721]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VisorContainer" type="Panel" parent="DisclaimerPanel" unique_id=376906956]
+custom_minimum_size = Vector2(600, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -305.0
+offset_top = -692.0
+offset_right = 295.0
+offset_bottom = -392.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jix8l")
+
+[node name="AdviceLabel" type="Label" parent="DisclaimerPanel/VisorContainer" unique_id=459928993]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -179.0
+offset_top = 20.0
+offset_right = 179.0
+offset_bottom = 43.0
+grow_horizontal = 2
+text = "[ SYSTEM WARNING - RESTRICCIÓN DE DATOS ]"
+
+[node name="DisclaimerText" type="RichTextLabel" parent="DisclaimerPanel/VisorContainer" unique_id=1703028049]
+custom_minimum_size = Vector2(540, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -72.0
+offset_right = 270.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Project Audittanimus es un un sistema libre de lucro, un fan-project creado por un fan para fans de la franquicia assassin's creed. Todo archivo del juego, inspiración o similitud a la franquicia de ubisoft es de su propiedad. NO DISTRIBUIR CON FINES DE LUCRO. PROJECTO DE UN FAN PARA FANS DE LA FRANQUICIA. "
+
+[node name="AcceptBtn" type="Button" parent="DisclaimerPanel/VisorContainer" unique_id=2037951719]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_top = -37.0
+offset_right = 33.5
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "ACCEPT"
+
+[connection signal="pressed" from="interface/buttonsContainer/subjectsBtn" to="." method="_on_subjects_btn_pressed"]
+[connection signal="pressed" from="interface/buttonsContainer/lugaresBtn" to="." method="_on_lugares_btn_pressed"]
+[connection signal="pressed" from="interface/buttonsContainer/memoriesBtn" to="." method="_on_memories_btn_pressed"]
+[connection signal="pressed" from="interface/buttonsContainer/EditorBtn" to="." method="_on_editor_btn_pressed"]
+[connection signal="pressed" from="interface/buttonsContainer/exitBtn" to="." method="_on_exit_btn_pressed"]

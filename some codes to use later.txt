@@ -1,0 +1,34 @@
+func chequear_primer_inicio():
+	var config = ConfigFile.new()
+	var ruta_config = "user://config_animus.cfg"
+	
+	# Intentamos cargar el archivo de configuración persistente del usuario
+	if config.load(ruta_config) != OK or not config.get_value("System", "disclaimer_aceptado", false):
+		# Primera vez encendiendo la interfaz
+		panel_disclaimer.visible = true
+		contenedor_botones.visible = false
+		pila_cuadros.visible = false
+		linea_conectora.visible = false
+		
+		# Conectamos el botón para cerrar y guardar la confirmación
+		if not boton_aceptar_disclaimer.pressed.is_connected(_on_disclaimer_aceptado):
+			boton_aceptar_disclaimer.pressed.connect(_on_disclaimer_aceptado)
+	else:
+		panel_disclaimer.visible = false
+		
+func _on_disclaimer_aceptado():
+	Global.reproducir_tick()
+	var config = ConfigFile.new()
+	config.set_value("System", "disclaimer_aceptado", true)
+	config.save("user://config_animus.cfg")
+	
+	# Transición limpia: Apagamos disclaimer, encendemos el Animus
+	panel_disclaimer.visible = false
+	contenedor_botones.visible = true
+	pila_cuadros.visible = true
+	ir_a_menu_principal()
+		
+Este codigo sirve para hacer que el Disclaimer aparezca una sola vez. Usa un archivo .cfg que se guarda en
+la carpeta users//.
+
+-----------------------------------------------------------------------------------------------------------------------------------

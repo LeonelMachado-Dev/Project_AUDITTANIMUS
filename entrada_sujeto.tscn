@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf8fjxywq65l4"]
+
+[ext_resource type="Script" uid="uid://cenyx5ahpacj" path="res://entrada_sujeto.gd" id="1_pmgsr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmgsr"]
+bg_color = Color(1, 1, 1, 0.7372549)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8089983, 0.8089983, 0.8089982, 0.81960785)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku1et"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="EntradaSujeto" type="Button"]
+custom_minimum_size = Vector2(300, 460)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0.12591061, 0.12591094, 0.12591067, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_pmgsr")
+text = "TEXTO DE PRUEBA"
+flat = true
+script = ExtResource("1_pmgsr")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ku1et")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 400.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="First_and_LastName_Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -60.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Name + Last Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

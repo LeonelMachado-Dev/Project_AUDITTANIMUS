@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://br4hbselgvhki"]
+
+[ext_resource type="AudioStream" uid="uid://dlw8id48tgu6c" path="res://music/animus2.0_theme.mp3" id="1_vohvr"]
+
+[sub_resource type="GDScript" id="GDScript_vohvr"]
+script/source = "extends AudioStreamPlayer
+
+var reproductor_musica = AudioStreamPlayer.new()
+
+func _ready():
+	add_child(reproductor_musica)
+	reproductor_musica.bus = \"Music\""
+
+[node name="MusicaGlobal" type="AudioStreamPlayer" unique_id=1558085173]
+stream = ExtResource("1_vohvr")
+bus = &"Music"
+parameters/looping = true
+script = SubResource("GDScript_vohvr")

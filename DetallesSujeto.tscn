@@ -1,0 +1,251 @@
+[gd_scene format=3 uid="uid://c04rjd8t551r8"]
+
+[ext_resource type="Script" uid="uid://cjinyv14s6agl" path="res://detalles_sujeto.gd" id="1_hceip"]
+[ext_resource type="Shader" uid="uid://cse6pgsng1i6i" path="res://neblina_animus.gdshader" id="1_jni1k"]
+[ext_resource type="Script" uid="uid://ddgnqnf8j5kei" path="res://plexus_system.gd" id="3_vh67j"]
+[ext_resource type="Shader" uid="uid://djeegke2uwutt" path="res://main.gdshader" id="4_pmyim"]
+[ext_resource type="AudioStream" uid="uid://bc1dyh2orq7f2" path="res://music/Glitch effect 6.mp3" id="5_pmyim"]
+
+[sub_resource type="Gradient" id="Gradient_ig7tw"]
+colors = PackedColorArray(0.66245234, 0.66245234, 0.6624523, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rxel5"]
+gradient = SubResource("Gradient_ig7tw")
+fill = 1
+fill_from = Vector2(0.50427353, 0.51282054)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hceip"]
+shader = ExtResource("1_jni1k")
+shader_parameter/smoke_color = Color(0.85, 0.9, 0.95, 0.15)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6o2g0"]
+shader = ExtResource("4_pmyim")
+
+[sub_resource type="LabelSettings" id="LabelSettings_jni1k"]
+font_size = 28
+font_color = Color(0.013624087, 0.03014388, 0.06406011, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vh67j"]
+
+[sub_resource type="FontFile" id="FontFile_pmyim"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_6o2g0"]
+font = SubResource("FontFile_pmyim")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="FontFile_mcw6r"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/22/0/ascent = 0.0
+cache/0/22/0/descent = 0.0
+cache/0/22/0/underline_position = 0.0
+cache/0/22/0/underline_thickness = 0.0
+cache/0/22/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_eg6t8"]
+font = SubResource("FontFile_mcw6r")
+font_size = 22
+font_color = Color(0.013624087, 0.03014388, 0.06406011, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hceip"]
+bg_color = Color(0.6, 0.6, 0.6, 0.1882353)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 0.8627451)
+border_blend = true
+
+[node name="DetallesSujeto" type="Control" unique_id=113065301]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hceip")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1111073406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8862745, 0.9098039, 0.9411765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1173777784]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_rxel5")
+
+[node name="NeblinaAnimus" type="ColorRect" parent="Background" unique_id=1110996700]
+self_modulate = Color(1, 1, 1, 0.22745098)
+material = SubResource("ShaderMaterial_hceip")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlexusSystem" type="Node2D" parent="Background" unique_id=1213776493]
+script = ExtResource("3_vh67j")
+
+[node name="FiltroGlitch" type="ColorRect" parent="Background" unique_id=333221339]
+material = SubResource("ShaderMaterial_6o2g0")
+layout_mode = 0
+offset_left = 540.0
+offset_top = 431.0
+offset_right = 1190.0
+offset_bottom = 431.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PostProcess" type="CanvasLayer" parent="Background" unique_id=1750601267]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=385096931]
+custom_minimum_size = Vector2(1100, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -395.5
+offset_top = -181.0
+offset_right = 395.5
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="ColumnaIzquierda" type="VBoxContainer" parent="HBoxContainer" unique_id=570897483]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="ContenedorBotones" type="HBoxContainer" parent="HBoxContainer/ColumnaIzquierda" unique_id=29142407]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="BtnVolver" type="Button" parent="HBoxContainer/ColumnaIzquierda/ContenedorBotones" unique_id=1459544967]
+layout_mode = 2
+text = "VOLVER"
+
+[node name="BtnBio" type="Button" parent="HBoxContainer/ColumnaIzquierda/ContenedorBotones" unique_id=388844383]
+layout_mode = 2
+text = "BIOGRAFIA"
+
+[node name="BtnPsico" type="Button" parent="HBoxContainer/ColumnaIzquierda/ContenedorBotones" unique_id=810218785]
+layout_mode = 2
+text = "PERFIL PSICOLÓGICO"
+
+[node name="FotoSujeto" type="TextureRect" parent="HBoxContainer/ColumnaIzquierda" unique_id=978483109]
+texture_filter = 2
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InfoDerecha" type="Control" parent="HBoxContainer" unique_id=91975568]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NombreLabel" type="Label" parent="HBoxContainer/InfoDerecha" unique_id=404194458]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 5.0
+offset_right = 348.0
+offset_bottom = 44.0
+text = "NOMBRE DEL SUJETO"
+label_settings = SubResource("LabelSettings_jni1k")
+
+[node name="birthYear_label" type="Label" parent="HBoxContainer/InfoDerecha" unique_id=425796767]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 54.0
+offset_right = 524.0
+offset_bottom = 85.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vh67j")
+text = "AÑO DE NACIMIENTO:"
+label_settings = SubResource("LabelSettings_6o2g0")
+
+[node name="location_label" type="Label" parent="HBoxContainer/InfoDerecha" unique_id=239537413]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 94.0
+offset_right = 587.0
+offset_bottom = 133.0
+text = "LOCALIZACION FRECUENTE"
+label_settings = SubResource("LabelSettings_eg6t8")
+
+[node name="TextoContenido" type="RichTextLabel" parent="HBoxContainer/InfoDerecha" unique_id=2058306944]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.5
+offset_top = -152.0
+offset_right = 310.5
+offset_bottom = 148.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_hceip")
+bbcode_enabled = true
+text = "TEXTO DE PRUEBA"
+text_direction = 1
+
+[node name="GlitchSound" type="AudioStreamPlayer" parent="." unique_id=873212352]
+stream = ExtResource("5_pmyim")
+
+[node name="GlitchTimer" type="Timer" parent="." unique_id=289193025]
+autostart = true
+
+[connection signal="pressed" from="HBoxContainer/ColumnaIzquierda/ContenedorBotones/BtnVolver" to="." method="_on_btn_volver_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColumnaIzquierda/ContenedorBotones/BtnBio" to="." method="_on_btn_bio_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColumnaIzquierda/ContenedorBotones/BtnPsico" to="." method="_on_btn_psico_pressed"]

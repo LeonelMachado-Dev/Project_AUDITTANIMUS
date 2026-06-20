@@ -1,0 +1,283 @@
+[gd_scene format=3 uid="uid://5n6loyqqbpu"]
+
+[ext_resource type="Script" uid="uid://b8dq2eqnb3s8g" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Shader" uid="uid://cse6pgsng1i6i" path="res://neblina_animus.gdshader" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://ddgnqnf8j5kei" path="res://plexus_system.gd" id="2_h2yge"]
+[ext_resource type="Shader" uid="uid://bbk1kd667gq06" path="res://memoryLines.gdshader" id="3_272bh"]
+[ext_resource type="Shader" uid="uid://djeegke2uwutt" path="res://main.gdshader" id="3_h2yge"]
+[ext_resource type="Shader" uid="uid://cafpkau2du4vv" path="res://MemoryGrid.gdshader" id="4_5vw27"]
+[ext_resource type="AudioStream" uid="uid://c8ktq73n0k0xw" path="res://music/Click-sound-AC2-Soundtrack.mp3" id="5_lquwl"]
+[ext_resource type="Shader" uid="uid://dxffg5o6qfykw" path="res://AnimusADN.gdshader" id="8_5vw27"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
+shader = ExtResource("2_1bvp3")
+shader_parameter/smoke_color = Color(0.85, 0.9, 0.95, 0.15)
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+colors = PackedColorArray(0.66245234, 0.66245234, 0.6624523, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0xm2m"]
+gradient = SubResource("Gradient_lquwl")
+fill = 1
+fill_from = Vector2(0.50427353, 0.51282054)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
+shader = ExtResource("3_h2yge")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
+shader = ExtResource("3_272bh")
+shader_parameter/line_color = Color(0.2, 0.6, 1, 1)
+shader_parameter/glow_color = Color(0.6, 0.9, 1, 1)
+shader_parameter/speed = 1.5
+shader_parameter/frequency = 6.0
+shader_parameter/amplitude = 0.15
+shader_parameter/thickness = 0.008
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4c57u"]
+shader = ExtResource("4_5vw27")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
+shader = ExtResource("8_5vw27")
+shader_parameter/strand_color = Color(0.15, 0.65, 1, 1)
+shader_parameter/block_color = Color(0.5, 0.9, 1, 1)
+shader_parameter/speed = 2.0
+shader_parameter/frequency = 5.0
+shader_parameter/amplitude = 0.22
+shader_parameter/DNA_width = 0.08
+shader_parameter/block_density = 25
+
+[sub_resource type="Theme" id="Theme_5vw27"]
+
+[node name="main" type="Control" unique_id=1135238041]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+
+[node name="NeblinaAnimus" type="ColorRect" parent="." unique_id=634002540]
+self_modulate = Color(1, 1, 1, 0.22745098)
+material = SubResource("ShaderMaterial_lquwl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=1027422539]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8862745, 0.9098039, 0.9411765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=266831104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_0xm2m")
+
+[node name="PlexusSystem" type="Node2D" parent="." unique_id=1170227498]
+script = ExtResource("2_h2yge")
+
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=1425380119]
+
+[node name="FiltroGlitch" type="ColorRect" parent="PostProcess" unique_id=638819564]
+material = SubResource("ShaderMaterial_1bvp3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Interface" type="CanvasLayer" parent="." unique_id=1077770044]
+
+[node name="MenuSujetos" type="Control" parent="Interface" unique_id=20228600]
+custom_minimum_size = Vector2(400, 700)
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="ContenedorTarjetas" type="Control" parent="Interface/MenuSujetos" unique_id=1102691376]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="leftBtn" type="Button" parent="Interface" unique_id=1692772483]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -15.5
+offset_right = 63.0
+offset_bottom = 15.5
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "<-"
+
+[node name="rightBtn" type="Button" parent="Interface" unique_id=1473576865]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -15.5
+offset_right = -41.0
+offset_bottom = 15.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "->"
+
+[node name="browser" type="LineEdit" parent="Interface" unique_id=630719562]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.25
+offset_top = 64.0
+offset_right = 140.25
+offset_bottom = 127.0
+grow_horizontal = 2
+placeholder_text = "ESCRIBE EL NOMBRE DEL SUJETO..."
+
+[node name="backBtn" type="Button" parent="Interface" unique_id=1185268169]
+offset_left = 98.0
+offset_top = 64.0
+offset_right = 175.0
+offset_bottom = 95.0
+text = "REGRESAR
+"
+
+[node name="add_subjectBtn" type="Button" parent="Interface" unique_id=1608818970]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -405.0
+offset_top = 64.0
+offset_right = -336.0
+offset_bottom = 95.0
+grow_horizontal = 0
+text = "AÑADIR"
+
+[node name="edit_subjectBtn" type="Button" parent="Interface" unique_id=1888207766]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -199.0
+offset_top = 64.0
+offset_right = -130.0
+offset_bottom = 95.0
+grow_horizontal = 0
+text = "EDITAR"
+
+[node name="delete_subjectBtn" type="Button" parent="Interface" unique_id=2059097515]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -304.0
+offset_top = 64.0
+offset_right = -231.0
+offset_bottom = 95.0
+grow_horizontal = 0
+text = "BORRAR"
+
+[node name="status" type="Label" parent="Interface" unique_id=1588455215]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="click_effect" type="AudioStreamPlayer" parent="." unique_id=542319482]
+stream = ExtResource("5_lquwl")
+
+[node name="PopUpConfirmacion" type="ConfirmationDialog" parent="." unique_id=885177455]
+
+[node name="animusHeader" type="Control" parent="." unique_id=500960909]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MemoryLines" type="ColorRect" parent="animusHeader" unique_id=1803163827]
+material = SubResource("ShaderMaterial_kek77")
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MemoryGrid" type="ColorRect" parent="animusHeader" unique_id=1473861820]
+visible = false
+material = SubResource("ShaderMaterial_4c57u")
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimusADN" type="ColorRect" parent="animusHeader" unique_id=937690385]
+material = SubResource("ShaderMaterial_efxa6")
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="ColorRect" parent="." unique_id=2058325628]
+custom_minimum_size = Vector2(1000, 40)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -58.0
+offset_right = 500.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_5vw27")
+
+[connection signal="pressed" from="Interface/leftBtn" to="." method="_on_left_btn_pressed"]
+[connection signal="pressed" from="Interface/rightBtn" to="." method="_on_right_btn_pressed"]
+[connection signal="text_changed" from="Interface/browser" to="." method="_on_browser_text_changed"]
+[connection signal="pressed" from="Interface/backBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="Interface/add_subjectBtn" to="." method="_on_add_subject_btn_pressed"]
