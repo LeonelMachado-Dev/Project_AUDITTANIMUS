@@ -63,7 +63,7 @@ A couple of screenshots to delight you... Soon!
 ### 🔺 Screenshot 1
 
 <p align="center">
-  <img width="70%" height="70%" src="https://i.imgur.com/SDJixBz.pg" alt="The screenshots will be uploaded soon!.">
+  <img width="70%" height="70%" src="https://i.imgur.com/dDMnDvO.png" alt="Main Menu">
 </p>
 
 ### 🔻 Screenshot 2
