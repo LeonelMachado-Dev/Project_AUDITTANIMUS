@@ -60,16 +60,16 @@ Hope you enjoy it!
 
 A couple of screenshots to delight you... Soon!
 
-### 🔺 Screenshot 1
+### 🔺 Main Menu
 
 <p align="center">
   <img width="70%" height="70%" src="https://i.imgur.com/dDMnDvO.png" alt="Main Menu">
 </p>
 
-### 🔻 Screenshot 2
+### 🔻 Subjects Screen
 
 <p align="center">
-  <img width="70%" height="70%" src="https://i.imgur.com/r5AiLWu.pg" alt="The screenshots will be uploaded soon!">
+  <img width="70%" height="70%" src="https://i.imgur.com/dXDwIyW.png" alt="The subjects screen">
 </p>
 
 ---
