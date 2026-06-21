@@ -7,7 +7,9 @@
 [ext_resource type="Shader" uid="uid://djeegke2uwutt" path="res://main.gdshader" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://cafpkau2du4vv" path="res://MemoryGrid.gdshader" id="4_5vw27"]
 [ext_resource type="AudioStream" uid="uid://c8ktq73n0k0xw" path="res://music/Click-sound-AC2-Soundtrack.mp3" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://ljjtsstwef87" path="res://Images/gesture (left right).png" id="6_4c57u"]
 [ext_resource type="Shader" uid="uid://dxffg5o6qfykw" path="res://AnimusADN.gdshader" id="8_5vw27"]
+[ext_resource type="Texture2D" uid="uid://cy0laecwr4eaj" path="res://Images/Arrows.png" id="9_kek77"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
 shader = ExtResource("2_1bvp3")
@@ -24,6 +26,12 @@ fill_to = Vector2(0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
 shader = ExtResource("3_h2yge")
+
+[sub_resource type="Theme" id="Theme_5vw27"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4c57u"]
+font_size = 18
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
 shader = ExtResource("3_272bh")
@@ -46,8 +54,6 @@ shader_parameter/frequency = 5.0
 shader_parameter/amplitude = 0.22
 shader_parameter/DNA_width = 0.08
 shader_parameter/block_density = 25
-
-[sub_resource type="Theme" id="Theme_5vw27"]
 
 [node name="main" type="Control" unique_id=1135238041]
 layout_mode = 3
@@ -209,6 +215,63 @@ text = "BORRAR"
 offset_right = 40.0
 offset_bottom = 23.0
 
+[node name="ButtonsGuide" type="ColorRect" parent="Interface" unique_id=2058325628]
+custom_minimum_size = Vector2(1000, 40)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -58.0
+offset_right = 500.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_5vw27")
+
+[node name="MoveButtons" type="TextureRect" parent="Interface/ButtonsGuide" unique_id=884776411]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 90.0
+offset_top = -14.0
+offset_right = 160.93
+offset_bottom = 14.0
+grow_vertical = 2
+texture = ExtResource("9_kek77")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="moveLabel" type="Label" parent="Interface/ButtonsGuide" unique_id=1733594142]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 35.0
+offset_top = -13.0
+offset_right = 82.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "NAV:                   /"
+label_settings = SubResource("LabelSettings_4c57u")
+
+[node name="TextureRect" type="TextureRect" parent="Interface/ButtonsGuide" unique_id=1625667474]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 179.0
+offset_top = -20.0
+offset_right = 219.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = ExtResource("6_4c57u")
+expand_mode = 1
+stretch_mode = 4
+
 [node name="click_effect" type="AudioStreamPlayer" parent="." unique_id=542319482]
 stream = ExtResource("5_lquwl")
 
@@ -259,22 +322,6 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="TextureRect" type="ColorRect" parent="." unique_id=2058325628]
-custom_minimum_size = Vector2(1000, 40)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -500.0
-offset_top = -58.0
-offset_right = 500.0
-offset_bottom = -18.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = SubResource("Theme_5vw27")
 
 [connection signal="pressed" from="Interface/leftBtn" to="." method="_on_left_btn_pressed"]
 [connection signal="pressed" from="Interface/rightBtn" to="." method="_on_right_btn_pressed"]
