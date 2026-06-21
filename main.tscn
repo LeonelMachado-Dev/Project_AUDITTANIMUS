@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://bbk1kd667gq06" path="res://memoryLines.gdshader" id="3_272bh"]
 [ext_resource type="Shader" uid="uid://djeegke2uwutt" path="res://main.gdshader" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://cafpkau2du4vv" path="res://MemoryGrid.gdshader" id="4_5vw27"]
+[ext_resource type="Shader" uid="uid://cx10o26sobqm1" path="res://actions_bar.gdshader" id="5_efxa6"]
 [ext_resource type="AudioStream" uid="uid://c8ktq73n0k0xw" path="res://music/Click-sound-AC2-Soundtrack.mp3" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://ljjtsstwef87" path="res://Images/gesture (left right).png" id="6_4c57u"]
 [ext_resource type="Shader" uid="uid://dxffg5o6qfykw" path="res://AnimusADN.gdshader" id="8_5vw27"]
@@ -26,6 +27,14 @@ fill_to = Vector2(0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
 shader = ExtResource("3_h2yge")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
+shader = ExtResource("5_efxa6")
+shader_parameter/color_base = Color(0.6852268, 0.71793675, 0.69840497, 0.3019608)
+shader_parameter/color_lineas = Color(1, 1, 1, 0.14901961)
+shader_parameter/velocidad_escaneo = 1.5
+shader_parameter/densidad_lineas = 200.0
+shader_parameter/parpadeo_ruido = 0.02
 
 [sub_resource type="Theme" id="Theme_5vw27"]
 
@@ -215,7 +224,8 @@ text = "BORRAR"
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="ButtonsGuide" type="ColorRect" parent="Interface" unique_id=2058325628]
+[node name="ActionsBar" type="ColorRect" parent="Interface" unique_id=2058325628]
+material = SubResource("ShaderMaterial_dg77c")
 custom_minimum_size = Vector2(1000, 40)
 anchors_preset = 7
 anchor_left = 0.5
@@ -230,7 +240,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_5vw27")
 
-[node name="MoveButtons" type="TextureRect" parent="Interface/ButtonsGuide" unique_id=884776411]
+[node name="MoveButtons" type="TextureRect" parent="Interface/ActionsBar" unique_id=884776411]
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 1
 anchors_preset = 4
@@ -245,7 +255,7 @@ texture = ExtResource("9_kek77")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="moveLabel" type="Label" parent="Interface/ButtonsGuide" unique_id=1733594142]
+[node name="moveLabel" type="Label" parent="Interface/ActionsBar" unique_id=1733594142]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -258,7 +268,7 @@ grow_vertical = 2
 text = "NAV:                   /"
 label_settings = SubResource("LabelSettings_4c57u")
 
-[node name="TextureRect" type="TextureRect" parent="Interface/ButtonsGuide" unique_id=1625667474]
+[node name="TextureRect" type="TextureRect" parent="Interface/ActionsBar" unique_id=1625667474]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5

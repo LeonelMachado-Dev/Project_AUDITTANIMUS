@@ -423,7 +423,7 @@ func ir_a_modo_edicion():
 	
 	subjectsBtn.text = "VIDEO"
 	locationsBtn.text = "SONIDO"
-	memoriesBtn.text = "EXTRAS"
+	memoriesBtn.text = "LENGUAJE"
 	editorBtn.text = "CREDITOS"
 	exitBtn.text = "REGRESAR AL MENÚ"
 
