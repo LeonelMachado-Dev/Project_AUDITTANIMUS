@@ -37,11 +37,17 @@ Hope you enjoy it!
 
 ## 💻 **Minimum Requeriments (SOON) 🖥️**
 
+OS: Windows 10 (22H2 or higher) or Windows 11
+Memory: 2 GB RAM
+Graphics: Intel UHD Graphics 620 (or better)
+Storage: 300 MB available on space.
+A 1280x768 screen resolution.
+
 ---
 
 ## ⚡ **Installation**
 
-Step 1. Download the last version avalaible and open the AudittAnimus.exe file.
+Step 1. Download the latest release and run the AudittAnimus.exe file.
 
 Step 2. Enjoy ✨
 
@@ -85,12 +91,13 @@ PS: this is not even my tree... i need to update this... is from a template of a
 
 ---
 
-## 📝 **Key Features**
+## 📝 **What’s Inside**
 
-* **Feature 1:** Subjects storage, favorites locations and memories of the user (Basically a local cloud...)
-* **Feature 2:** Web client to look at the database from other devices, just if they are in the same local network.
-* **Feature 3:** Assassin's Creed 2 Atmosphere and customizable background music
-* **Feature 4:** Supports touchpad gestures. Controller support coming soon!
+* Subjects storage, favorites locations and memories of the user (Basically a local cloud...)
+* Web client to look at the database from other devices, just if they are in the same local network.
+* Assassin's Creed 2 Atmosphere and customizable background music
+* Supports touchpad gestures. Controller support coming soon!
+* Powered by SQLite for database management.
 
 ---
 
@@ -98,16 +105,16 @@ PS: this is not even my tree... i need to update this... is from a template of a
 
 A couple of screenshots to delight you... Soon!
 
-### 🔺 All the issue templates
+### 🔺 Screenshot 1
 
 <p align="center">
-  <img width="70%" height="70%" src="https://i.imgur.com/SDJixBz.pg" alt="The screenshots will be upload soon!.">
+  <img width="70%" height="70%" src="https://i.imgur.com/SDJixBz.pg" alt="The screenshots will be uploaded soon!.">
 </p>
 
-### 🔻 An issue template opened
+### 🔻 Screenshot 2
 
 <p align="center">
-  <img width="70%" height="70%" src="https://i.imgur.com/r5AiLWu.pg" alt="The screenshots will be upload soon!">
+  <img width="70%" height="70%" src="https://i.imgur.com/r5AiLWu.pg" alt="The screenshots will be uploaded soon!">
 </p>
 
 ---
