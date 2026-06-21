@@ -35,7 +35,7 @@ Hope you enjoy it!
 
 ---
 
-## 💉 **Minimum Requeriments (SOON)**
+## 💻 **Minimum Requeriments (SOON) 🖥️**
 
 ---
 
@@ -49,7 +49,7 @@ Step 2. Enjoy ✨
 
 ### 🌲 **Project tree**
 
-This is how the directories works
+This is the current folders structure.
 
 PS: this is not even my tree... i need to update this... is from a template of another profile...
 
@@ -85,11 +85,12 @@ PS: this is not even my tree... i need to update this... is from a template of a
 
 ---
 
-## 📝 **What have the AudittAnimus Project?**
+## 📝 **Key Features**
 
-* 
-*
-*
+* **Feature 1:** Subjects storage, favorites locations and memories of the user (Basically a local cloud...)
+* **Feature 2:** Web client to look at the database from other devices, just if they are in the same local network.
+* **Feature 3:** Assassin's Creed 2 Atmosphere and customizable background music
+* **Feature 4:** Supports touchpad gestures. Controller support coming soon!
 
 ---
 
