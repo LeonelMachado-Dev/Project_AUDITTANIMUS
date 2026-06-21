@@ -458,7 +458,7 @@ func _on_memories_btn_pressed() -> void:
 	if estado_actual == EstadosMenu.PRINCIPAL:
 		print("Cargando secuencias de ADN de memoria genética...")
 	elif estado_actual == EstadosMenu.EDICION:
-		print("I got to think what kind of extras add to this...")
+		print("Instead -extras- this will be the language section")
 
 func _on_editor_btn_pressed() -> void:
 	Global.reproducir_tick()
