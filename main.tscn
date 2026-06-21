@@ -30,11 +30,15 @@ shader = ExtResource("3_h2yge")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
 shader = ExtResource("5_efxa6")
-shader_parameter/color_base = Color(0.6852268, 0.71793675, 0.69840497, 0.3019608)
-shader_parameter/color_lineas = Color(1, 1, 1, 0.14901961)
-shader_parameter/velocidad_escaneo = 1.5
-shader_parameter/densidad_lineas = 200.0
-shader_parameter/parpadeo_ruido = 0.02
+shader_parameter/resolucion_barra = Vector2(1000, 40)
+shader_parameter/color_barra = Color(0.12584242, 0.18809134, 0.21993583, 0.18039216)
+shader_parameter/color_bloques_datos = Color(0.27751654, 0.26763836, 0.23422626, 0.38039216)
+shader_parameter/color_linea_guia = Color(0, 0.75, 0.85, 0.8)
+shader_parameter/inicio_degradado_px = 550.0
+shader_parameter/fin_degradado_px = 800.0
+shader_parameter/velocidad_procesamiento = 8.0
+shader_parameter/tamano_bloque_px = Vector2(12, 6)
+shader_parameter/separacion_bloque_px = Vector2(2, 2)
 
 [sub_resource type="Theme" id="Theme_5vw27"]
 
@@ -177,15 +181,15 @@ offset_top = 64.0
 offset_right = 140.25
 offset_bottom = 127.0
 grow_horizontal = 2
-placeholder_text = "ESCRIBE EL NOMBRE DEL SUJETO..."
+placeholder_text = "PUT THE SUBJECT NAME"
+alignment = 1
 
 [node name="backBtn" type="Button" parent="Interface" unique_id=1185268169]
 offset_left = 98.0
 offset_top = 64.0
 offset_right = 175.0
 offset_bottom = 95.0
-text = "REGRESAR
-"
+text = "RETURN"
 
 [node name="add_subjectBtn" type="Button" parent="Interface" unique_id=1608818970]
 anchors_preset = 1
@@ -196,7 +200,7 @@ offset_top = 64.0
 offset_right = -336.0
 offset_bottom = 95.0
 grow_horizontal = 0
-text = "AÑADIR"
+text = "ADD"
 
 [node name="edit_subjectBtn" type="Button" parent="Interface" unique_id=1888207766]
 anchors_preset = 1
@@ -207,7 +211,7 @@ offset_top = 64.0
 offset_right = -130.0
 offset_bottom = 95.0
 grow_horizontal = 0
-text = "EDITAR"
+text = "EDIT"
 
 [node name="delete_subjectBtn" type="Button" parent="Interface" unique_id=2059097515]
 anchors_preset = 1
@@ -218,7 +222,7 @@ offset_top = 64.0
 offset_right = -231.0
 offset_bottom = 95.0
 grow_horizontal = 0
-text = "BORRAR"
+text = "DELEATE"
 
 [node name="status" type="Label" parent="Interface" unique_id=1588455215]
 offset_right = 40.0
@@ -226,7 +230,7 @@ offset_bottom = 23.0
 
 [node name="ActionsBar" type="ColorRect" parent="Interface" unique_id=2058325628]
 material = SubResource("ShaderMaterial_dg77c")
-custom_minimum_size = Vector2(1000, 40)
+custom_minimum_size = Vector2(1000, 46)
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -246,9 +250,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 90.0
+offset_left = 75.0
 offset_top = -14.0
-offset_right = 160.93
+offset_right = 145.92993
 offset_bottom = 14.0
 grow_vertical = 2
 texture = ExtResource("9_kek77")
@@ -260,9 +264,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 35.0
+offset_left = 20.0
 offset_top = -13.0
-offset_right = 82.0
+offset_right = 158.0
 offset_bottom = 13.0
 grow_vertical = 2
 text = "NAV:                   /"
@@ -273,10 +277,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 179.0
-offset_top = -20.0
-offset_right = 219.0
-offset_bottom = 20.0
+offset_left = 167.0
+offset_top = -25.0
+offset_right = 207.0
+offset_bottom = 19.0
 grow_vertical = 2
 texture = ExtResource("6_4c57u")
 expand_mode = 1
