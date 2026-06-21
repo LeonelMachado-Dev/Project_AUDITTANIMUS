@@ -69,7 +69,7 @@ A couple of screenshots to delight you... Soon!
 ### 🔻 Subjects Screen
 
 <p align="center">
-  <img width="70%" height="70%" src="https://i.imgur.com/dXDwIyW.png" alt="The subjects screen">
+  <img width="70%" height="70%" src="https://i.imgur.com/gc1lkht.png" alt="The subjects screen">
 </p>
 
 ---
