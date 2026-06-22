@@ -250,9 +250,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 100.0
+offset_left = 139.0
 offset_top = -15.0
-offset_right = 170.92993
+offset_right = 209.92993
 offset_bottom = 13.0
 grow_vertical = 2
 texture = ExtResource("9_kek77")
@@ -264,12 +264,12 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 45.0
+offset_left = 27.0
 offset_top = -14.0
-offset_right = 183.0
+offset_right = 132.0
 offset_bottom = 12.0
 grow_vertical = 2
-text = "NAV:                   /"
+text = "KEY_NAVEGAR_SUJETOS"
 label_settings = SubResource("LabelSettings_4c57u")
 
 [node name="TextureRect" type="TextureRect" parent="Interface/ActionsBar" unique_id=1625667474]
@@ -277,14 +277,27 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 192.0
+offset_left = 239.0
 offset_top = -25.0
-offset_right = 232.0
+offset_right = 279.0
 offset_bottom = 20.0
 grow_vertical = 2
 texture = ExtResource("6_4c57u")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="delimiter" type="Label" parent="Interface/ActionsBar" unique_id=452151505]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 216.0
+offset_top = -15.0
+offset_right = 233.0
+offset_bottom = 11.0
+grow_vertical = 2
+text = "/"
+label_settings = SubResource("LabelSettings_4c57u")
 
 [node name="click_effect" type="AudioStreamPlayer" parent="." unique_id=542319482]
 stream = ExtResource("5_lquwl")
