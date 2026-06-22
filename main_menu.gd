@@ -410,22 +410,23 @@ func ir_a_menu_principal():
 	if panel_sonido: panel_sonido.visible = false
 	contenedor_botones.visible = true
 	
-	subjectsBtn.text = "SUJETOS"
-	locationsBtn.text = "LUGARES"
-	memoriesBtn.text = "RECUERDOS"
-	editorBtn.text = "OPCIONES"
-	exitBtn.text = "SALIR"
+	# we use tr() to look in real-time the translate
+	subjectsBtn.text = tr("KEY_SUJETOS")
+	locationsBtn.text = tr("KEY_LUGARES")
+	memoriesBtn.text = tr("KEY_RECUERDOS")
+	editorBtn.text = tr("KEY_OPCIONES")
+	exitBtn.text = tr("KEY_SALIR")
 	
 func ir_a_modo_edicion():
 	estado_actual = EstadosMenu.EDICION
 	if panel_sonido: panel_sonido.visible = false
 	contenedor_botones.visible = true
 	
-	subjectsBtn.text = "VIDEO"
-	locationsBtn.text = "SONIDO"
-	memoriesBtn.text = "LENGUAJE"
-	editorBtn.text = "CREDITOS"
-	exitBtn.text = "REGRESAR AL MENÚ"
+	subjectsBtn.text = tr("KEY_VIDEO")
+	locationsBtn.text = tr("KEY_SONIDO")
+	memoriesBtn.text = tr("KEY_LENGUAJE")
+	editorBtn.text = tr("KEY_CREDITOS")
+	exitBtn.text = tr("KEY_REGRESAR")
 
 func ir_a_sub_panel_sonido():
 	estado_actual = EstadosMenu.SONIDO
@@ -458,7 +459,8 @@ func _on_memories_btn_pressed() -> void:
 	if estado_actual == EstadosMenu.PRINCIPAL:
 		print("Cargando secuencias de ADN de memoria genética...")
 	elif estado_actual == EstadosMenu.EDICION:
-		print("Instead -extras- this will be the language section")
+		generar_panel_idiomas_animus()
+		print("Starting the language section")
 
 func _on_editor_btn_pressed() -> void:
 	Global.reproducir_tick()
@@ -487,6 +489,89 @@ func _on_exit_btn_pressed():
 		get_tree().quit()
 	elif estado_actual == EstadosMenu.EDICION:
 		ir_a_menu_principal()
+		
+func generar_panel_idiomas_animus():
+	if panel_animus_activo:
+		cerrar_panel_animus()
+
+	contenedor_botones.visible = false
+	linea_conectora.visible = false
+
+	# 1. Creamos la base procedural (500x350 para dar espacio al nuevo botón)
+	generar_panel_animus_procedimental(Vector2(500, 350), false, "")
+	
+	# 2. Capa superior para evitar que los botones queden detrás
+	var contenedor_interfaz_idioma = Control.new()
+	contenedor_interfaz_idioma.size = Vector2(500, 350)
+	contenedor_interfaz_idioma.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	panel_animus_activo.add_child(contenedor_interfaz_idioma)
+	
+	# 3. Contenedor vertical
+	var vbox = VBoxContainer.new()
+	vbox.size = Vector2(440, 290)
+	vbox.position = Vector2(30, 30)
+	vbox.alignment = BoxContainer.ALIGNMENT_CENTER
+	contenedor_interfaz_idioma.add_child(vbox)
+	
+	# 4. Título del Panel
+	var label_titulo = Label.new()
+	label_titulo.text = tr("KEY_TITULO_IDIOMA")
+	label_titulo.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label_titulo.add_theme_font_size_override("font_size", 16)
+	vbox.add_child(label_titulo)
+	
+	var separador = Control.new()
+	separador.custom_minimum_size = Vector2(0, 15)
+	vbox.add_child(separador)
+	
+	# 5. Botón de ESPAÑOL
+	var btn_es = Button.new()
+	btn_es.text = tr("KEY_BOTON_ESPANOL")
+	btn_es.custom_minimum_size = Vector2(200, 40)
+	btn_es.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	# SOLUCIÓN ERROR 2: Si el borde gris te molesta visualmente, podemos quitar el modo
+	# de enfoque por teclado del botón o cambiarlo a modo "click" (FOCUS_CLICK)
+	btn_es.focus_mode = Control.FOCUS_CLICK
+	btn_es.pressed.connect(func(): _aplicar_cambio_idioma("es"))
+	vbox.add_child(btn_es)
+	
+	# 6. Botón de INGLÉS
+	var btn_en = Button.new()
+	btn_en.text = tr("KEY_BOTON_INGLES")
+	btn_en.custom_minimum_size = Vector2(200, 40)
+	btn_en.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	btn_en.focus_mode = Control.FOCUS_CLICK
+	btn_en.pressed.connect(func(): _aplicar_cambio_idioma("en"))
+	vbox.add_child(btn_en)
+	
+	var separador2 = Control.new()
+	separador2.custom_minimum_size = Vector2(0, 10)
+	vbox.add_child(separador2)
+	
+	# 7. ¡NUEVO! Botón de VOLVER
+	var btn_volver = Button.new()
+	# Recuerda añadir "KEY_REGRESAR" en tu Excel si no lo habías hecho antes
+	btn_volver.text = tr("KEY_REGRESAR") 
+	btn_volver.custom_minimum_size = Vector2(200, 40)
+	btn_volver.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	btn_volver.focus_mode = Control.FOCUS_CLICK
+	btn_volver.pressed.connect(func():
+		ejecutar_sfx_tick()
+		cerrar_panel_animus()
+		ir_a_modo_edicion()
+	)
+	vbox.add_child(btn_volver)
+	
+	# Modificamos sutilmente el parpadeo inferior para que avise también de Escape aquí
+	if is_instance_valid(label_salir_animus):
+		label_salir_animus.text = tr("KEY_TEXTO_SALIR")
+
+func _aplicar_cambio_idioma(codigo_idioma: String):
+	Global.reproducir_tick()
+	TranslationServer.set_locale(codigo_idioma)
+	print("[SISTEMA] Idioma cambiado a: ", codigo_idioma)
+	cerrar_panel_animus()
+	ir_a_modo_edicion()
 
 func _input(event: InputEvent) -> void:
 	if estado_actual == EstadosMenu.SONIDO:
@@ -576,7 +661,7 @@ func generar_panel_animus_procedimental(dimensiones: Vector2, es_creditos: bool,
 
 		# Label de Salida (Negro, abajo del panel externo)
 		label_salir_animus = Label.new()
-		label_salir_animus.text = "PRESIONE LA TECLA ESC PARA SALIR"
+		label_salir_animus.text = tr("KEY_TEXTO_SALIR") # 
 		label_salir_animus.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label_salir_animus.size = Vector2(dimensiones.x, 30)
 		

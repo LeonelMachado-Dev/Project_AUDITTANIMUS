@@ -59,6 +59,10 @@ toggle_fullscreen={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://languages.en.translation", "res://languages.es.translation")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
