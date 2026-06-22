@@ -233,7 +233,7 @@ offset_right = 79.0
 offset_bottom = 41.0
 text = "VOLVER"
 
-[node name="VolumeTag" type="Label" parent="interface/soundPanel" unique_id=1614662303]
+[node name="VolumeTitleTag" type="Label" parent="interface/soundPanel" unique_id=1614662303]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -246,7 +246,7 @@ offset_right = 73.5
 offset_bottom = -61.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Musica del sistema"
+text = "KEY_VOLUMEN_MUSICA"
 
 [node name="sfxCheckButton" type="CheckButton" parent="interface/soundPanel" unique_id=1888273771]
 layout_mode = 1

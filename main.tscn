@@ -189,7 +189,7 @@ offset_left = 98.0
 offset_top = 64.0
 offset_right = 175.0
 offset_bottom = 95.0
-text = "RETURN"
+text = "KEY_REGRESAR"
 
 [node name="add_subjectBtn" type="Button" parent="Interface" unique_id=1608818970]
 anchors_preset = 1
