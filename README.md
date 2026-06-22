@@ -48,11 +48,12 @@ Hope you enjoy it!
 
 ## 📝 **What’s Inside**
 
-* Subjects storage, favorites locations and memories of the user (Basically a local cloud...)
+* User's subjects, favorite locations, and memories (Basically, a local cloud...)
 * Web client to look at the database from other devices, just if they are in the same local network.
 * Assassin's Creed 2 Atmosphere and customizable background music
 * Supports touchpad gestures. Controller support coming soon!
 * Powered by SQLite for database management.
+* Multi-Language Support! (English and Spanish for now...)
 
 ---
 
