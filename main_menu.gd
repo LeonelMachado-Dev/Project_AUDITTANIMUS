@@ -212,6 +212,12 @@ func crear_visualizador_animus_dinamico():
 func cargar_preferencias_usuario():
 	var config = ConfigFile.new()
 	if config.load(RUTA_CONFIG) == OK:
+		# --- NUEVA LÓGICA: CARGAR IDIOMA GUARDADO ---
+		var idioma_guardado = config.get_value("Localization", "idioma", "")
+		if idioma_guardado != "":
+			TranslationServer.set_locale(idioma_guardado)
+			print("[SISTEMA] Idioma cargado desde la configuración: ", idioma_guardado)
+		
 		var vol_guardado = config.get_value("Audio", "volumen_musica", 80.0)
 		if slider_musica: slider_musica.value = vol_guardado
 		_on_volume_slider_changed(vol_guardado)
@@ -221,9 +227,6 @@ func cargar_preferencias_usuario():
 		
 		var ultima_pista = config.get_value("Audio", "ruta_origen_musica", "")
 		actualizar_interfaz_visualizador(ultima_pista)
-		
-		# ¡CORRECCIÓN! Eliminamos la llamada a cargar_musica_guardada() aquí.
-		# Así evitamos que la canción se reinicie cada vez que volvemos al menú.
 	else:
 		if sfx_check_btn: sfx_check_btn.button_pressed = Global.sfx_permitido
 		actualizar_interfaz_visualizador("")
@@ -352,11 +355,12 @@ func actualizar_interfaz_visualizador(ruta_archivo: String):
 	if not is_instance_valid(label_nombre_cancion) or label_nombre_cancion == null: 
 		return
 		
+	# Reemplazamos los strings fijos por tr() para que reaccionen al instante
 	if ruta_archivo == "":
-		label_nombre_cancion.text = "Está reproduciéndose: Pista por Defecto del Animus — "
+		label_nombre_cancion.text = tr("KEY_REPRODUCIENDO_DEFECTO")
 	else:
 		var nombre_limpio = ruta_archivo.get_file().get_basename()
-		label_nombre_cancion.text = "Está reproduciéndose: " + nombre_limpio + " — "
+		label_nombre_cancion.text = tr("KEY_REPRODUCIENDO_PERSONAL") + " " + nombre_limpio + " — "
 		
 	label_nombre_cancion.position.x = 15
 	
@@ -435,6 +439,25 @@ func ir_a_sub_panel_sonido():
 	
 	if panel_sonido:
 		panel_sonido.visible = true
+		
+		# --- TRADUCCIÓN DINÁMICA DE LOS NODOS DEL PANEL DE AUDIO ---
+		# Buscamos los Labels e hilos de texto dentro de tu nodo contenedor del panel de sonido
+		if panel_sonido.has_node("titleLabel"):
+			panel_sonido.get_node("titleLabel").text = tr("KEY_TITULO_SONIDO")
+		if panel_sonido.has_node("volumeLabel"):
+			panel_sonido.get_node("volumeLabel").text = tr("KEY_VOLUMEN_MUSICA")
+			
+		# Traducimos los textos dinámicos de tus CheckButtons y Botones interactivos
+		if sfx_check_btn:
+			sfx_check_btn.text = tr("KEY_EFECTOS_SONIDO")
+		if btn_cargar_cancion:
+			btn_cargar_cancion.text = tr("KEY_CARGAR_PISTA")
+		if defaultMusicBtn:
+			defaultMusicBtn.text = tr("KEY_PISTA_DEFECTO")
+		if returnBtn:
+			returnBtn.text = tr("KEY_REGRESAR")
+		
+		# Mantener tu lógica original para configurar el slider de volumen
 		var bus_idx = AudioServer.get_bus_index("Music")
 		if bus_idx != -1:
 			var volumen_actual_db = AudioServer.get_bus_volume_db(bus_idx)
@@ -570,6 +593,13 @@ func _aplicar_cambio_idioma(codigo_idioma: String):
 	Global.reproducir_tick()
 	TranslationServer.set_locale(codigo_idioma)
 	print("[SISTEMA] Idioma cambiado a: ", codigo_idioma)
+	guardar_preferencia("Localization", "idioma", codigo_idioma)
+	var config = ConfigFile.new()
+	var ultima_pista = ""
+	if config.load(RUTA_CONFIG) == OK:
+		ultima_pista = config.get_value("Audio", "ruta_origen_musica", "")
+	actualizar_interfaz_visualizador(ultima_pista)
+	# ----------------------------
 	cerrar_panel_animus()
 	ir_a_modo_edicion()
 
