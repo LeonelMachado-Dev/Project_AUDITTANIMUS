@@ -29,9 +29,6 @@ shader = ExtResource("4_pmyim")
 [sub_resource type="FontVariation" id="FontVariation_mcw6r"]
 base_font = ExtResource("5_mcw6r")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_luw4j"]
-bg_color = Color(0.8352941, 0, 0.11764706, 0.63529414)
-
 [sub_resource type="LabelSettings" id="LabelSettings_jni1k"]
 font_size = 28
 font_color = Color(0.013624087, 0.03014388, 0.06406011, 1)
@@ -165,7 +162,6 @@ layout_mode = 2
 theme = ExtResource("7_p0ve4")
 theme_override_constants/align_to_largest_stylebox = 1
 theme_override_fonts/font = ExtResource("5_mcw6r")
-theme_override_styles/hover = SubResource("StyleBoxFlat_luw4j")
 text = "KEY_PERFIL_PSICO"
 
 [node name="FotoSujeto" type="TextureRect" parent="HBoxContainer/ColumnaIzquierda" unique_id=978483109]

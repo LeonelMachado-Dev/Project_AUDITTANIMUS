@@ -10,6 +10,7 @@
 [ext_resource type="Shader" uid="uid://cx10o26sobqm1" path="res://actions_bar.gdshader" id="5_efxa6"]
 [ext_resource type="AudioStream" uid="uid://c8ktq73n0k0xw" path="res://music/Click-sound-AC2-Soundtrack.mp3" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://ljjtsstwef87" path="res://Images/gesture (left right).png" id="6_4c57u"]
+[ext_resource type="Theme" uid="uid://ct7c6euirkk1h" path="res://buttons theme (wine).tres" id="6_ycdy4"]
 [ext_resource type="Shader" uid="uid://dxffg5o6qfykw" path="res://AnimusADN.gdshader" id="8_5vw27"]
 [ext_resource type="Texture2D" uid="uid://cy0laecwr4eaj" path="res://Images/Arrows.png" id="9_kek77"]
 
@@ -187,10 +188,10 @@ text = "->"
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -140.25
-offset_top = 64.0
-offset_right = 140.25
-offset_bottom = 127.0
+offset_left = -145.25
+offset_top = 62.0
+offset_right = 145.25
+offset_bottom = 125.0
 grow_horizontal = 2
 theme_override_fonts/font = SubResource("FontVariation_ycdy4")
 placeholder_text = "KEY_BUSCADOR_SUJETOS"
@@ -201,6 +202,8 @@ offset_left = 98.0
 offset_top = 64.0
 offset_right = 175.0
 offset_bottom = 95.0
+theme = ExtResource("6_ycdy4")
+theme_override_constants/align_to_largest_stylebox = 2
 theme_override_fonts/font = SubResource("FontVariation_w48qg")
 text = "KEY_REGRESAR"
 
@@ -213,6 +216,8 @@ offset_top = 64.0
 offset_right = -336.0
 offset_bottom = 95.0
 grow_horizontal = 0
+theme = ExtResource("6_ycdy4")
+theme_override_constants/align_to_largest_stylebox = 2
 theme_override_fonts/font = ExtResource("5_dg77c")
 text = "KEY_AÑADIR_SUJETOS"
 
@@ -225,6 +230,8 @@ offset_top = 64.0
 offset_right = -130.0
 offset_bottom = 95.0
 grow_horizontal = 0
+theme = ExtResource("6_ycdy4")
+theme_override_constants/align_to_largest_stylebox = 2
 theme_override_fonts/font = ExtResource("5_dg77c")
 text = "KEY_EDITAR_SUJETOS"
 
@@ -237,6 +244,8 @@ offset_top = 64.0
 offset_right = -231.0
 offset_bottom = 95.0
 grow_horizontal = 0
+theme = ExtResource("6_ycdy4")
+theme_override_constants/align_to_largest_stylebox = 2
 theme_override_fonts/font = ExtResource("5_dg77c")
 text = "KEY_BORRAR_SUJETOS"
 
