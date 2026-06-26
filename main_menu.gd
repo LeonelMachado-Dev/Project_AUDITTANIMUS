@@ -9,6 +9,7 @@ const RUTA_CONFIG = "user://config_animus.cfg"
 @onready var panel_disclaimer = $DisclaimerPanel
 @onready var boton_aceptar_disclaimer = $DisclaimerPanel/VisorContainer/AcceptBtn
 @onready var visor_container = $DisclaimerPanel/VisorContainer
+@onready var texto_disclaimer = $DisclaimerPanel/VisorContainer/DisclaimerText
 
 # Configuración estética estilo AC2
 var color_gris_animus = Color("5a5a5a", 0.6)
@@ -386,6 +387,28 @@ func _on_visualizador_mouse_exited():
 	mouse_sobre_visualizador = false
 	var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.tween_property(visualizador_padre, "global_position", posicion_oculto, 0.5)
+	
+func disclaimer_text():
+	if not is_instance_valid(texto_disclaimer):
+		return
+
+	# Detectamos el idioma actual del sistema o del archivo .cfg
+	var idioma_actual = TranslationServer.get_locale()
+
+	var disclaimer_es = """Project Audittanimus es un sistema libre de lucro, un fan-project creado por un fan para fans de la franquicia Assassin's Creed. Todo archivo del juego, inspiración o similitud a la franquicia de Ubisoft es de su propiedad. 
+
+NO DISTRIBUIR CON FINES DE LUCRO. PROYECTO DE UN FAN PARA FANS DE LA FRANQUICIA."""
+
+	# Tu texto traducido al Inglés de forma profesional
+	var disclaimer_en = """Project Audittanimus is a non-profit system, a fan-project created by a fan for fans of the Assassin's Creed franchise. Every game file, inspiration, or similarity to the Ubisoft franchise belongs to them. 
+
+DO NOT DISTRIBUTE FOR PROFIT. A PROJECT BY A FAN FOR FANS OF THE FRANCHISE."""
+
+	# Cambiamos el texto según el idioma actual
+	if idioma_actual.begins_with("en"):
+		texto_disclaimer.text = disclaimer_en
+	else:
+		texto_disclaimer.text = disclaimer_es
 		
 func chequear_primer_inicio():
 	if Global.disclaimer_ya_mostrado:
@@ -394,6 +417,9 @@ func chequear_primer_inicio():
 		pila_cuadros.visible = true
 		ir_a_menu_principal()
 	else:
+		# Actualizamos el texto dinámicamente antes de mostrar el panel
+		disclaimer_text()
+		
 		panel_disclaimer.visible = true
 		contenedor_botones.visible = false
 		linea_conectora.visible = false

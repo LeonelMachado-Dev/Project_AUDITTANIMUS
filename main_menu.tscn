@@ -346,7 +346,7 @@ offset_bottom = 43.0
 grow_horizontal = 2
 theme_override_fonts/font = SubResource("FontVariation_8qtwp")
 theme_override_font_sizes/font_size = 18
-text = "[ Aviso del sistema]"
+text = "KEY_DISCLAIMER_TITLE"
 horizontal_alignment = 1
 
 [node name="DisclaimerText" type="RichTextLabel" parent="DisclaimerPanel/VisorContainer" unique_id=1703028049]
@@ -366,7 +366,6 @@ grow_vertical = 2
 theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = SubResource("FontVariation_dy7ct")
 theme_override_font_sizes/normal_font_size = 18
-text = "Project Audittanimus es un un sistema libre de lucro, un fan-project creado por un fan para fans de la franquicia assassin's creed. Todo archivo del juego, inspiración o similitud a la franquicia de ubisoft es de su propiedad. NO DISTRIBUIR CON FINES DE LUCRO. PROJECTO DE UN FAN PARA FANS DE LA FRANQUICIA. "
 
 [node name="AcceptBtn" type="Button" parent="DisclaimerPanel/VisorContainer" unique_id=2037951719]
 layout_mode = 1
