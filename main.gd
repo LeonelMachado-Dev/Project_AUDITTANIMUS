@@ -7,6 +7,7 @@ extends Control
 @onready var pop_up_confirmacion = $PopUpConfirmacion
 @onready var delete_btn = $Interface/delete_subjectBtn
 @onready var estado_borrar_label = $Interface/status
+@onready var label_BG = $Interface/Label_BG
 @onready var edit_btn = $Interface/edit_subjectBtn
 var tiempo_ultimo_giro : float = 0.0
 var lista_filtrada = [] #Esto servira para que se guarde solo las tarjetas filtradas, una caja temporal de las tarjetas mientras se filtran.
@@ -23,6 +24,7 @@ var escala_fondo = 0.65
 var opacidad_fondo = 0.25     
 
 func _ready():
+	label_BG.visible = false
 	ajustar_pantalla_animus()
 	indice_central = Global.indice_carrusel_guardado
 	llenar_lista()
@@ -101,9 +103,13 @@ func _on_delete_subject_btn_pressed() -> void:
 	Global.reproducir_tick()
 	if estado_actual == EstadoInterfaz.NORMAL:
 		estado_actual = EstadoInterfaz.MODO_PURGA
+		
 		if estado_borrar_label:
-			estado_borrar_label.text = "MODO PURGA: SELECCIONE TARJETA CENTRAL"
-			estado_borrar_label.modulate = Color("ff3333")
+			estado_borrar_label.text = tr("KEY_MODO_BORRAR")
+			estado_borrar_label.modulate = Color("ff4d47ff")
+			
+		if label_BG:
+			label_BG.visible = true
 	else:
 		estado_actual = EstadoInterfaz.NORMAL
 		restablecer_interfaz_borrar()
@@ -112,9 +118,11 @@ func _on_edit_subject_btn_pressed() -> void:
 	Global.reproducir_tick()
 	if estado_actual == EstadoInterfaz.NORMAL:
 		estado_actual = EstadoInterfaz.MODO_EDICION
+		if label_BG:
+			label_BG.visible = true
 		if estado_borrar_label:
-			estado_borrar_label.text = "MODO EDICIÓN: SELECCIONE TARJETA PARA MODIFICAR"
-			estado_borrar_label.modulate = Color("00ffff")
+			estado_borrar_label.text = tr("KEY_MODO_EDITAR")
+			estado_borrar_label.modulate = Color("54d2faff")
 	else:
 		estado_actual = EstadoInterfaz.NORMAL
 		restablecer_interfaz_borrar()
@@ -147,6 +155,7 @@ func _on_borrado_cancelado():
 func restablecer_interfaz_borrar():
 	if estado_borrar_label:
 		estado_borrar_label.text = ""
+	label_BG.visible = false
 
 # --- ENTRADAS GENERALES DEL CARRUSEL ---
 func _unhandled_input(event: InputEvent) -> void:
