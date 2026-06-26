@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://bbk1kd667gq06" path="res://memoryLines.gdshader" id="3_272bh"]
 [ext_resource type="Shader" uid="uid://djeegke2uwutt" path="res://main.gdshader" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://cafpkau2du4vv" path="res://MemoryGrid.gdshader" id="4_5vw27"]
+[ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="5_dg77c"]
 [ext_resource type="Shader" uid="uid://cx10o26sobqm1" path="res://actions_bar.gdshader" id="5_efxa6"]
 [ext_resource type="AudioStream" uid="uid://c8ktq73n0k0xw" path="res://music/Click-sound-AC2-Soundtrack.mp3" id="5_lquwl"]
 [ext_resource type="Texture2D" uid="uid://ljjtsstwef87" path="res://Images/gesture (left right).png" id="6_4c57u"]
@@ -28,6 +29,12 @@ fill_to = Vector2(0, 0)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
 shader = ExtResource("3_h2yge")
 
+[sub_resource type="FontVariation" id="FontVariation_ycdy4"]
+base_font = ExtResource("5_dg77c")
+
+[sub_resource type="FontVariation" id="FontVariation_w48qg"]
+base_font = ExtResource("5_dg77c")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
 shader = ExtResource("5_efxa6")
 shader_parameter/resolucion_barra = Vector2(1000, 40)
@@ -43,8 +50,12 @@ shader_parameter/separacion_bloque_px = Vector2(2, 2)
 [sub_resource type="Theme" id="Theme_5vw27"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4c57u"]
+font = ExtResource("5_dg77c")
 font_size = 18
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_vivmo"]
+base_font = ExtResource("5_dg77c")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
 shader = ExtResource("3_272bh")
@@ -181,6 +192,7 @@ offset_top = 64.0
 offset_right = 140.25
 offset_bottom = 127.0
 grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_ycdy4")
 placeholder_text = "KEY_BUSCADOR_SUJETOS"
 alignment = 1
 
@@ -189,6 +201,7 @@ offset_left = 98.0
 offset_top = 64.0
 offset_right = 175.0
 offset_bottom = 95.0
+theme_override_fonts/font = SubResource("FontVariation_w48qg")
 text = "KEY_REGRESAR"
 
 [node name="add_subjectBtn" type="Button" parent="Interface" unique_id=1608818970]
@@ -200,6 +213,7 @@ offset_top = 64.0
 offset_right = -336.0
 offset_bottom = 95.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_dg77c")
 text = "KEY_AÑADIR_SUJETOS"
 
 [node name="edit_subjectBtn" type="Button" parent="Interface" unique_id=1888207766]
@@ -211,6 +225,7 @@ offset_top = 64.0
 offset_right = -130.0
 offset_bottom = 95.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_dg77c")
 text = "KEY_EDITAR_SUJETOS"
 
 [node name="delete_subjectBtn" type="Button" parent="Interface" unique_id=2059097515]
@@ -222,6 +237,7 @@ offset_top = 64.0
 offset_right = -231.0
 offset_bottom = 95.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("5_dg77c")
 text = "KEY_BORRAR_SUJETOS"
 
 [node name="Label_BG" type="ColorRect" parent="Interface" unique_id=1793092846]
@@ -302,6 +318,7 @@ offset_top = -15.0
 offset_right = 233.0
 offset_bottom = 11.0
 grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_vivmo")
 text = "/"
 label_settings = SubResource("LabelSettings_4c57u")
 

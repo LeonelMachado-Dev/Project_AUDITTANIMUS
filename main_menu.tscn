@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://cb8pathyrcflw" path="res://main_menu.gd" id="1_glbon"]
 [ext_resource type="Script" uid="uid://ddgnqnf8j5kei" path="res://plexus_system.gd" id="2_jix8l"]
 [ext_resource type="Shader" uid="uid://djeegke2uwutt" path="res://main.gdshader" id="3_glbon"]
+[ext_resource type="FontFile" uid="uid://20pr2kgfewwk" path="res://font/Cinzel-Black.ttf" id="5_nlkkf"]
+[ext_resource type="FontFile" uid="uid://7mkjdjpi3yw0" path="res://font/Cinzel-Regular.ttf" id="5_qe12f"]
+[ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="6_qe12f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nlkkf"]
 shader = ExtResource("1_fu7sn")
@@ -56,14 +59,23 @@ bg_color = Color(0.45490196, 0.61960787, 0.77254903, 0.7058824)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qe12f"]
 bg_color = Color(0.98039216, 0, 0.105882354, 0.47843137)
 
+[sub_resource type="FontVariation" id="FontVariation_qe12f"]
+base_font = ExtResource("6_qe12f")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jix8l"]
-bg_color = Color(0.38431373, 0, 0.03137255, 0.6117647)
+bg_color = Color(0.38066584, 0, 0.030750785, 0.78039217)
 border_width_left = 2
 border_width_top = 3
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.5021861, 0.94311506, 0.99999994, 1)
 shadow_size = 14
+
+[sub_resource type="FontVariation" id="FontVariation_8qtwp"]
+base_font = ExtResource("5_nlkkf")
+
+[sub_resource type="FontVariation" id="FontVariation_dy7ct"]
+base_font = ExtResource("6_qe12f")
 
 [node name="MenuPrincipal" type="Control" unique_id=1054793455]
 layout_mode = 3
@@ -142,10 +154,13 @@ offset_right = 87.0
 offset_bottom = 65.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 6
 
 [node name="subjectsBtn" type="Button" parent="interface/buttonsContainer" unique_id=1757460948]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.111196615, 0.11119693, 0.11119672, 1)
+theme_override_fonts/font = ExtResource("5_qe12f")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_jix8l")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_qe12f")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8qtwp")
@@ -154,6 +169,8 @@ text = "SUJETOS"
 [node name="lugaresBtn" type="Button" parent="interface/buttonsContainer" unique_id=854345336]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.08468992, 0.08468992, 0.08468992, 1)
+theme_override_fonts/font = ExtResource("5_qe12f")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_dy7ct")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_0o4t1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_glbon")
@@ -162,6 +179,8 @@ text = "LUGARES"
 [node name="memoriesBtn" type="Button" parent="interface/buttonsContainer" unique_id=1232339697]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.08627451, 0.08627451, 0.08627451, 1)
+theme_override_fonts/font = ExtResource("5_qe12f")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_0k4wn")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_j5v2v")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
@@ -170,6 +189,8 @@ text = "MEMORIAS"
 [node name="EditorBtn" type="Button" parent="interface/buttonsContainer" unique_id=1728686354]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.11489654, 0.114896916, 0.11489666, 1)
+theme_override_fonts/font = ExtResource("5_qe12f")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_glbon")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_nlkkf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0o4t1")
@@ -178,6 +199,8 @@ text = "EDITOR"
 [node name="exitBtn" type="Button" parent="interface/buttonsContainer" unique_id=466405609]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.08627451, 0.08627451, 0.08627451, 1)
+theme_override_fonts/font = ExtResource("5_qe12f")
+theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_iotk1")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_w44g7")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qe12f")
@@ -189,10 +212,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -2.0
-offset_top = -175.0
-offset_right = 548.0
-offset_bottom = 175.0
+offset_left = -557.0
+offset_top = -178.0
+offset_right = -7.0
+offset_bottom = 172.0
 grow_vertical = 2
 
 [node name="soundSlider" type="HSlider" parent="interface/soundPanel" unique_id=1774727810]
@@ -223,6 +246,7 @@ offset_right = 59.5
 offset_bottom = -95.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_qe12f")
 text = "Cargar musica"
 
 [node name="returnBtn" type="Button" parent="interface/soundPanel" unique_id=376764992]
@@ -231,6 +255,7 @@ offset_left = 10.0
 offset_top = 10.0
 offset_right = 79.0
 offset_bottom = 41.0
+theme_override_fonts/font = SubResource("FontVariation_qe12f")
 text = "VOLVER"
 
 [node name="VolumeTitleTag" type="Label" parent="interface/soundPanel" unique_id=1614662303]
@@ -246,6 +271,7 @@ offset_right = 73.5
 offset_bottom = -61.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_qe12f")
 text = "KEY_VOLUMEN_MUSICA"
 
 [node name="sfxCheckButton" type="CheckButton" parent="interface/soundPanel" unique_id=1888273771]
@@ -261,6 +287,7 @@ offset_right = 66.5
 offset_bottom = 18.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_qe12f")
 text = "Click Effect"
 
 [node name="defaultMusicBtn" type="Button" parent="interface/soundPanel" unique_id=619801771]
@@ -276,6 +303,7 @@ offset_right = 57.5
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("6_qe12f")
 text = "Default Music"
 
 [node name="FileDialogMusic" type="FileDialog" parent="interface" unique_id=187074756]
@@ -316,7 +344,10 @@ offset_top = 20.0
 offset_right = 179.0
 offset_bottom = 43.0
 grow_horizontal = 2
-text = "[ SYSTEM WARNING - RESTRICCIÓN DE DATOS ]"
+theme_override_fonts/font = SubResource("FontVariation_8qtwp")
+theme_override_font_sizes/font_size = 18
+text = "[ Aviso del sistema]"
+horizontal_alignment = 1
 
 [node name="DisclaimerText" type="RichTextLabel" parent="DisclaimerPanel/VisorContainer" unique_id=1703028049]
 custom_minimum_size = Vector2(540, 150)
@@ -327,11 +358,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -270.0
-offset_top = -72.0
+offset_top = -83.0
 offset_right = 270.0
-offset_bottom = 78.0
+offset_bottom = 103.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = SubResource("FontVariation_dy7ct")
+theme_override_font_sizes/normal_font_size = 18
 text = "Project Audittanimus es un un sistema libre de lucro, un fan-project creado por un fan para fans de la franquicia assassin's creed. Todo archivo del juego, inspiración o similitud a la franquicia de ubisoft es de su propiedad. NO DISTRIBUIR CON FINES DE LUCRO. PROJECTO DE UN FAN PARA FANS DE LA FRANQUICIA. "
 
 [node name="AcceptBtn" type="Button" parent="DisclaimerPanel/VisorContainer" unique_id=2037951719]
@@ -347,7 +381,7 @@ offset_right = 33.5
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "ACCEPT"
+text = "KEY_ACCEPT"
 
 [connection signal="pressed" from="interface/buttonsContainer/subjectsBtn" to="." method="_on_subjects_btn_pressed"]
 [connection signal="pressed" from="interface/buttonsContainer/lugaresBtn" to="." method="_on_lugares_btn_pressed"]
