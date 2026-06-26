@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cyfwgx0p3uyib" path="res://subject_editor.gd" id="1_lg5o6"]
 [ext_resource type="Shader" uid="uid://cse6pgsng1i6i" path="res://neblina_animus.gdshader" id="2_ohur5"]
 [ext_resource type="Script" uid="uid://ddgnqnf8j5kei" path="res://plexus_system.gd" id="3_ernmp"]
+[ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="4_ernmp"]
+[ext_resource type="Theme" uid="uid://ct7c6euirkk1h" path="res://buttons theme (wine).tres" id="5_ba2jl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eqfkr"]
 shader = ExtResource("2_ohur5")
@@ -16,6 +18,18 @@ gradient = SubResource("Gradient_lquwl")
 fill = 1
 fill_from = Vector2(0.50427353, 0.51282054)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_eqfkr"]
+base_font = ExtResource("4_ernmp")
+
+[sub_resource type="FontVariation" id="FontVariation_w1b0f"]
+base_font = ExtResource("4_ernmp")
+
+[sub_resource type="FontVariation" id="FontVariation_cwbnt"]
+base_font = ExtResource("4_ernmp")
+
+[sub_resource type="FontVariation" id="FontVariation_gmvqk"]
+base_font = ExtResource("4_ernmp")
 
 [node name="SubjectEditor" type="Control" unique_id=1562331428]
 layout_mode = 3
@@ -138,6 +152,7 @@ offset_top = -100.0
 offset_bottom = -69.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_ernmp")
 text = "KEY_CONFIRM_PICTURE"
 
 [node name="SelectImageBtn" type="Button" parent="Panel" unique_id=2074620715]
@@ -153,6 +168,7 @@ offset_right = -194.0
 offset_bottom = -69.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("4_ernmp")
 text = "KEY_SELECT_IMAGE"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1002640877]
@@ -172,30 +188,35 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_eqfkr")
 placeholder_text = "KEY_NAME"
 
 [node name="inputLastName" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=421670273]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_ernmp")
 placeholder_text = "KEY_LAST_NAME"
 
 [node name="inputBirthYear" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1368609778]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_ernmp")
 placeholder_text = "KEY_BIRTH_YEAR"
 
 [node name="inputCommonLocation" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1561060380]
-custom_minimum_size = Vector2(220, 0)
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_fonts/font = SubResource("FontVariation_w1b0f")
 placeholder_text = "KEY_COMMON_LOCATION"
 
 [node name="inputDescription" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=711104406]
 custom_minimum_size = Vector2(400, 240)
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_fonts/font = SubResource("FontVariation_cwbnt")
 placeholder_text = "KEY_TEXT_SUBJECT_DESCRIPTION"
 emoji_menu_enabled = false
 scroll_fit_content_width = true
@@ -204,17 +225,22 @@ text_direction = 1
 [node name="inputAnalisis" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=516591848]
 custom_minimum_size = Vector2(400, 240)
 layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_cwbnt")
 placeholder_text = "KEY_TEXT_SUBJECT_ANALYSE"
 
 [node name="SaveAllBtn" type="Button" parent="Panel/ScrollContainer/VBoxContainer" unique_id=315512845]
 layout_mode = 2
 size_flags_horizontal = 0
+theme_override_fonts/font = SubResource("FontVariation_gmvqk")
 text = "KEY_SAVE_ALL"
 
 [node name="returnBtn" type="Button" parent="." unique_id=903624837]
 layout_mode = 0
 offset_right = 77.0
 offset_bottom = 31.0
+theme = ExtResource("5_ba2jl")
+theme_override_constants/align_to_largest_stylebox = 2
+theme_override_fonts/font = ExtResource("4_ernmp")
 text = "KEY_REGRESAR"
 
 [node name="Advice-PopUp" type="AcceptDialog" parent="." unique_id=485530521]
