@@ -30,19 +30,17 @@ func mostrar_datos(columna):
 	texto_contenido.visible_ratio = 1.0 
 	texto_contenido.bbcode_enabled = true
 	
-	# 1. Limpiamos por completo la caja para eliminar el mensaje de error anterior
 	texto_contenido.clear()
 	
 	# 2. Inyectamos la biografía de forma limpia
 	texto_contenido.append_text(str(datos_sujeto.get(columna, "")))
 	
-	# El resto de tu animación de cabecera sigue igual
 	nombre_label.visible_ratio = 0.0
 	nombre_label.text = (datos_sujeto["nombre"] + " " + datos_sujeto["apellido"]).to_upper()
 	birth_year_label.visible_ratio = 1.0
-	birth_year_label.text = ("AÑO DE NACIMIENTO:" + " " + datos_sujeto["birth_year"])
+	birth_year_label.text = (tr("KEY_BIRTH_YEAR") + " " + datos_sujeto["birth_year"])
 	location_label.visible_ratio = 1.0
-	location_label.text = ("LOCALIZACION FRECUENTE:" + " " + datos_sujeto["ubicacion_frecuente"]).to_upper()
+	location_label.text = (tr("KEY_COMMON_LOCATION") + " " + datos_sujeto["ubicacion_frecuente"]).to_upper()
 	animar_titulo()
 	
 	var ruta_foto = str(datos_sujeto.get("imagen_path", "")) 

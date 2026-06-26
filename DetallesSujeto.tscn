@@ -171,15 +171,15 @@ theme_override_constants/separation = 10
 
 [node name="BtnVolver" type="Button" parent="HBoxContainer/ColumnaIzquierda/ContenedorBotones" unique_id=1459544967]
 layout_mode = 2
-text = "VOLVER"
+text = "KEY_REGRESAR"
 
 [node name="BtnBio" type="Button" parent="HBoxContainer/ColumnaIzquierda/ContenedorBotones" unique_id=388844383]
 layout_mode = 2
-text = "BIOGRAFIA"
+text = "KEY_BIO"
 
 [node name="BtnPsico" type="Button" parent="HBoxContainer/ColumnaIzquierda/ContenedorBotones" unique_id=810218785]
 layout_mode = 2
-text = "PERFIL PSICOLÓGICO"
+text = "KEY_PERFIL_PSICO"
 
 [node name="FotoSujeto" type="TextureRect" parent="HBoxContainer/ColumnaIzquierda" unique_id=978483109]
 texture_filter = 2
@@ -198,7 +198,7 @@ offset_left = 57.0
 offset_top = 5.0
 offset_right = 348.0
 offset_bottom = 44.0
-text = "NOMBRE DEL SUJETO"
+text = "KEY_SUBJECT_NAME"
 label_settings = SubResource("LabelSettings_jni1k")
 
 [node name="birthYear_label" type="Label" parent="HBoxContainer/InfoDerecha" unique_id=425796767]
