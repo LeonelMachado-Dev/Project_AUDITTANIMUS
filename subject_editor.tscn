@@ -87,9 +87,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -20.0
-offset_bottom = 20.0
+offset_left = -300.0
+offset_top = -200.0
+offset_bottom = 200.0
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -138,7 +138,7 @@ offset_top = -100.0
 offset_bottom = -69.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "CONFIRM PICTURE"
+text = "KEY_CONFIRM_PICTURE"
 
 [node name="SelectImageBtn" type="Button" parent="Panel" unique_id=2074620715]
 layout_mode = 1
@@ -153,7 +153,7 @@ offset_right = -194.0
 offset_bottom = -69.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "Select Image"
+text = "KEY_SELECT_IMAGE"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1002640877]
 custom_minimum_size = Vector2(460, 0)
@@ -161,7 +161,6 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
-scroll_vertical = 100
 horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer" unique_id=81427528]
@@ -173,31 +172,31 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
-placeholder_text = "Name"
+placeholder_text = "KEY_NAME"
 
 [node name="inputLastName" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=421670273]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-placeholder_text = "Last Name"
+placeholder_text = "KEY_LAST_NAME"
 
 [node name="inputBirthYear" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1368609778]
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-placeholder_text = "Birth_Year"
+placeholder_text = "KEY_BIRTH_YEAR"
 
 [node name="inputCommonLocation" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=1561060380]
 custom_minimum_size = Vector2(220, 0)
 layout_mode = 2
 size_flags_horizontal = 0
-placeholder_text = "Common_Location"
+placeholder_text = "KEY_COMMON_LOCATION"
 
 [node name="inputDescription" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=711104406]
 custom_minimum_size = Vector2(400, 240)
 layout_mode = 2
 size_flags_horizontal = 0
-placeholder_text = "SUBJECT DESCRIPTION"
+placeholder_text = "KEY_TEXT_SUBJECT_DESCRIPTION"
 emoji_menu_enabled = false
 scroll_fit_content_width = true
 text_direction = 1
@@ -205,18 +204,18 @@ text_direction = 1
 [node name="inputAnalisis" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=516591848]
 custom_minimum_size = Vector2(400, 240)
 layout_mode = 2
-placeholder_text = "PUT THE ANALYSE HERE"
+placeholder_text = "KEY_TEXT_SUBJECT_ANALYSE"
 
 [node name="SaveAllBtn" type="Button" parent="Panel/ScrollContainer/VBoxContainer" unique_id=315512845]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "Save All"
+text = "KEY_SAVE_ALL"
 
 [node name="returnBtn" type="Button" parent="." unique_id=903624837]
 layout_mode = 0
 offset_right = 77.0
 offset_bottom = 31.0
-text = "Regresar"
+text = "KEY_REGRESAR"
 
 [node name="Advice-PopUp" type="AcceptDialog" parent="." unique_id=485530521]
 title = "Warning!"
