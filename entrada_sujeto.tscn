@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf8fjxywq65l4"]
+[gd_scene format=3 uid="uid://bf8fjxywq65l4"]
 
 [ext_resource type="Script" uid="uid://cenyx5ahpacj" path="res://entrada_sujeto.gd" id="1_pmgsr"]
+[ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="2_ku1et"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pmgsr"]
 bg_color = Color(1, 1, 1, 0.7372549)
@@ -17,7 +18,7 @@ corner_radius_bottom_left = 10
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ku1et"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="EntradaSujeto" type="Button"]
+[node name="EntradaSujeto" type="Button" unique_id=318429239]
 custom_minimum_size = Vector2(300, 460)
 offset_right = 8.0
 offset_bottom = 8.0
@@ -27,7 +28,7 @@ text = "TEXTO DE PRUEBA"
 flat = true
 script = ExtResource("1_pmgsr")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=1688982785]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,14 +37,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ku1et")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=594152063]
 layout_mode = 0
 offset_right = 300.0
 offset_bottom = 400.0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="First_and_LastName_Label" type="Label" parent="."]
+[node name="First_and_LastName_Label" type="Label" parent="." unique_id=1305534169]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -56,6 +57,7 @@ offset_right = 150.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ku1et")
 theme_override_font_sizes/font_size = 18
 text = "Name + Last Name"
 horizontal_alignment = 1
