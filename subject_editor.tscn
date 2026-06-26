@@ -172,7 +172,7 @@ theme_override_fonts/font = ExtResource("4_ernmp")
 text = "KEY_SELECT_IMAGE"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1002640877]
-custom_minimum_size = Vector2(460, 0)
+custom_minimum_size = Vector2(460, 600)
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -215,18 +215,25 @@ placeholder_text = "KEY_COMMON_LOCATION"
 [node name="inputDescription" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=711104406]
 custom_minimum_size = Vector2(400, 240)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_vertical = 6
 theme_override_fonts/font = SubResource("FontVariation_cwbnt")
 placeholder_text = "KEY_TEXT_SUBJECT_DESCRIPTION"
 emoji_menu_enabled = false
-scroll_fit_content_width = true
+wrap_mode = 1
+autowrap_mode = 2
+scroll_past_end_of_file = true
 text_direction = 1
 
 [node name="inputAnalisis" type="TextEdit" parent="Panel/ScrollContainer/VBoxContainer" unique_id=516591848]
 custom_minimum_size = Vector2(400, 240)
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
 theme_override_fonts/font = SubResource("FontVariation_cwbnt")
 placeholder_text = "KEY_TEXT_SUBJECT_ANALYSE"
+wrap_mode = 1
+autowrap_mode = 2
+scroll_fit_content_width = true
 
 [node name="SaveAllBtn" type="Button" parent="Panel/ScrollContainer/VBoxContainer" unique_id=315512845]
 layout_mode = 2
