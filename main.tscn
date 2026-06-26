@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="5_dg77c"]
 [ext_resource type="Shader" uid="uid://cx10o26sobqm1" path="res://actions_bar.gdshader" id="5_efxa6"]
 [ext_resource type="AudioStream" uid="uid://c8ktq73n0k0xw" path="res://music/Click-sound-AC2-Soundtrack.mp3" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://8nd1xaagdedw" path="res://Images/Arrow.png" id="5_w48qg"]
 [ext_resource type="Texture2D" uid="uid://ljjtsstwef87" path="res://Images/gesture (left right).png" id="6_4c57u"]
 [ext_resource type="Theme" uid="uid://ct7c6euirkk1h" path="res://buttons theme (wine).tres" id="6_ycdy4"]
 [ext_resource type="Shader" uid="uid://dxffg5o6qfykw" path="res://AnimusADN.gdshader" id="8_5vw27"]
@@ -29,6 +30,28 @@ fill_to = Vector2(0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1bvp3"]
 shader = ExtResource("3_h2yge")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
+shader = ExtResource("3_272bh")
+shader_parameter/line_color = Color(0.2, 0.6, 1, 1)
+shader_parameter/glow_color = Color(0.6, 0.9, 1, 1)
+shader_parameter/speed = 1.5
+shader_parameter/frequency = 6.0
+shader_parameter/amplitude = 0.15
+shader_parameter/thickness = 0.008
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4c57u"]
+shader = ExtResource("4_5vw27")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
+shader = ExtResource("8_5vw27")
+shader_parameter/strand_color = Color(0.15, 0.65, 1, 1)
+shader_parameter/block_color = Color(0.5, 0.9, 1, 1)
+shader_parameter/speed = 2.0
+shader_parameter/frequency = 5.0
+shader_parameter/amplitude = 0.22
+shader_parameter/DNA_width = 0.08
+shader_parameter/block_density = 25
 
 [sub_resource type="FontVariation" id="FontVariation_ycdy4"]
 base_font = ExtResource("5_dg77c")
@@ -57,28 +80,6 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_vivmo"]
 base_font = ExtResource("5_dg77c")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kek77"]
-shader = ExtResource("3_272bh")
-shader_parameter/line_color = Color(0.2, 0.6, 1, 1)
-shader_parameter/glow_color = Color(0.6, 0.9, 1, 1)
-shader_parameter/speed = 1.5
-shader_parameter/frequency = 6.0
-shader_parameter/amplitude = 0.15
-shader_parameter/thickness = 0.008
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4c57u"]
-shader = ExtResource("4_5vw27")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_efxa6"]
-shader = ExtResource("8_5vw27")
-shader_parameter/strand_color = Color(0.15, 0.65, 1, 1)
-shader_parameter/block_color = Color(0.5, 0.9, 1, 1)
-shader_parameter/speed = 2.0
-shader_parameter/frequency = 5.0
-shader_parameter/amplitude = 0.22
-shader_parameter/DNA_width = 0.08
-shader_parameter/block_density = 25
 
 [node name="main" type="Control" unique_id=1135238041]
 layout_mode = 3
@@ -130,6 +131,52 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="animusHeader" type="Control" parent="." unique_id=500960909]
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -90.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MemoryLines" type="ColorRect" parent="animusHeader" unique_id=1803163827]
+material = SubResource("ShaderMaterial_kek77")
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MemoryGrid" type="ColorRect" parent="animusHeader" unique_id=1473861820]
+visible = false
+material = SubResource("ShaderMaterial_4c57u")
+custom_minimum_size = Vector2(0, 180)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimusADN" type="ColorRect" parent="animusHeader" unique_id=937690385]
+material = SubResource("ShaderMaterial_efxa6")
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Interface" type="CanvasLayer" parent="." unique_id=1077770044]
 
 [node name="MenuSujetos" type="Control" parent="Interface" unique_id=20228600]
@@ -162,27 +209,33 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 40.0
-offset_top = -15.5
-offset_right = 63.0
-offset_bottom = 15.5
+offset_top = -52.0
+offset_right = 136.0
+offset_bottom = 52.0
 grow_vertical = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "<-"
+icon = ExtResource("5_w48qg")
+flat = true
+expand_icon = true
 
 [node name="rightBtn" type="Button" parent="Interface" unique_id=1473576865]
+custom_minimum_size = Vector2(96, 104)
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -64.0
-offset_top = -15.5
-offset_right = -41.0
-offset_bottom = 15.5
+offset_left = -34.0
+offset_top = 56.0
+offset_right = 62.0
+offset_bottom = 160.0
 grow_horizontal = 0
 grow_vertical = 2
-text = "->"
+rotation = -3.1415927
+icon = ExtResource("5_w48qg")
+flat = true
+expand_icon = true
 
 [node name="browser" type="LineEdit" parent="Interface" unique_id=630719562]
 anchors_preset = 5
@@ -335,52 +388,6 @@ label_settings = SubResource("LabelSettings_4c57u")
 stream = ExtResource("5_lquwl")
 
 [node name="PopUpConfirmacion" type="ConfirmationDialog" parent="." unique_id=885177455]
-
-[node name="animusHeader" type="Control" parent="." unique_id=500960909]
-custom_minimum_size = Vector2(0, 180)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -90.0
-offset_bottom = 90.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MemoryLines" type="ColorRect" parent="animusHeader" unique_id=1803163827]
-material = SubResource("ShaderMaterial_kek77")
-custom_minimum_size = Vector2(0, 300)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MemoryGrid" type="ColorRect" parent="animusHeader" unique_id=1473861820]
-visible = false
-material = SubResource("ShaderMaterial_4c57u")
-custom_minimum_size = Vector2(0, 180)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="AnimusADN" type="ColorRect" parent="animusHeader" unique_id=937690385]
-material = SubResource("ShaderMaterial_efxa6")
-custom_minimum_size = Vector2(0, 240)
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
 
 [connection signal="pressed" from="Interface/leftBtn" to="." method="_on_left_btn_pressed"]
 [connection signal="pressed" from="Interface/rightBtn" to="." method="_on_right_btn_pressed"]
