@@ -4,7 +4,7 @@
 offset_top = 11.0
 offset_right = 40.0
 offset_bottom = 51.0
-color = Color(0.06100855, 0.06100855, 0.06100855, 0.16600001)
+color = Color(0.06100855, 0.06100855, 0.06100855, 0.52400005)
 
 [node name="topBorder" type="ColorRect" parent="." unique_id=1526368071]
 custom_minimum_size = Vector2(0, 3)
