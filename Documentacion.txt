@@ -1,3 +1,16 @@
 Este archivo contiene la documentacion general del proyecto.
 
-Project AUDITTANIMUS es un programa 
+Project AUDITTANIMUS es un programa
+
+
+------------------
+
+¿Cómo ajustarlo la velocidad de construccion del AnimusPanel?
+
+Si quieres que el Animus se "construya" más rápido: Baja el valor de retraso_entre_columnas
+(por ejemplo, a 0.02). Si quieres que vaya lento y dramático, súbelo (por ejemplo, a 0.1).
+
+Si quieres que el texto aparezca de golpe o más lento: 
+Modifica los segundos en duracion_aparicion_texto. Por ejemplo, 0.2 hará que aparezca
+casi al instante al terminar las barras, y 1.5 hará un fundido de entrada muy pausado
+y estilizado.
