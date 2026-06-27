@@ -3,10 +3,12 @@ extends Control
 @onready var nombre_label = $HBoxContainer/InfoDerecha/NombreLabel
 @onready var birth_year_label = $HBoxContainer/InfoDerecha/birthYear_label
 @onready var location_label = $HBoxContainer/InfoDerecha/location_label
-@onready var texto_contenido = $HBoxContainer/InfoDerecha/TextoContenido
+@onready var texto_contenido = $HBoxContainer/InfoDerecha/AnimusPanel/TextoContenido
 @onready var FotoSujeto = $HBoxContainer/ColumnaIzquierda/FotoSujeto
 @onready var glitch_timer = $GlitchTimer
 @onready var glitch_sound = $GlitchSound
+@onready var panel_animus: PanelAnimus = $HBoxContainer/InfoDerecha/AnimusPanel
+@onready var contenedor_datos: Control = $HBoxContainer/InfoDerecha/AnimusPanel/ColumnsContainer/infoContainer
 
 var datos_sujeto = {}
 var posicion_original_foto : Vector2
@@ -14,18 +16,19 @@ var posicion_original_foto : Vector2
 func _ready():
 	glitch_timer.timeout.connect(_on_glitch_timer_timeout)
 	glitch_timer.wait_time = randf_range(3.0, 7.0)
-	
 	var id_elegido = Global.sujeto_seleccionado_id
-	
 	var consulta = "SELECT * FROM sujetos WHERE id = " + str(id_elegido)
 	DB.db.query(consulta)
 	
 	if DB.db.query_result.size() > 0:
 		datos_sujeto = DB.db.query_result[0]
+		if is_instance_valid(texto_contenido):
+			texto_contenido.modulate.a = 0.0
+		if is_instance_valid(panel_animus):
+			panel_animus.generar_panel(true)
 		mostrar_datos("descripcion")
 		
-	
-
+		
 func mostrar_datos(columna):
 	texto_contenido.visible_ratio = 1.0 
 	texto_contenido.bbcode_enabled = true

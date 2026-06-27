@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://7mkjdjpi3yw0" path="res://font/Cinzel-Regular.ttf" id="6_eg6t8"]
 [ext_resource type="StyleBox" uid="uid://bu3tosyw2dle7" path="res://degraded button (wine).tres" id="6_ld8hl"]
 [ext_resource type="Theme" uid="uid://ct7c6euirkk1h" path="res://buttons theme (wine).tres" id="7_p0ve4"]
+[ext_resource type="PackedScene" uid="uid://bj647l5n4ft7w" path="res://animus_panel.tscn" id="10_p0ve4"]
 
 [sub_resource type="Gradient" id="Gradient_ig7tw"]
 colors = PackedColorArray(0.66245234, 0.66245234, 0.6624523, 1, 1, 1, 1, 1)
@@ -54,14 +55,7 @@ font_color = Color(0.013624087, 0.03014388, 0.06406011, 1)
 [sub_resource type="FontVariation" id="FontVariation_roiyv"]
 base_font = ExtResource("6_eg6t8")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hceip"]
-bg_color = Color(0.6, 0.6, 0.6, 0.1882353)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(1, 1, 1, 0.8627451)
-border_blend = true
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0ve4"]
 
 [node name="DetallesSujeto" type="Control" unique_id=113065301]
 layout_mode = 3
@@ -117,7 +111,7 @@ metadata/_edit_use_anchors_ = true
 [node name="PostProcess" type="CanvasLayer" parent="Background" unique_id=1750601267]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=385096931]
-custom_minimum_size = Vector2(1100, 600)
+custom_minimum_size = Vector2(1150, 600)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -177,51 +171,63 @@ size_flags_horizontal = 3
 
 [node name="NombreLabel" type="Label" parent="HBoxContainer/InfoDerecha" unique_id=404194458]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 5.0
-offset_right = 348.0
-offset_bottom = 44.0
+offset_left = 69.0
+offset_top = -7.0
+offset_right = 370.0
+offset_bottom = 32.0
 theme_override_fonts/font = ExtResource("5_mcw6r")
 text = "KEY_SUBJECT_NAME"
 label_settings = SubResource("LabelSettings_jni1k")
 
 [node name="birthYear_label" type="Label" parent="HBoxContainer/InfoDerecha" unique_id=425796767]
 layout_mode = 0
-offset_left = 57.0
-offset_top = 54.0
-offset_right = 524.0
-offset_bottom = 85.0
+offset_left = 71.0
+offset_top = 42.0
+offset_right = 538.0
+offset_bottom = 73.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vh67j")
 text = "AÑO DE NACIMIENTO:"
 label_settings = SubResource("LabelSettings_6o2g0")
 
 [node name="location_label" type="Label" parent="HBoxContainer/InfoDerecha" unique_id=239537413]
 layout_mode = 0
-offset_left = 56.0
-offset_top = 94.0
-offset_right = 587.0
-offset_bottom = 133.0
+offset_left = 70.0
+offset_top = 82.0
+offset_right = 601.0
+offset_bottom = 121.0
 text = "LOCALIZACION FRECUENTE"
 label_settings = SubResource("LabelSettings_eg6t8")
 
-[node name="TextoContenido" type="RichTextLabel" parent="HBoxContainer/InfoDerecha" unique_id=2058306944]
-custom_minimum_size = Vector2(0, 300)
+[node name="AnimusPanel" parent="HBoxContainer/InfoDerecha" unique_id=1470157803 instance=ExtResource("10_p0ve4")]
+custom_minimum_size = Vector2(603, 300)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -292.5
-offset_top = -152.0
-offset_right = 310.5
-offset_bottom = 148.0
+offset_left = -301.5
+offset_top = -150.0
+offset_right = 323.0
+offset_bottom = 319.0
+
+[node name="TextoContenido" type="RichTextLabel" parent="HBoxContainer/InfoDerecha/AnimusPanel" unique_id=2058306944]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.5
+offset_top = 46.0
+offset_right = -16.0
+offset_bottom = -63.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(0.07683582, 0.07683582, 0.07683582, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 2
 theme_override_fonts/normal_font = SubResource("FontVariation_roiyv")
 theme_override_font_sizes/normal_font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_hceip")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p0ve4")
 bbcode_enabled = true
 text = "TEXTO DE PRUEBA"
 text_direction = 1
@@ -235,3 +241,5 @@ autostart = true
 [connection signal="pressed" from="HBoxContainer/ColumnaIzquierda/ContenedorBotones/BtnVolver" to="." method="_on_btn_volver_pressed"]
 [connection signal="pressed" from="HBoxContainer/ColumnaIzquierda/ContenedorBotones/BtnBio" to="." method="_on_btn_bio_pressed"]
 [connection signal="pressed" from="HBoxContainer/ColumnaIzquierda/ContenedorBotones/BtnPsico" to="." method="_on_btn_psico_pressed"]
+
+[editable path="HBoxContainer/InfoDerecha/AnimusPanel"]
