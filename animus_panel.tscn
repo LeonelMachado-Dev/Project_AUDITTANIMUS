@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bj647l5n4ft7w"]
+
+[ext_resource type="Script" uid="uid://j4oywt75oosq" path="res://animus_panel.gd" id="1_178af"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_178af"]
+
+[node name="AnimusPanel" type="Control" unique_id=1470157803]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -677.0
+offset_bottom = -468.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_178af")
+
+[node name="ColumnsContainer" type="Panel" parent="." unique_id=79605326]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_178af")
+
+[node name="infoContainer" type="Control" parent="ColumnsContainer" unique_id=241757271]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColumnsContainer/infoContainer" unique_id=1315402641]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+autowrap_mode = 2

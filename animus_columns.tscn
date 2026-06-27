@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://faondm4ugo46"]
+
+[node name="animusColumns" type="ColorRect" unique_id=859178900]
+offset_top = 11.0
+offset_right = 40.0
+offset_bottom = 51.0
+color = Color(0.06100855, 0.06100855, 0.06100855, 0.16600001)
+
+[node name="topBorder" type="ColorRect" parent="." unique_id=1526368071]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0.6509804, 0.10980392, 0.18039216, 1)
+
+[node name="bottomBorder" type="ColorRect" parent="." unique_id=986267303]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.6509804, 0.10980392, 0.18039216, 1)
