@@ -5,10 +5,10 @@
   <img width="100%" src="https://i.imgur.com/xFCDTkc.png" alt="@Josee9988/project-template's">
   <br>
   <a href="https://github.com/LeonelMachado-Dev/Project_AUDITTANIMUS/issues">
-    <img src="https://img.shields.io/github/issues/LeonelMachado-Dev/Project_AUDITTANIMUS?color=0088ff&style=for-the-badge&logo=github" alt="AudittAnimus issues"/>
+	<img src="https://img.shields.io/github/issues/LeonelMachado-Dev/Project_AUDITTANIMUS?color=0088ff&style=for-the-badge&logo=github" alt="AudittAnimus issues"/>
   </a>
   <a href="https://github.com/LeonelMachado-Dev/Project_AUDITTANIMUS/pulls">
-    <img src="https://img.shields.io/github/issues-pr/LeonelMachado-Dev/Project_AUDITTANIMUS?color=0088ff&style=for-the-badge&logo=github" alt="@LeonelMachado-Dev pull requests"/>
+	<img src="https://img.shields.io/github/issues-pr/LeonelMachado-Dev/Project_AUDITTANIMUS?color=0088ff&style=for-the-badge&logo=github" alt="@LeonelMachado-Dev pull requests"/>
   </a>
 </p>
 
@@ -90,123 +90,123 @@ This is the current folders structure.
 ```text
 .
 └── Project_AUDITTANIMUS/
-    ├── .editorconfig
-    ├── .gitattributes
-    ├── .gitignore
-    ├── adn_animus.gdshader
-    ├── adn_animus.gdshader.uid
-    ├── AnimusADN.gdshader
-    ├── AnimusADN.gdshader.uid
-    ├── DatabaseManager.gd
-    ├── DatabaseManager.gd.uid
-    ├── default_bus_layout.tres
-    ├── DetallesSujeto.tscn
-    ├── detalles_sujeto.gd
-    ├── detalles_sujeto.gd.uid
-    ├── Documentacion.txt
-    ├── entrada_sujeto.gd
-    ├── entrada_sujeto.gd.uid
-    ├── entrada_sujeto.tscn
-    ├── Global.gd
-    ├── Global.gd.uid
-    ├── icon.svg
-    ├── icon.svg.import
-    ├── LICENSE
-    ├── main.gd
-    ├── main.gd.uid
-    ├── main.gdshader
-    ├── main.gdshader.uid
-    ├── main.tscn
-    ├── main_menu.gd
-    ├── main_menu.gd.uid
-    ├── main_menu.tscn
-    ├── main_menu_Documentation.txt
-    ├── MemoryGrid.gdshader
-    ├── MemoryGrid.gdshader.uid
-    ├── memoryLines.gdshader
-    ├── memoryLines.gdshader.uid
-    ├── musica_global.tscn
-    ├── neblina_animus.gdshader
-    ├── neblina_animus.gdshader.uid
-    ├── plexus_system.gd
-    ├── plexus_system.gd.uid
-    ├── project.godot
-    ├── README.md
-    ├── some codes to use later.txt
-    ├── subject_editor.gd
-    ├── subject_editor.gd.uid
-    ├── subject_editor.tscn
-    ├── data/
-    │   └── animus_data.db
-    ├── music/
-    │   ├── animus2.0_theme.mp3
-    │   ├── animus2.0_theme.mp3.import
-    │   ├── Click-sound-AC2-Soundtrack.mp3
-    │   ├── Click-sound-AC2-Soundtrack.mp3.import
-    │   ├── Glitch effect 6.mp3
-    │   └── Glitch effect 6.mp3.import
-    ├── addons/
-    │   └── godot-sqlite/
-    │       ├── gdsqlite.gdextension
-    │       ├── gdsqlite.gdextension.uid
-    │       ├── godot-sqlite.gd
-    │       ├── godot-sqlite.gd.uid
-    │       ├── LICENSE.md
-    │       ├── plugin.cfg
-    │       └── bin/
-    │           ├── libgdsqlite.android.template_debug.arm64.so
-    │           ├── libgdsqlite.android.template_debug.x86_64.so
-    │           ├── libgdsqlite.android.template_release.arm64.so
-    │           ├── libgdsqlite.android.template_release.x86_64.so
-    │           ├── libgdsqlite.ios.template_debug.arm64.dylib
-    │           ├── libgdsqlite.ios.template_release.arm64.dylib
-    │           ├── libgdsqlite.linux.template_debug.x86_64.so
-    │           ├── libgdsqlite.linux.template_release.x86_64.so
-    │           ├── libgdsqlite.web.template_debug.wasm32.nothreads.wasm
-    │           ├── libgdsqlite.web.template_debug.wasm32.wasm
-    │           ├── libgdsqlite.web.template_release.wasm32.nothreads.wasm
-    │           ├── libgdsqlite.web.template_release.wasm32.wasm
-    │           ├── libgdsqlite.windows.template_debug.x86_64.dll
-    │           ├── libgdsqlite.windows.template_release.x86_64.dll
-    │           ├── ~libgdsqlite.windows.template_debug.x86_64.dll
-    │           ├── libgdsqlite.ios.template_debug.xcframework/
-    │           │   ├── Info.plist
-    │           │   ├── ios-arm64/
-    │           │   │   └── libgdsqlite.ios.template_debug.a
-    │           │   └── ios-arm64_x86_64-simulator/
-    │           │       └── libgdsqlite.ios.template_debug.simulator.a
-    │           ├── libgdsqlite.ios.template_release.xcframework/
-    │           │   ├── Info.plist
-    │           │   ├── ios-arm64/
-    │           │   │   └── libgdsqlite.ios.template_release.a
-    │           │   └── ios-arm64_x86_64-simulator/
-    │           │       └── libgdsqlite.ios.template_release.simulator.a
-    │           ├── libgdsqlite.macos.template_debug.framework/
-    │           │   ├── libgdsqlite.macos.template_debug
-    │           │   ├── libmacos.libgdsqlite.template_debug
-    │           │   └── Resources/
-    │           │       └── Info.plist
-    │           ├── libgdsqlite.macos.template_release.framework/
-    │           │   ├── libgdsqlite.macos.template_release
-    │           │   ├── libmacos.libgdsqlite.template_release
-    │           │   └── Resources/
-    │           │       └── Info.plist
-    │           ├── libgodot-cpp.ios.template_debug.xcframework/
-    │           │   ├── Info.plist
-    │           │   ├── ios-arm64/
-    │           │   │   └── libgodot-cpp.ios.template_debug.arm64.a
-    │           │   └── ios-arm64_x86_64-simulator/
-    │           │       └── libgodot-cpp.ios.template_debug.universal.simulator.a
-    │           └── libgodot-cpp.ios.template_release.xcframework/
-    │               ├── Info.plist
-    │               ├── ios-arm64/
-    │               │   └── libgodot-cpp.ios.template_release.arm64.a
-    │               └── ios-arm64_x86_64-simulator/
-    │                   └── libgodot-cpp.ios.template_release.universal.simulator.a
-    └── Images/
-        └── TEST SUBJECTS/
-            ├── no_foto.png
-            └── no_foto.png.import
+	├── .editorconfig
+	├── .gitattributes
+	├── .gitignore
+	├── adn_animus.gdshader
+	├── adn_animus.gdshader.uid
+	├── AnimusADN.gdshader
+	├── AnimusADN.gdshader.uid
+	├── DatabaseManager.gd
+	├── DatabaseManager.gd.uid
+	├── default_bus_layout.tres
+	├── DetallesSujeto.tscn
+	├── detalles_sujeto.gd
+	├── detalles_sujeto.gd.uid
+	├── Documentacion.txt
+	├── entrada_sujeto.gd
+	├── entrada_sujeto.gd.uid
+	├── entrada_sujeto.tscn
+	├── Global.gd
+	├── Global.gd.uid
+	├── icon.svg
+	├── icon.svg.import
+	├── LICENSE
+	├── main.gd
+	├── main.gd.uid
+	├── main.gdshader
+	├── main.gdshader.uid
+	├── main.tscn
+	├── main_menu.gd
+	├── main_menu.gd.uid
+	├── main_menu.tscn
+	├── main_menu_Documentation.txt
+	├── MemoryGrid.gdshader
+	├── MemoryGrid.gdshader.uid
+	├── memoryLines.gdshader
+	├── memoryLines.gdshader.uid
+	├── musica_global.tscn
+	├── neblina_animus.gdshader
+	├── neblina_animus.gdshader.uid
+	├── plexus_system.gd
+	├── plexus_system.gd.uid
+	├── project.godot
+	├── README.md
+	├── some codes to use later.txt
+	├── subject_editor.gd
+	├── subject_editor.gd.uid
+	├── subject_editor.tscn
+	├── data/
+	│   └── animus_data.db
+	├── music/
+	│   ├── animus2.0_theme.mp3
+	│   ├── animus2.0_theme.mp3.import
+	│   ├── Click-sound-AC2-Soundtrack.mp3
+	│   ├── Click-sound-AC2-Soundtrack.mp3.import
+	│   ├── Glitch effect 6.mp3
+	│   └── Glitch effect 6.mp3.import
+	├── addons/
+	│   └── godot-sqlite/
+	│       ├── gdsqlite.gdextension
+	│       ├── gdsqlite.gdextension.uid
+	│       ├── godot-sqlite.gd
+	│       ├── godot-sqlite.gd.uid
+	│       ├── LICENSE.md
+	│       ├── plugin.cfg
+	│       └── bin/
+	│           ├── libgdsqlite.android.template_debug.arm64.so
+	│           ├── libgdsqlite.android.template_debug.x86_64.so
+	│           ├── libgdsqlite.android.template_release.arm64.so
+	│           ├── libgdsqlite.android.template_release.x86_64.so
+	│           ├── libgdsqlite.ios.template_debug.arm64.dylib
+	│           ├── libgdsqlite.ios.template_release.arm64.dylib
+	│           ├── libgdsqlite.linux.template_debug.x86_64.so
+	│           ├── libgdsqlite.linux.template_release.x86_64.so
+	│           ├── libgdsqlite.web.template_debug.wasm32.nothreads.wasm
+	│           ├── libgdsqlite.web.template_debug.wasm32.wasm
+	│           ├── libgdsqlite.web.template_release.wasm32.nothreads.wasm
+	│           ├── libgdsqlite.web.template_release.wasm32.wasm
+	│           ├── libgdsqlite.windows.template_debug.x86_64.dll
+	│           ├── libgdsqlite.windows.template_release.x86_64.dll
+	│           ├── ~libgdsqlite.windows.template_debug.x86_64.dll
+	│           ├── libgdsqlite.ios.template_debug.xcframework/
+	│           │   ├── Info.plist
+	│           │   ├── ios-arm64/
+	│           │   │   └── libgdsqlite.ios.template_debug.a
+	│           │   └── ios-arm64_x86_64-simulator/
+	│           │       └── libgdsqlite.ios.template_debug.simulator.a
+	│           ├── libgdsqlite.ios.template_release.xcframework/
+	│           │   ├── Info.plist
+	│           │   ├── ios-arm64/
+	│           │   │   └── libgdsqlite.ios.template_release.a
+	│           │   └── ios-arm64_x86_64-simulator/
+	│           │       └── libgdsqlite.ios.template_release.simulator.a
+	│           ├── libgdsqlite.macos.template_debug.framework/
+	│           │   ├── libgdsqlite.macos.template_debug
+	│           │   ├── libmacos.libgdsqlite.template_debug
+	│           │   └── Resources/
+	│           │       └── Info.plist
+	│           ├── libgdsqlite.macos.template_release.framework/
+	│           │   ├── libgdsqlite.macos.template_release
+	│           │   ├── libmacos.libgdsqlite.template_release
+	│           │   └── Resources/
+	│           │       └── Info.plist
+	│           ├── libgodot-cpp.ios.template_debug.xcframework/
+	│           │   ├── Info.plist
+	│           │   ├── ios-arm64/
+	│           │   │   └── libgodot-cpp.ios.template_debug.arm64.a
+	│           │   └── ios-arm64_x86_64-simulator/
+	│           │       └── libgodot-cpp.ios.template_debug.universal.simulator.a
+	│           └── libgodot-cpp.ios.template_release.xcframework/
+	│               ├── Info.plist
+	│               ├── ios-arm64/
+	│               │   └── libgodot-cpp.ios.template_release.arm64.a
+	│               └── ios-arm64_x86_64-simulator/
+	│                   └── libgodot-cpp.ios.template_release.universal.simulator.a
+	└── Images/
+		└── TEST SUBJECTS/
+			├── no_foto.png
+			└── no_foto.png.import
 
 *This will change often during his development
 ```
