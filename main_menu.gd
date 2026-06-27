@@ -50,7 +50,7 @@ var usuario_scrolleando: bool = false
 var tiempo_inactividad_scroll: float = 0.0
 var scroll_acumulado: float = 0.0
 
-# --- ELEMENTOS CREADOS POR CÓDIGO ---
+# --- VISUALIZER NODES ------------------------------
 var visualizador_padre: Control
 var circulo_album: Panel
 var icono_nota: Label
@@ -65,7 +65,7 @@ var sfx_permitido: bool = true
 var detector_mouse_estatico: Control        
 var velocidad_texto: float = 45.0           
 var limite_izquierdo_texto: float = 0.0     
-
+# ---------------------------------------------------
 enum EstadosMenu { PRINCIPAL, EDICION, SONIDO }
 var estado_actual = EstadosMenu.PRINCIPAL
 
@@ -417,7 +417,6 @@ func chequear_primer_inicio():
 		pila_cuadros.visible = true
 		ir_a_menu_principal()
 	else:
-		# Actualizamos el texto dinámicamente antes de mostrar el panel
 		disclaimer_text()
 		
 		panel_disclaimer.visible = true
