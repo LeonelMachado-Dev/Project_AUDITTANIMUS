@@ -9,6 +9,7 @@ const RUTA_CONFIG = "user://config_animus.cfg"
 @onready var panel_disclaimer = $DisclaimerPanel
 @onready var boton_aceptar_disclaimer = $DisclaimerPanel/VisorContainer/AcceptBtn
 @onready var visor_container = $DisclaimerPanel/VisorContainer
+@onready var DisclaimerPanel = $DisclaimerPanel
 @onready var texto_disclaimer = $DisclaimerPanel/VisorContainer/DisclaimerText
 
 # Configuración estética estilo AC2
@@ -91,6 +92,11 @@ func ajustar_pantalla_menu():
 	if panel_disclaimer:
 		panel_disclaimer.size = screen_size
 		
+	if DisclaimerPanel:
+		DisclaimerPanel.global_position = Vector2.ZERO # Esquina superior izquierda
+		DisclaimerPanel.size = screen_size             # Se estira por completo
+
+# 2. El contenedor interno (donde están tus textos y el botón) se centra perfectamente
 	if visor_container:
 		var centro_x = (screen_size.x / 2.0) - (visor_container.size.x / 2.0)
 		var centro_y = (screen_size.y / 2.0) - (visor_container.size.y / 2.0)
