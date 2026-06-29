@@ -93,5 +93,26 @@ func insertar_sujeto(datos: Dictionary) -> int:
 	return -1
 
 func eliminar_sujeto(id_sujeto: int):
-	# Ejecuta la consulta de borrado directo usando el ID único del registro
+	# 1. Consultar la ruta de la imagen ANTES de borrar el registro del sujeto
+	db.query("SELECT imagen_path FROM sujetos WHERE id = " + str(id_sujeto))
+	
+	var ruta_imagen: String = ""
+	if db.query_result.size() > 0:
+		ruta_imagen = str(db.query_result[0].get("imagen_path", ""))
+	
+	# 2. Ejecutar la consulta de borrado directo en la base de datos
 	db.query("DELETE FROM sujetos WHERE id = " + str(id_sujeto))
+	print("[DatabaseManager] Registro eliminado de la base de datos. ID: ", id_sujeto)
+	
+	# 3. Control de limpieza en el disco (AppData/user://)
+	# Validamos que no esté vacía, que no sea "null" y que pertenezca a user:// 
+	# Esto evita borrar por accidente recursos del sistema como el placeholder "res://"
+	if ruta_imagen != "" and ruta_imagen != "null" and ruta_imagen.begins_with("user://"):
+		if FileAccess.file_exists(ruta_imagen):
+			var error_borrado = DirAccess.remove_absolute(ruta_imagen)
+			if error_borrado == OK:
+				print("[DISCO] Imagen asociada eliminada con éxito de user:// -> ", ruta_imagen)
+			else:
+				print("[Error] No se pudo borrar físicamente el archivo en: ", ruta_imagen)
+		else:
+			print("[DISCO] El archivo de imagen no existía físicamente en la ruta guardada.")
