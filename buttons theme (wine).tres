@@ -1,6 +1,20 @@
 [gd_resource type="Theme" format=3 uid="uid://ct7c6euirkk1h"]
 
-[ext_resource type="StyleBox" uid="uid://bu3tosyw2dle7" path="res://degraded button (wine).tres" id="1_8dlij"]
+[ext_resource type="StyleBox" uid="uid://boc45oqtbt22e" path="res://degraded button (wine) - hover.tres" id="1_8dlij"]
+
+[sub_resource type="Gradient" id="Gradient_mcw6r"]
+offsets = PackedFloat32Array(0.17405063, 1)
+colors = PackedColorArray(0.432765, 0, 0.106126174, 1, 0.8389994, 1.6869828e-05, 0.2445611, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eg6t8"]
+gradient = SubResource("Gradient_mcw6r")
+use_hdr = true
+fill_from = Vector2(0.552521, 0)
+fill_to = Vector2(0.54831934, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ld8hl"]
+texture = SubResource("GradientTexture2D_eg6t8")
 
 [resource]
-Button/styles/normal = ExtResource("1_8dlij")
+Button/styles/hover = ExtResource("1_8dlij")
+Button/styles/normal = SubResource("StyleBoxTexture_ld8hl")
