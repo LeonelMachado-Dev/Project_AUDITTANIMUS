@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="5_mcw6r"]
 [ext_resource type="AudioStream" uid="uid://bc1dyh2orq7f2" path="res://music/Glitch effect 6.mp3" id="5_pmyim"]
 [ext_resource type="FontFile" uid="uid://7mkjdjpi3yw0" path="res://font/Cinzel-Regular.ttf" id="6_eg6t8"]
-[ext_resource type="StyleBox" uid="uid://bu3tosyw2dle7" path="res://degraded button (wine).tres" id="6_ld8hl"]
+[ext_resource type="StyleBox" uid="uid://boc45oqtbt22e" path="res://degraded button (wine) - hover.tres" id="6_p0ve4"]
 [ext_resource type="Theme" uid="uid://ct7c6euirkk1h" path="res://buttons theme (wine).tres" id="7_p0ve4"]
 [ext_resource type="PackedScene" uid="uid://bj647l5n4ft7w" path="res://animus_panel.tscn" id="10_p0ve4"]
 
@@ -26,6 +26,21 @@ shader_parameter/smoke_color = Color(0.85, 0.9, 0.95, 0.15)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6o2g0"]
 shader = ExtResource("4_pmyim")
+
+[sub_resource type="Gradient" id="Gradient_mcw6r"]
+offsets = PackedFloat32Array(0.17405063, 1)
+colors = PackedColorArray(0.432765, 0, 0.106126174, 1, 0.8389994, 1.6869828e-05, 0.2445611, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eg6t8"]
+gradient = SubResource("Gradient_mcw6r")
+use_hdr = true
+fill_from = Vector2(0.552521, 0)
+fill_to = Vector2(0.54831934, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ld8hl"]
+texture = SubResource("GradientTexture2D_eg6t8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p0ve4"]
 
 [sub_resource type="FontVariation" id="FontVariation_mcw6r"]
 base_font = ExtResource("5_mcw6r")
@@ -141,7 +156,9 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_constants/align_to_largest_stylebox = 1
 theme_override_fonts/font = ExtResource("5_mcw6r")
-theme_override_styles/normal = ExtResource("6_ld8hl")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ld8hl")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_p0ve4")
+theme_override_styles/hover = ExtResource("6_p0ve4")
 text = "KEY_REGRESAR"
 
 [node name="BtnBio" type="Button" parent="HBoxContainer/ColumnaIzquierda/ContenedorBotones" unique_id=388844383]
