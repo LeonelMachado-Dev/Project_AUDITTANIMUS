@@ -14,3 +14,18 @@ Si quieres que el texto aparezca de golpe o más lento:
 Modifica los segundos en duracion_aparicion_texto. Por ejemplo, 0.2 hará que aparezca
 casi al instante al terminar las barras, y 1.5 hará un fundido de entrada muy pausado
 y estilizado.
+
+---------------
+
+Flechas del menu Sujetos:
+
+Para mover las flechas las flechas debe cambiarse la siguiente linea:
+
+var margen_lateral = 60.0 # <--- Sube este número para meter las flechas más hacia el centro,
+bájalo para pegarlas al borde.
+
+Dicha linea se ubica en la funcion ajustar_pantalla_animus().
+
+Eje Y (Vertical): (screen_size.y / 2) - (alto / 2). Esto calcula exactamente la mitad de la altura
+de la pantalla y le resta la mitad del tamaño de la flecha para que el centro del botón quede 
+perfectamente alineado con el centro de la pantalla.
