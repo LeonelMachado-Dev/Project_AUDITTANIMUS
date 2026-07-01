@@ -48,11 +48,13 @@ offset_left = -301.5
 offset_top = -185.0
 offset_right = 301.5
 offset_bottom = 185.0
+retraso_entre_columnas = 0.03
+tiempo_espera_texto = 1.0
 tipo_de_color = 1
 degradado_panel = SubResource("GradientTexture2D_hr0mv")
 color_bordes_escena = Color(0.5520593, 0, 0.03125505, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer/ColorRect/AnimusPanel" unique_id=1621877709]
+[node name="headerLabel" type="Label" parent="CanvasLayer/ColorRect/AnimusPanel" unique_id=1621877709]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
