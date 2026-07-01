@@ -16,8 +16,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="PROJECT AUDITTANIMUS"
 config/description="Project AudittAnimus is a fan project maded to al the fans of the ubisoft beloved franchise. The classic Animus from AC2 is here to deliver all the fans nostalgic and fun while use this to save his most favorite locations, some memories and people that would like to store into the database of Audittanimus."
-config/version="0.1"
-run/main_scene="uid://b64uawqsompeq"
+config/version="0.7"
+run/main_scene="uid://bm18fwayp7pyi"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
