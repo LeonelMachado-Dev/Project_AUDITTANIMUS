@@ -216,7 +216,6 @@ text = "LOCALIZACION FRECUENTE"
 label_settings = SubResource("LabelSettings_eg6t8")
 
 [node name="AnimusPanel" parent="HBoxContainer/InfoDerecha" unique_id=1470157803 instance=ExtResource("10_p0ve4")]
-custom_minimum_size = Vector2(603, 300)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -224,11 +223,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -301.5
-offset_top = -150.0
-offset_right = 323.0
-offset_bottom = 319.0
+offset_top = -152.0
+offset_right = 301.5
+offset_bottom = 280.0
+color_de_columnas = Color(0.40161076, 0.40161076, 0.40161076, 0.595)
+separacion_columnas = 0.9
+color_bordes_escena = Color(0.8446712, 0.17794243, 0.25538662, 1)
 
-[node name="TextoContenido" type="RichTextLabel" parent="HBoxContainer/InfoDerecha/AnimusPanel" unique_id=2058306944]
+[node name="TextoContenido" type="RichTextLabel" parent="HBoxContainer/InfoDerecha/AnimusPanel" unique_id=251896503]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 1
 anchors_preset = 15
@@ -242,6 +244,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_constants/line_separation = 2
+theme_override_constants/outline_size = 0
 theme_override_fonts/normal_font = SubResource("FontVariation_roiyv")
 theme_override_font_sizes/normal_font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxEmpty_p0ve4")
