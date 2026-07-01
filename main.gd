@@ -309,6 +309,10 @@ func _on_add_subject_btn_pressed() -> void:
 
 func _on_right_btn_pressed() -> void:
 	if lista_filtrada.size() == 0: return
+
+	if flecha_derecha and flecha_derecha.has_focus():
+		flecha_derecha.release_focus()
+		
 	indice_central = (indice_central + 1) % lista_filtrada.size()
 	actualizar_posiciones_carrusel(true)
 	
@@ -323,6 +327,10 @@ func _on_right_btn_pressed() -> void:
 
 func _on_left_btn_pressed():
 	if lista_filtrada.size() == 0: return
+
+	if flecha_izquierda and flecha_izquierda.has_focus():
+		flecha_izquierda.release_focus()
+		
 	indice_central = (indice_central - 1 + lista_filtrada.size()) % lista_filtrada.size()
 	actualizar_posiciones_carrusel(true)
 	
