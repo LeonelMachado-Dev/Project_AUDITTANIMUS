@@ -5,7 +5,32 @@ Project AUDITTANIMUS es un programa
 
 ------------------
 
-¿Cómo ajustarlo la velocidad de construccion del AnimusPanel?
+Boot -> Main Menu (Descripcion de inicio)
+
+Boot: Se encarga de chequear si es primera vez que se inicia el animus. Tambien se encarga de verificar
+existencia del archivo de configuracion. Si el archivo existe y puede leer los parametros guardados de
+audio, lenguaje y video. No muestra la escena de seleccion de lenguaje.
+
+Si NO existe el archivo, muestra la escena de seleccion de lenguaje y una vez seleccionado el idioma,
+se crea el archivo de configuracion y se guarda el lenguaje seleccionado.
+
+Main: Carga los datos existentes en el "config.cfg".
+SI ES PRIMERA VEZ: Solamente tendra guardado el idioma, por lo tanto, el slider de musica estara al 100
+y el efecto de sonido activado (enable).
+
+SI NO ES PRIMERA VEZ: Leera los parametros guardados en el ".cfg" y le avisara al slider en que nivel
+de volumen posicionarse y al CheckButton le dira si debe estar activado o desactivado.
+
+Esta logica es como funciona el inicio y carga de datos del usuario.
+
+Puntos de referencia:
+	
+	"boot.gd": Leerse toda la estructura.
+	"language_selector.gd": Leerse toda la estructura.
+	"main_menu.gd": Leerse la funcion "func load_user_config():". Dicha funcion lee los datos de inicio.
+----------------------------
+
+¿Cómo ajustar la velocidad de construccion del AnimusPanel?
 
 Si quieres que el Animus se "construya" más rápido: Baja el valor de retraso_entre_columnas
 (por ejemplo, a 0.02). Si quieres que vaya lento y dramático, súbelo (por ejemplo, a 0.1).
@@ -16,6 +41,7 @@ casi al instante al terminar las barras, y 1.5 hará un fundido de entrada muy p
 y estilizado.
 
 ---------------
+#SUBJECTS MENU - main.tscn/main.gd
 
 Flechas del menu Sujetos:
 
@@ -29,3 +55,5 @@ Dicha linea se ubica en la funcion ajustar_pantalla_animus().
 Eje Y (Vertical): (screen_size.y / 2) - (alto / 2). Esto calcula exactamente la mitad de la altura
 de la pantalla y le resta la mitad del tamaño de la flecha para que el centro del botón quede 
 perfectamente alineado con el centro de la pantalla.
+
+---------------------
