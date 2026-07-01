@@ -1,0 +1,99 @@
+[gd_scene format=3 uid="uid://b4s83y2efxgv3"]
+
+[ext_resource type="PackedScene" uid="uid://bj647l5n4ft7w" path="res://animus_panel.tscn" id="1_jf5yc"]
+[ext_resource type="Script" uid="uid://b276u67xiianf" path="res://language_selector.gd" id="1_xjp62"]
+[ext_resource type="FontFile" uid="uid://20pr2kgfewwk" path="res://font/Cinzel-Black.ttf" id="2_hr0mv"]
+[ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="4_ux8ky"]
+
+[sub_resource type="Gradient" id="Gradient_jf5yc"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hr0mv"]
+gradient = SubResource("Gradient_jf5yc")
+fill_to = Vector2(0.63076925, 0.9076923)
+
+[sub_resource type="FontVariation" id="FontVariation_y7fhd"]
+base_font = ExtResource("2_hr0mv")
+
+[sub_resource type="FontVariation" id="FontVariation_ags5q"]
+base_font = ExtResource("4_ux8ky")
+
+[node name="Control" type="Control" unique_id=494460115]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xjp62")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=824854372]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1840141632]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.05109611, 0.05109611, 0.051096104, 1)
+
+[node name="AnimusPanel" parent="CanvasLayer/ColorRect" unique_id=1470157803 instance=ExtResource("1_jf5yc")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.5
+offset_top = -185.0
+offset_right = 301.5
+offset_bottom = 185.0
+tipo_de_color = 1
+degradado_panel = SubResource("GradientTexture2D_hr0mv")
+color_bordes_escena = Color(0.5520593, 0, 0.03125505, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect/AnimusPanel" unique_id=1621877709]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -234.5
+offset_top = 44.0
+offset_right = 234.5
+offset_bottom = 71.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_y7fhd")
+theme_override_font_sizes/font_size = 19
+text = "Selecciona tu idioma / Select your language"
+
+[node name="EnglishBtn" type="Button" parent="CanvasLayer/ColorRect/AnimusPanel" unique_id=1599884004]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.5
+offset_top = -15.5
+offset_right = -50.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_ags5q")
+text = "English"
+
+[node name="EspañolBtn" type="Button" parent="CanvasLayer/ColorRect/AnimusPanel" unique_id=1983028623]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 52.5
+offset_top = -15.5
+offset_right = 121.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_ags5q")
+text = "Español"
