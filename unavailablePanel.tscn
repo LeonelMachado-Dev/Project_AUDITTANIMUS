@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="2_fq8y4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1kx5r"]
-bg_color = Color(0.35922706, 0.36275142, 0.36507893, 1)
+bg_color = Color(0.30872095, 0.31225073, 0.31225076, 1)
 border_width_left = 2
 border_width_top = 3
 border_width_right = 2
@@ -53,7 +53,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 theme_override_fonts/font = SubResource("FontVariation_imw2m")
 theme_override_font_sizes/font_size = 18
-text = "KEY_unavailable_Scene"
+text = "KEY_UNAVAILABLE_TITLE"
 horizontal_alignment = 1
 
 [node name="Text" type="RichTextLabel" parent="MainContainer" unique_id=331084214]
