@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://20pr2kgfewwk" path="res://font/Cinzel-Black.ttf" id="5_nlkkf"]
 [ext_resource type="FontFile" uid="uid://7mkjdjpi3yw0" path="res://font/Cinzel-Regular.ttf" id="5_qe12f"]
 [ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="6_qe12f"]
+[ext_resource type="Theme" uid="uid://ct7c6euirkk1h" path="res://buttons theme (wine).tres" id="7_dy7ct"]
 [ext_resource type="PackedScene" uid="uid://crsovc5ccpq3u" path="res://unavailablePanel.tscn" id="8_8qtwp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nlkkf"]
@@ -187,7 +188,7 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_j5v2v")
 theme_override_styles/hover = SubResource("StyleBoxFlat_nlkkf")
 text = "MEMORIAS"
 
-[node name="EditorBtn" type="Button" parent="interface/buttonsContainer" unique_id=1728686354]
+[node name="OptionsBtn" type="Button" parent="interface/buttonsContainer" unique_id=1728686354]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.11489654, 0.114896916, 0.11489666, 1)
 theme_override_fonts/font = ExtResource("5_qe12f")
@@ -241,9 +242,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -59.5
+offset_left = -69.0
 offset_top = -126.0
-offset_right = 59.5
+offset_right = 69.0
 offset_bottom = -95.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -254,8 +255,10 @@ text = "Cargar musica"
 layout_mode = 1
 offset_left = 10.0
 offset_top = 10.0
-offset_right = 79.0
+offset_right = 85.0
 offset_bottom = 41.0
+theme = ExtResource("7_dy7ct")
+theme_override_constants/align_to_largest_stylebox = 1
 theme_override_fonts/font = SubResource("FontVariation_qe12f")
 text = "VOLVER"
 
@@ -266,9 +269,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -73.5
+offset_left = -102.0
 offset_top = -84.5
-offset_right = 73.5
+offset_right = 102.0
 offset_bottom = -61.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -282,9 +285,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -66.5
+offset_left = -79.0
 offset_top = -12.5
-offset_right = 66.5
+offset_right = 79.0
 offset_bottom = 18.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -298,9 +301,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -57.5
+offset_left = -65.5
 offset_top = -61.0
-offset_right = 57.5
+offset_right = 65.5
 offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -392,10 +395,14 @@ offset_top = -774.0
 offset_right = 1354.0
 offset_bottom = -774.0
 
+[node name="Text" parent="UnavailablePanel/MainContainer" parent_id_path=PackedInt32Array(827220531, 1954545810) index="1" unique_id=331084214]
+text = "KEY_UNAVAILABLE_TEXT"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="interface/buttonsContainer/subjectsBtn" to="." method="_on_subjects_btn_pressed"]
 [connection signal="pressed" from="interface/buttonsContainer/lugaresBtn" to="." method="_on_lugares_btn_pressed"]
 [connection signal="pressed" from="interface/buttonsContainer/memoriesBtn" to="." method="_on_memories_btn_pressed"]
-[connection signal="pressed" from="interface/buttonsContainer/EditorBtn" to="." method="_on_editor_btn_pressed"]
+[connection signal="pressed" from="interface/buttonsContainer/OptionsBtn" to="." method="_on_options_btn_pressed"]
 [connection signal="pressed" from="interface/buttonsContainer/exitBtn" to="." method="_on_exit_btn_pressed"]
 
 [editable path="UnavailablePanel"]

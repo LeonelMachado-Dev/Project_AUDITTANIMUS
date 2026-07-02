@@ -24,7 +24,7 @@ var indice_boton_actual: int = -1
 @onready var subjectsBtn = $interface/buttonsContainer/subjectsBtn
 @onready var locationsBtn = $interface/buttonsContainer/lugaresBtn
 @onready var memoriesBtn = $interface/buttonsContainer/memoriesBtn
-@onready var editorBtn = $interface/buttonsContainer/EditorBtn
+@onready var optionsBtn = $interface/buttonsContainer/OptionsBtn
 @onready var exitBtn = $interface/buttonsContainer/exitBtn
 
 # --- AUDIO & PANEL NODES ---
@@ -451,24 +451,24 @@ func _on_disclaimer_aceptado():
 	ir_a_menu_principal()
 	
 # Función para despertar el panel bajo demanda
-func mostrar_opcion_no_disponible() -> void:
+func unavailable_advice() -> void:
 	linea_conectora.visible = false
 	Global.reproducir_tick() # Suena el click clásico del Animus
 	
 	# Cambiamos el texto dinámicamente (puedes usar traducción 'tr()' o texto directo)
 	if is_instance_valid(panel_text):
-		panel_text.text = "OPCIÓN NO DISPONIBLE EN EL ANIMUS" 
+		panel_text.text = tr("KEY_UNAVAILABLE_TEXT") 
 	
 	# Hacemos visible el panel en medio de la pantalla
 	unavailable_panel.visible = true
 	
 	# Conectamos el botón de cerrar del panel para que funcione al hacerle click
 	if is_instance_valid(okBtn):
-		if not okBtn.pressed.is_connected(ocultar_opcion_no_disponible):
-			okBtn.pressed.connect(ocultar_opcion_no_disponible)
+		if not okBtn.pressed.is_connected(hide_unavailable_advice):
+			okBtn.pressed.connect(hide_unavailable_advice)
 
 # Función para cerrar el panel y devolver el control al menú
-func ocultar_opcion_no_disponible() -> void:
+func hide_unavailable_advice() -> void:
 	Global.reproducir_tick()
 	unavailable_panel.visible = false
 	
@@ -481,7 +481,7 @@ func ir_a_menu_principal():
 	subjectsBtn.text = tr("KEY_SUJETOS")
 	locationsBtn.text = tr("KEY_LUGARES")
 	memoriesBtn.text = tr("KEY_RECUERDOS")
-	editorBtn.text = tr("KEY_OPCIONES")
+	optionsBtn.text = tr("KEY_OPCIONES")
 	exitBtn.text = tr("KEY_SALIR")
 	
 func ir_a_modo_edicion():
@@ -492,7 +492,7 @@ func ir_a_modo_edicion():
 	subjectsBtn.text = tr("KEY_VIDEO")
 	locationsBtn.text = tr("KEY_SONIDO")
 	memoriesBtn.text = tr("KEY_LENGUAJE")
-	editorBtn.text = tr("KEY_CREDITOS")
+	optionsBtn.text = tr("KEY_CREDITOS")
 	exitBtn.text = tr("KEY_REGRESAR")
 
 func ir_a_sub_panel_sonido():
@@ -531,12 +531,14 @@ func _on_subjects_btn_pressed():
 	if estado_actual == EstadosMenu.PRINCIPAL:
 		get_tree().change_scene_to_file("res://main.tscn")
 	elif estado_actual == EstadosMenu.EDICION:
+		#Video Scene--------
+		unavailable_advice()
 		print("SOON as posible...")
 
 func _on_lugares_btn_pressed() -> void:
 	Global.reproducir_tick()
 	if estado_actual == EstadosMenu.PRINCIPAL:
-		mostrar_opcion_no_disponible()
+		unavailable_advice()
 		print("Accediendo a la base de datos de ubicaciones geográficas...")
 	elif estado_actual == EstadosMenu.EDICION:
 		ir_a_sub_panel_sonido()
@@ -544,12 +546,14 @@ func _on_lugares_btn_pressed() -> void:
 func _on_memories_btn_pressed() -> void:
 	Global.reproducir_tick()
 	if estado_actual == EstadosMenu.PRINCIPAL:
+		#Memories scene---------------
+		unavailable_advice()
 		print("Cargando secuencias de ADN de memoria genética...")
 	elif estado_actual == EstadosMenu.EDICION:
 		generar_panel_idiomas_animus()
 		print("Starting the language section")
 
-func _on_editor_btn_pressed() -> void:
+func _on_options_btn_pressed() -> void:
 	Global.reproducir_tick()
 	if estado_actual == EstadosMenu.PRINCIPAL:
 		ir_a_modo_edicion()
