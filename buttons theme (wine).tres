@@ -18,3 +18,4 @@ texture = SubResource("GradientTexture2D_eg6t8")
 [resource]
 Button/styles/hover = ExtResource("1_8dlij")
 Button/styles/normal = SubResource("StyleBoxTexture_ld8hl")
+Button/styles/pressed = ExtResource("1_8dlij")
