@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://20pr2kgfewwk" path="res://font/Cinzel-Black.ttf" id="5_nlkkf"]
 [ext_resource type="FontFile" uid="uid://7mkjdjpi3yw0" path="res://font/Cinzel-Regular.ttf" id="5_qe12f"]
 [ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="6_qe12f"]
+[ext_resource type="PackedScene" uid="uid://crsovc5ccpq3u" path="res://unavailablePanel.tscn" id="8_8qtwp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nlkkf"]
 shader = ExtResource("1_fu7sn")
@@ -384,8 +385,17 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "KEY_ACCEPT"
 
+[node name="UnavailablePanel" parent="." unique_id=827220531 instance=ExtResource("8_8qtwp")]
+layout_mode = 1
+offset_left = 1354.0
+offset_top = -774.0
+offset_right = 1354.0
+offset_bottom = -774.0
+
 [connection signal="pressed" from="interface/buttonsContainer/subjectsBtn" to="." method="_on_subjects_btn_pressed"]
 [connection signal="pressed" from="interface/buttonsContainer/lugaresBtn" to="." method="_on_lugares_btn_pressed"]
 [connection signal="pressed" from="interface/buttonsContainer/memoriesBtn" to="." method="_on_memories_btn_pressed"]
 [connection signal="pressed" from="interface/buttonsContainer/EditorBtn" to="." method="_on_editor_btn_pressed"]
 [connection signal="pressed" from="interface/buttonsContainer/exitBtn" to="." method="_on_exit_btn_pressed"]
+
+[editable path="UnavailablePanel"]

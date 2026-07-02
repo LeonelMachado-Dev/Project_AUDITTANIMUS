@@ -6,7 +6,6 @@ const RUTA_CONFIG = "user://config_animus.cfg"
 @onready var neblina = $NeblinaAnimus
 @onready var pila_cuadros = $interface/PillarBlocks
 @onready var contenedor_botones = $interface/buttonsContainer
-@onready var panel_disclaimer = $DisclaimerPanel
 @onready var boton_aceptar_disclaimer = $DisclaimerPanel/VisorContainer/AcceptBtn
 @onready var visor_container = $DisclaimerPanel/VisorContainer
 @onready var DisclaimerPanel = $DisclaimerPanel
@@ -66,6 +65,11 @@ var sfx_permitido: bool = true
 var detector_mouse_estatico: Control        
 var velocidad_texto: float = 45.0           
 var limite_izquierdo_texto: float = 0.0     
+
+#UnavailablePanel----------------------
+@onready var unavailable_panel = $UnavailablePanel
+@onready var okBtn = $UnavailablePanel/MainContainer/AcceptBtn # <- Ajusta esta ruta al botón de cerrar/OK que tenga tu panel
+@onready var panel_text = $UnavailablePanel/MainContainer/Text # <- Ajusta esta ruta al Label de texto que tenga tu panel
 # ---------------------------------------------------
 enum EstadosMenu { PRINCIPAL, EDICION, SONIDO }
 var estado_actual = EstadosMenu.PRINCIPAL
@@ -73,7 +77,7 @@ var estado_actual = EstadosMenu.PRINCIPAL
 func _ready():
 	inicializar_linea_conectora()
 	crear_visualizador_animus_dinamico()
-	cargar_preferencias_usuario()
+	load_user_config()
 	ajustar_pantalla_menu()
 	get_tree().root.size_changed.connect(ajustar_pantalla_menu)
 	construir_pila_bloques()
@@ -81,16 +85,19 @@ func _ready():
 	inicializar_sistema_audio()
 	
 	if panel_sonido: panel_sonido.visible = false
-	chequear_primer_inicio()
+	disclaimer_check()
 	ir_a_menu_principal()
+	
+	if unavailable_panel:
+		unavailable_panel.visible = false
 	
 func ajustar_pantalla_menu():
 	var screen_size = get_viewport_rect().size
 	if fondo: fondo.size = screen_size
 	if neblina: neblina.size = screen_size
 	
-	if panel_disclaimer:
-		panel_disclaimer.size = screen_size
+	if DisclaimerPanel:
+		DisclaimerPanel.size = screen_size
 		
 	if DisclaimerPanel:
 		DisclaimerPanel.global_position = Vector2.ZERO # Esquina superior izquierda
@@ -101,6 +108,10 @@ func ajustar_pantalla_menu():
 		var centro_x = (screen_size.x / 2.0) - (visor_container.size.x / 2.0)
 		var centro_y = (screen_size.y / 2.0) - (visor_container.size.y / 2.0)
 		visor_container.global_position = Vector2(centro_x, centro_y)
+		
+	if unavailable_panel:
+		unavailable_panel.global_position = Vector2.ZERO
+		unavailable_panel.size = screen_size
 		
 	if pila_cuadros:
 		pila_cuadros.global_position = Vector2(120, 0)
@@ -216,26 +227,25 @@ func crear_visualizador_animus_dinamico():
 	detector_mouse_estatico.mouse_entered.connect(_on_visualizador_mouse_entered)
 	detector_mouse_estatico.mouse_exited.connect(_on_visualizador_mouse_exited)
 	
-func cargar_preferencias_usuario():
+func load_user_config():
 	var config = ConfigFile.new()
 	if config.load(RUTA_CONFIG) == OK:
-		# --- NUEVA LÓGICA: CARGAR IDIOMA GUARDADO ---
-		var idioma_guardado = config.get_value("Localization", "idioma", "")
-		if idioma_guardado != "":
-			TranslationServer.set_locale(idioma_guardado)
-			print("[SISTEMA] Idioma cargado desde la configuración: ", idioma_guardado)
-		
+		# Sincronizamos la posición visual del slider
 		var vol_guardado = config.get_value("Audio", "volumen_musica", 80.0)
-		if slider_musica: slider_musica.value = vol_guardado
-		_on_volume_slider_changed(vol_guardado)
+		if slider_musica: 
+			slider_musica.value = vol_guardado
 		
-		Global.sfx_permitido = config.get_value("Audio", "sfx_activado", true)
-		if sfx_check_btn: sfx_check_btn.button_pressed = Global.sfx_permitido
+		# Sincronizamos el estado visual del botón SFX basándonos en lo que ya cargó el Boot
+		if sfx_check_btn: 
+			sfx_check_btn.button_pressed = Global.sfx_permitido
 		
+		# Sincronizamos el texto del visualizador de canciones
 		var ultima_pista = config.get_value("Audio", "ruta_origen_musica", "")
 		actualizar_interfaz_visualizador(ultima_pista)
 	else:
-		if sfx_check_btn: sfx_check_btn.button_pressed = Global.sfx_permitido
+		# Valores seguros por defecto si el archivo fallara
+		if sfx_check_btn: 
+			sfx_check_btn.button_pressed = Global.sfx_permitido
 		actualizar_interfaz_visualizador("")
 
 func guardar_preferencia(seccion: String, clave: String, valor: Variant):
@@ -394,6 +404,7 @@ func _on_visualizador_mouse_exited():
 	var tween = create_tween().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.tween_property(visualizador_padre, "global_position", posicion_oculto, 0.5)
 	
+	
 func disclaimer_text():
 	if not is_instance_valid(texto_disclaimer):
 		return
@@ -416,29 +427,50 @@ DO NOT DISTRIBUTE FOR PROFIT. A PROJECT BY A FAN FOR FANS OF THE FRANCHISE."""
 	else:
 		texto_disclaimer.text = disclaimer_es
 		
-func chequear_primer_inicio():
-	if Global.disclaimer_ya_mostrado:
-		panel_disclaimer.visible = false
-		contenedor_botones.visible = true
-		pila_cuadros.visible = true
-		ir_a_menu_principal()
-	else:
-		disclaimer_text()
-		
-		panel_disclaimer.visible = true
-		contenedor_botones.visible = false
-		linea_conectora.visible = false
-		pila_cuadros.visible = true
-		
-		if not boton_aceptar_disclaimer.pressed.is_connected(_on_disclaimer_aceptado):
-			boton_aceptar_disclaimer.pressed.connect(_on_disclaimer_aceptado)
+func disclaimer_check() -> void:
+	# Si ya se aceptó en esta sesión de juego, apagamos el panel y no hacemos nada más
+	if Global.disclaimer_accepted:
+		DisclaimerPanel.visible = false
+		return
+
+	# Si es el arranque inicial de la sesión, preparamos y mostramos el disclaimer
+	disclaimer_text()
+	DisclaimerPanel.visible = true
+	contenedor_botones.visible = false
+	linea_conectora.visible = false
+	pila_cuadros.visible = true
+	
+	if not boton_aceptar_disclaimer.pressed.is_connected(_on_disclaimer_aceptado):
+		boton_aceptar_disclaimer.pressed.connect(_on_disclaimer_aceptado)
 		
 func _on_disclaimer_aceptado():
 	Global.reproducir_tick()
-	Global.disclaimer_ya_mostrado = true 
-	panel_disclaimer.visible = false
+	Global.disclaimer_accepted = true 
+	DisclaimerPanel.visible = false
 	contenedor_botones.visible = true
 	ir_a_menu_principal()
+	
+# Función para despertar el panel bajo demanda
+func mostrar_opcion_no_disponible() -> void:
+	linea_conectora.visible = false
+	Global.reproducir_tick() # Suena el click clásico del Animus
+	
+	# Cambiamos el texto dinámicamente (puedes usar traducción 'tr()' o texto directo)
+	if is_instance_valid(panel_text):
+		panel_text.text = "OPCIÓN NO DISPONIBLE EN EL ANIMUS" 
+	
+	# Hacemos visible el panel en medio de la pantalla
+	unavailable_panel.visible = true
+	
+	# Conectamos el botón de cerrar del panel para que funcione al hacerle click
+	if is_instance_valid(okBtn):
+		if not okBtn.pressed.is_connected(ocultar_opcion_no_disponible):
+			okBtn.pressed.connect(ocultar_opcion_no_disponible)
+
+# Función para cerrar el panel y devolver el control al menú
+func ocultar_opcion_no_disponible() -> void:
+	Global.reproducir_tick()
+	unavailable_panel.visible = false
 	
 func ir_a_menu_principal():
 	estado_actual = EstadosMenu.PRINCIPAL
@@ -504,6 +536,7 @@ func _on_subjects_btn_pressed():
 func _on_lugares_btn_pressed() -> void:
 	Global.reproducir_tick()
 	if estado_actual == EstadosMenu.PRINCIPAL:
+		mostrar_opcion_no_disponible()
 		print("Accediendo a la base de datos de ubicaciones geográficas...")
 	elif estado_actual == EstadosMenu.EDICION:
 		ir_a_sub_panel_sonido()
