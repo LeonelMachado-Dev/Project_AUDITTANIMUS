@@ -9,6 +9,7 @@ extends Control
 @onready var estado_borrar_label = $Interface/status
 @onready var label_BG = $Interface/Label_BG
 @onready var edit_btn = $Interface/edit_subjectBtn
+@onready var back_btn = $Interface/backBtn
 var tiempo_ultimo_giro : float = 0.0
 var lista_filtrada = [] #Esto servira para que se guarde solo las tarjetas filtradas, una caja temporal de las tarjetas mientras se filtran.
 var escena_entrada = preload("res://entrada_sujeto.tscn")
@@ -73,6 +74,27 @@ func _ready():
 	# Forzamos una espera de un frame para asegurarnos de que el layout inicial sea el correcto
 	await get_tree().process_frame
 	reiniciar_posiciones_referencia()
+
+func _animar_y_esperar_boton(boton: Button) -> void:
+	if not is_instance_valid(boton): return
+	
+	# Aseguramos el pivote en el centro
+	boton.pivot_offset = boton.size / 2
+	
+	var tween = create_tween()
+	
+	# 1. Se encoge de forma ultra inmediata (0.02 segundos)
+	tween.tween_property(boton, "scale", Vector2(0.92, 0.92), 0.02)\
+		.set_trans(Tween.TRANS_QUAD)\
+		.set_ease(Tween.EASE_OUT)
+		
+	# 2. Vuelve al tamaño original rápido con un golpe firme (0.08 segundos)
+	tween.tween_property(boton, "scale", Vector2.ONE, 0.08)\
+		.set_trans(Tween.TRANS_BACK)\
+		.set_ease(Tween.EASE_OUT)
+		
+	# Espera total de solo 0.1 segundos antes de hacer la acción
+	await tween.finished
 
 func ajustar_pantalla_animus():
 	var screen_size = get_viewport_rect().size
@@ -163,6 +185,7 @@ func llenar_lista():
 
 func _on_delete_subject_btn_pressed() -> void:
 	Global.reproducir_tick()
+	await _animar_y_esperar_boton(delete_btn) # Efecto elástico
 	if estado_actual == EstadoInterfaz.NORMAL:
 		estado_actual = EstadoInterfaz.MODO_PURGA
 		
@@ -178,6 +201,7 @@ func _on_delete_subject_btn_pressed() -> void:
 		
 func _on_edit_subject_btn_pressed() -> void:
 	Global.reproducir_tick()
+	await _animar_y_esperar_boton(edit_btn) # Efecto elástico
 	if estado_actual == EstadoInterfaz.NORMAL:
 		estado_actual = EstadoInterfaz.MODO_EDICION
 		if label_BG:
