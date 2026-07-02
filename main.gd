@@ -55,8 +55,8 @@ func _ready():
 	llenar_lista()
 	
 	if pop_up_confirmacion:
-		pop_up_confirmacion.get_ok_button().text = "SÍ, ELIMINAR"
-		pop_up_confirmacion.get_cancel_button().text = "NO, CANCELAR"
+		pop_up_confirmacion.get_ok_button().text = tr("KEY_POSITIVE_CONFIRMATION")
+		pop_up_confirmacion.get_cancel_button().text = tr("KEY_NEGATIVE_CONFIRMATION")
 		
 		if not pop_up_confirmacion.confirmed.is_connected(_on_borrado_confirmado):
 			pop_up_confirmacion.confirmed.connect(_on_borrado_confirmado)
@@ -152,7 +152,7 @@ func _on_tarjeta_pulsada_en_carrusel(tarjeta_pulsada):
 			var apellido = tarjeta_pulsada.datos_sujeto.get("apellido", "Desconocido")
 			
 			if pop_up_confirmacion:
-				pop_up_confirmacion.dialog_text = "¿Estás seguro de querer borrar al sujeto " + nombre.to_upper() + " " + apellido.to_upper() + " de la base de datos?"
+				pop_up_confirmacion.dialog_text = tr("KEY_DELETE_CONFIRMATION") + " " + nombre.to_upper() + " " + apellido.to_upper()
 				pop_up_confirmacion.popup_centered()
 				
 		EstadoInterfaz.MODO_EDICION:
