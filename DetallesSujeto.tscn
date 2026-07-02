@@ -40,8 +40,6 @@ fill_to = Vector2(0.54831934, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ld8hl"]
 texture = SubResource("GradientTexture2D_eg6t8")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p0ve4"]
-
 [sub_resource type="FontVariation" id="FontVariation_mcw6r"]
 base_font = ExtResource("5_mcw6r")
 
@@ -108,6 +106,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("7_p0ve4")
 
 [node name="PlexusSystem" type="Node2D" parent="Background" unique_id=1213776493]
 script = ExtResource("3_vh67j")
@@ -154,10 +153,10 @@ theme_override_constants/separation = 10
 
 [node name="BtnVolver" type="Button" parent="HBoxContainer/ColumnaIzquierda/ContenedorBotones" unique_id=1459544967]
 layout_mode = 2
+theme = ExtResource("7_p0ve4")
 theme_override_constants/align_to_largest_stylebox = 1
 theme_override_fonts/font = ExtResource("5_mcw6r")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ld8hl")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_p0ve4")
 theme_override_styles/hover = ExtResource("6_p0ve4")
 text = "KEY_REGRESAR"
 
