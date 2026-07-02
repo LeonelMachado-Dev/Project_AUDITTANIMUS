@@ -2,6 +2,6 @@
 .godot/
 /android/
 export_presets.cfg
-data/
 **/~*.dll
 **/~*.tmp
+/data
