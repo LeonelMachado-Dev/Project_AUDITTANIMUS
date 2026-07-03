@@ -19,11 +19,11 @@
 shader = ExtResource("2_1bvp3")
 shader_parameter/smoke_color = Color(0.85, 0.9, 0.95, 0.15)
 
-[sub_resource type="Gradient" id="Gradient_lquwl"]
+[sub_resource type="Gradient" id="Gradient_w48qg"]
 colors = PackedColorArray(0.66245234, 0.66245234, 0.6624523, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0xm2m"]
-gradient = SubResource("Gradient_lquwl")
+gradient = SubResource("Gradient_w48qg")
 fill = 1
 fill_from = Vector2(0.50427353, 0.51282054)
 fill_to = Vector2(0, 0)
@@ -130,6 +130,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="animusHeader" type="Control" parent="." unique_id=500960909]
 custom_minimum_size = Vector2(0, 180)
@@ -189,6 +190,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="ContenedorTarjetas" type="Control" parent="Interface/MenuSujetos" unique_id=1102691376]
 layout_mode = 1
@@ -203,6 +205,7 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="leftBtn" type="Button" parent="Interface" unique_id=1692772483]
 anchors_preset = 4
@@ -219,153 +222,7 @@ focus_mode = 0
 icon = ExtResource("5_w48qg")
 flat = true
 expand_icon = true
-
-[node name="browser" type="LineEdit" parent="Interface" unique_id=630719562]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -145.25
-offset_top = 62.0
-offset_right = 145.25
-offset_bottom = 125.0
-grow_horizontal = 2
-theme_override_fonts/font = SubResource("FontVariation_ycdy4")
-placeholder_text = "KEY_BUSCADOR_SUJETOS"
-alignment = 1
-
-[node name="backBtn" type="Button" parent="Interface" unique_id=1185268169]
-offset_left = 98.0
-offset_top = 64.0
-offset_right = 175.0
-offset_bottom = 95.0
-theme = ExtResource("6_ycdy4")
-theme_override_constants/align_to_largest_stylebox = 2
-theme_override_fonts/font = SubResource("FontVariation_w48qg")
-text = "KEY_REGRESAR"
-
-[node name="add_subjectBtn" type="Button" parent="Interface" unique_id=1608818970]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -405.0
-offset_top = 64.0
-offset_right = -336.0
-offset_bottom = 95.0
-grow_horizontal = 0
-theme = ExtResource("6_ycdy4")
-theme_override_constants/align_to_largest_stylebox = 2
-theme_override_fonts/font = ExtResource("5_dg77c")
-text = "KEY_AÑADIR_SUJETOS"
-
-[node name="edit_subjectBtn" type="Button" parent="Interface" unique_id=1888207766]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -199.0
-offset_top = 64.0
-offset_right = -130.0
-offset_bottom = 95.0
-grow_horizontal = 0
-theme = ExtResource("6_ycdy4")
-theme_override_constants/align_to_largest_stylebox = 2
-theme_override_fonts/font = ExtResource("5_dg77c")
-text = "KEY_EDITAR_SUJETOS"
-
-[node name="delete_subjectBtn" type="Button" parent="Interface" unique_id=2059097515]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -304.0
-offset_top = 64.0
-offset_right = -231.0
-offset_bottom = 95.0
-grow_horizontal = 0
-theme = ExtResource("6_ycdy4")
-theme_override_constants/align_to_largest_stylebox = 2
-theme_override_fonts/font = ExtResource("5_dg77c")
-text = "KEY_BORRAR_SUJETOS"
-
-[node name="Label_BG" type="ColorRect" parent="Interface" unique_id=1793092846]
-custom_minimum_size = Vector2(0, 32)
-offset_right = 440.0
-offset_bottom = 32.0
-color = Color(0, 0, 0, 0.624)
-
-[node name="status" type="Label" parent="Interface" unique_id=1588455215]
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="ActionsBar" type="ColorRect" parent="Interface" unique_id=2058325628]
-material = SubResource("ShaderMaterial_dg77c")
-custom_minimum_size = Vector2(1000, 46)
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -500.0
-offset_top = -58.0
-offset_right = 500.0
-offset_bottom = -18.0
-grow_horizontal = 2
-grow_vertical = 0
-theme = SubResource("Theme_5vw27")
-
-[node name="MoveButtons" type="TextureRect" parent="Interface/ActionsBar" unique_id=884776411]
-custom_minimum_size = Vector2(70, 0)
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 139.0
-offset_top = -15.0
-offset_right = 209.92993
-offset_bottom = 13.0
-grow_vertical = 2
-texture = ExtResource("9_kek77")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="moveLabel" type="Label" parent="Interface/ActionsBar" unique_id=1733594142]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 27.0
-offset_top = -11.0
-offset_right = 256.0
-offset_bottom = 15.0
-grow_vertical = 2
-text = "KEY_NAVEGAR_SUJETOS"
-label_settings = SubResource("LabelSettings_4c57u")
-
-[node name="TextureRect" type="TextureRect" parent="Interface/ActionsBar" unique_id=1625667474]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 239.0
-offset_top = -25.0
-offset_right = 279.0
-offset_bottom = 20.0
-grow_vertical = 2
-texture = ExtResource("6_4c57u")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="delimiter" type="Label" parent="Interface/ActionsBar" unique_id=452151505]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = 216.0
-offset_top = -15.0
-offset_right = 233.0
-offset_bottom = 11.0
-grow_vertical = 2
-theme_override_fonts/font = SubResource("FontVariation_vivmo")
-text = "/"
-label_settings = SubResource("LabelSettings_4c57u")
+metadata/_edit_use_anchors_ = true
 
 [node name="rightBtn" type="TextureButton" parent="Interface" unique_id=758995866]
 anchors_preset = 6
@@ -384,6 +241,166 @@ texture_normal = ExtResource("5_w48qg")
 ignore_texture_size = true
 stretch_mode = 4
 flip_h = true
+metadata/_edit_use_anchors_ = true
+
+[node name="browser" type="LineEdit" parent="Interface" unique_id=630719562]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -145.25
+offset_top = 62.0
+offset_right = 145.25
+offset_bottom = 125.0
+grow_horizontal = 2
+theme_override_fonts/font = SubResource("FontVariation_ycdy4")
+placeholder_text = "KEY_BUSCADOR_SUJETOS"
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="backBtn" type="Button" parent="Interface" unique_id=1185268169]
+offset_left = 98.0
+offset_top = 64.0
+offset_right = 175.0
+offset_bottom = 95.0
+theme = ExtResource("6_ycdy4")
+theme_override_constants/align_to_largest_stylebox = 2
+theme_override_fonts/font = SubResource("FontVariation_w48qg")
+text = "KEY_REGRESAR"
+metadata/_edit_use_anchors_ = true
+
+[node name="add_subjectBtn" type="Button" parent="Interface" unique_id=1608818970]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -405.0
+offset_top = 64.0
+offset_right = -336.0
+offset_bottom = 95.0
+grow_horizontal = 0
+theme = ExtResource("6_ycdy4")
+theme_override_constants/align_to_largest_stylebox = 2
+theme_override_fonts/font = ExtResource("5_dg77c")
+text = "KEY_AÑADIR_SUJETOS"
+metadata/_edit_use_anchors_ = true
+
+[node name="edit_subjectBtn" type="Button" parent="Interface" unique_id=1888207766]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -199.0
+offset_top = 64.0
+offset_right = -130.0
+offset_bottom = 95.0
+grow_horizontal = 0
+theme = ExtResource("6_ycdy4")
+theme_override_constants/align_to_largest_stylebox = 2
+theme_override_fonts/font = ExtResource("5_dg77c")
+text = "KEY_EDITAR_SUJETOS"
+metadata/_edit_use_anchors_ = true
+
+[node name="delete_subjectBtn" type="Button" parent="Interface" unique_id=2059097515]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -304.0
+offset_top = 64.0
+offset_right = -231.0
+offset_bottom = 95.0
+grow_horizontal = 0
+theme = ExtResource("6_ycdy4")
+theme_override_constants/align_to_largest_stylebox = 2
+theme_override_fonts/font = ExtResource("5_dg77c")
+text = "KEY_BORRAR_SUJETOS"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label_BG" type="ColorRect" parent="Interface" unique_id=1793092846]
+custom_minimum_size = Vector2(0, 32)
+offset_right = 440.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 0.624)
+metadata/_edit_use_anchors_ = true
+
+[node name="status" type="Label" parent="Interface" unique_id=1588455215]
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ActionsBar" type="ColorRect" parent="Interface" unique_id=2058325628]
+material = SubResource("ShaderMaterial_dg77c")
+custom_minimum_size = Vector2(1000, 46)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -58.0
+offset_right = 500.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_5vw27")
+metadata/_edit_use_anchors_ = true
+
+[node name="MoveButtons" type="TextureRect" parent="Interface/ActionsBar" unique_id=884776411]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 139.0
+offset_top = -15.0
+offset_right = 209.92993
+offset_bottom = 13.0
+grow_vertical = 2
+texture = ExtResource("9_kek77")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="moveLabel" type="Label" parent="Interface/ActionsBar" unique_id=1733594142]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 27.0
+offset_top = -11.0
+offset_right = 256.0
+offset_bottom = 15.0
+grow_vertical = 2
+text = "KEY_NAVEGAR_SUJETOS"
+label_settings = SubResource("LabelSettings_4c57u")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Interface/ActionsBar" unique_id=1625667474]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 239.0
+offset_top = -25.0
+offset_right = 279.0
+offset_bottom = 20.0
+grow_vertical = 2
+texture = ExtResource("6_4c57u")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="delimiter" type="Label" parent="Interface/ActionsBar" unique_id=452151505]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 216.0
+offset_top = -15.0
+offset_right = 233.0
+offset_bottom = 11.0
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_vivmo")
+text = "/"
+label_settings = SubResource("LabelSettings_4c57u")
+metadata/_edit_use_anchors_ = true
 
 [node name="click_effect" type="AudioStreamPlayer" parent="." unique_id=542319482]
 stream = ExtResource("5_lquwl")
@@ -393,7 +410,7 @@ title = ""
 unresizable = true
 
 [connection signal="pressed" from="Interface/leftBtn" to="." method="_on_left_btn_pressed"]
+[connection signal="pressed" from="Interface/rightBtn" to="." method="_on_right_btn_pressed"]
 [connection signal="text_changed" from="Interface/browser" to="." method="_on_browser_text_changed"]
 [connection signal="pressed" from="Interface/backBtn" to="." method="_on_back_btn_pressed"]
 [connection signal="pressed" from="Interface/add_subjectBtn" to="." method="_on_add_subject_btn_pressed"]
-[connection signal="pressed" from="Interface/rightBtn" to="." method="_on_right_btn_pressed"]
