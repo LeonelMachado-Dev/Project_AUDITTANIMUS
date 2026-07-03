@@ -568,7 +568,7 @@ func _on_options_btn_pressed() -> void:
 							"DESARROLLO DE FUNCIONES DE INTELIGENCIA ARTIFICIAL\nGiscard Fuenmayor\n\n\n" + \
 							"DESARROLLO DEL CLIENTE WEB\nAlejandro Audittore / Leonel Machado\nJary Gainza\n\n\n" + \
 							"AGRADECIMIENTOS ESPECIALES\n" + \
-							"SUBJECT1\nSUBJECT2\nSUBJECT3\n\n\n" + \
+							"Amigos que probaron el sistema y a todos ustedes!\n\n\n" + \
 							"DISEÑO DE INTERFAZ\nInspirado en Assassin's Creed 2\n(Producto original de Ubisoft Montreal)\n\n\n" + \
 							"Gracias por usar el proyecto."
 		generar_panel_animus_procedimental(Vector2(650, 400), true, texto_creditos)
