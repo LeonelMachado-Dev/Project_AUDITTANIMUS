@@ -77,7 +77,7 @@ func psyco_analyse():
 	var analisis_txt = str(datos_sujeto.get("analisis_detallado", "")).strip_edges()
 	
 	if analisis_txt == "" or analisis_txt == "null" or analisis_txt == "<null>":
-		texto_contenido.append_text("[color=#b33a3a]ESTE SUJETO NO TIENE ANALISIS DETALLADO[/color]")
+		texto_contenido.append_text("[color=#ffffff]ESTE SUJETO NO TIENE ANALISIS DETALLADO[/color]")
 	else:
 		texto_contenido.append_text(analisis_txt)
 
