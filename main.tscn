@@ -390,6 +390,7 @@ stream = ExtResource("5_lquwl")
 
 [node name="PopUpConfirmacion" type="ConfirmationDialog" parent="." unique_id=885177455]
 title = ""
+unresizable = true
 
 [connection signal="pressed" from="Interface/leftBtn" to="." method="_on_left_btn_pressed"]
 [connection signal="text_changed" from="Interface/browser" to="." method="_on_browser_text_changed"]
