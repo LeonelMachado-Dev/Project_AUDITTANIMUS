@@ -19,7 +19,7 @@ config/description="Project AudittAnimus is a fan project maded to al the fans o
 config/version="0.7"
 run/main_scene="uid://bm18fwayp7pyi"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="uid://bd1cb3jpsn5rd"
+config/icon="uid://b1v1c1tl071ki"
 
 [autoload]
 
