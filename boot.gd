@@ -31,4 +31,4 @@ func _ready() -> void:
 
 	# Si el archivo no existe o no tiene idioma guardado, es la primera vez absoluta del juego
 	print("[BOOT] Archivo de configuración ausente o limpio. Abriendo selector de idiomas de inicio...")
-	get_tree().change_scene_to_file.call_deferred("res://selector_idioma_inicio.tscn")
+	get_tree().change_scene_to_file.call_deferred("res://LanguageSelector.tscn")
