@@ -59,7 +59,7 @@ Hope you enjoy it!
 
 ## 📸 **Screenshots**
 
-A couple of screenshots to delight you... Soon!
+A couple of screenshots to delight you...
 
 ### 🔺 Main Menu
 
