@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://oqoaond2sjrb"]
+
+[ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="1_jttwg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kgkb5"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="Control" type="Button" unique_id=1654149419]
+custom_minimum_size = Vector2(460, 360)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -820.0
+offset_bottom = -408.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Panel" type="Panel" parent="." unique_id=1739646940]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kgkb5")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=950435580]
+custom_minimum_size = Vector2(460, 300)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="." unique_id=1970609042]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -40.0
+offset_right = 50.5
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_jttwg")
+text = "Place Name"
