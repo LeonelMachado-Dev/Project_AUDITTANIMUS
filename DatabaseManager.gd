@@ -83,6 +83,17 @@ func crear_tablas_si_no_existen():
 	);
 	"""
 	db.query(query_recuerdos)
+	
+	var query_places = """
+	CREATE TABLE IF NOT EXISTS places (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		place_name TEXT
+		place_description TEXT,
+		image_path TEXT,
+		picture_date TEXT
+	);
+	"""
+	db.query(query_places)
 	print("[Animus OS] Estructura de tablas validada.")
 
 func insertar_sujeto(datos: Dictionary) -> int:
