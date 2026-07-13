@@ -64,13 +64,18 @@ A couple of screenshots to delight you...
 ### 🔺 Main Menu
 
 <p align="center">
-  <img width="70%" height="70%" src="https://i.imgur.com/dDMnDvO.png" alt="Main Menu">
+  <img width="70%" height="70%" src="https://i.imgur.com/3gZd69H.png" alt="Main Menu">
 </p>
 
 ### 🔻 Subjects Screen
 
 <p align="center">
-  <img width="70%" height="70%" src="https://i.imgur.com/gc1lkht.png" alt="The subjects screen">
+  <img width="70%" height="70%" src="https://i.imgur.com/S3GIpYN.png" alt="The subjects screen">
+</p>
+
+### 🔻 Subjects Details
+<p align="center">
+	<img width="70%" height="70%" src="https://i.imgur.com/ZRAeHiJ.png" alt="The subjects screen">
 </p>
 
 ---
