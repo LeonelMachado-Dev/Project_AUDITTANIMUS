@@ -225,7 +225,7 @@ offset_left = -301.5
 offset_top = -152.0
 offset_right = 331.0
 offset_bottom = 280.0
-color_de_columnas = Color(0.19641912, 0.19641912, 0.19641912, 0.68600005)
+color_de_columnas = Color(0.1663743, 0.1663743, 0.16637424, 0.6862745)
 separacion_columnas = 0.8
 color_bordes_escena = Color(0.8446712, 0.17794243, 0.25538662, 1)
 
