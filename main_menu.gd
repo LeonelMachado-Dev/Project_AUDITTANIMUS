@@ -538,7 +538,7 @@ func _on_subjects_btn_pressed():
 func _on_lugares_btn_pressed() -> void:
 	Global.reproducir_tick()
 	if estado_actual == EstadosMenu.PRINCIPAL:
-		unavailable_advice()
+		get_tree().change_scene_to_file("res://Places_scene.tscn")
 		print("Accediendo a la base de datos de ubicaciones geográficas...")
 	elif estado_actual == EstadosMenu.EDICION:
 		ir_a_sub_panel_sonido()
