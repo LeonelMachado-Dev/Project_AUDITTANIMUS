@@ -12,12 +12,12 @@ func configurar(data):
 	datos_sujeto = data 
 	
 	# 1. Asignamos el nombre y apellido en mayúsculas al Label de abajo
-	var nombre = data.get("nombre", "")
-	var apellido = data.get("apellido", "")
+	var nombre = data.get("name", "")
+	var apellido = data.get("last_name", "")
 	label_nombre.text = (nombre + " " + apellido).to_upper()
 	
 	# 2. Cargar la foto desde la ruta externa (user://...)
-	var ruta_foto = data.get("imagen_path", "")
+	var ruta_foto = data.get("image_path", "")
 	
 	if ruta_foto != "" and FileAccess.file_exists(ruta_foto):
 		# Cargamos la imagen directamente usando el método estático de Godot
@@ -57,7 +57,7 @@ func cargar_imagen_defecto():
 
 # Separamos la lógica de cambio de escena para que main.gd pueda llamarla de forma segura
 func cambiar_a_detalles():
-	var nombre_completo = (datos_sujeto.get("nombre", "") + " " + datos_sujeto.get("apellido", "")).to_upper()
+	var nombre_completo = (datos_sujeto.get("name", "") + " " + datos_sujeto.get("last_name", "")).to_upper()
 	print("Has seleccionado a: ", nombre_completo)
 	
 	# Guardamos el ID en el Autoload Global

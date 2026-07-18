@@ -28,6 +28,12 @@ base_font = ExtResource("4_ernmp")
 [sub_resource type="FontVariation" id="FontVariation_cwbnt"]
 base_font = ExtResource("4_ernmp")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ernmp"]
+bg_color = Color(0.18072194, 0.180722, 0.18072188, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ba2jl"]
+bg_color = Color(0.18039216, 0.18039216, 0.18039216, 1)
+
 [sub_resource type="FontVariation" id="FontVariation_gmvqk"]
 base_font = ExtResource("4_ernmp")
 
@@ -216,7 +222,9 @@ placeholder_text = "KEY_COMMON_LOCATION"
 custom_minimum_size = Vector2(400, 240)
 layout_mode = 2
 size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.9507033, 0.9507033, 0.9507032, 1)
 theme_override_fonts/font = SubResource("FontVariation_cwbnt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ernmp")
 placeholder_text = "KEY_TEXT_SUBJECT_DESCRIPTION"
 emoji_menu_enabled = false
 wrap_mode = 1
@@ -229,7 +237,9 @@ custom_minimum_size = Vector2(400, 240)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 6
+theme_override_colors/font_color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 theme_override_fonts/font = SubResource("FontVariation_cwbnt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ba2jl")
 placeholder_text = "KEY_TEXT_SUBJECT_ANALYSE"
 wrap_mode = 1
 autowrap_mode = 2

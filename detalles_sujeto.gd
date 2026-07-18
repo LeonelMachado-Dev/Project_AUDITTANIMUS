@@ -20,7 +20,7 @@ func _ready():
 	glitch_timer.wait_time = randf_range(3.0, 7.0)
 	
 	var id_elegido = Global.sujeto_seleccionado_id
-	var consulta = "SELECT * FROM sujetos WHERE id = " + str(id_elegido)
+	var consulta = "SELECT * FROM subjects WHERE id = " + str(id_elegido)
 	DB.db.query(consulta)
 	
 	if DB.db.query_result.size() > 0:
@@ -49,13 +49,13 @@ func _animar_y_esperar_boton(boton: Button) -> void:
 # --- AHORA ESTO TIENE SENTIDO: Llena solo las etiquetas fijas ---
 func basic_subject_info():
 	nombre_label.visible_ratio = 0.0
-	nombre_label.text = (datos_sujeto["nombre"] + " " + datos_sujeto["apellido"]).to_upper()
+	nombre_label.text = (datos_sujeto["name"] + " " + datos_sujeto["last_name"]).to_upper()
 	
 	birth_year_label.visible_ratio = 1.0
 	birth_year_label.text = (tr("KEY_BIRTH_YEAR") + " " + datos_sujeto["birth_year"])
 	
 	location_label.visible_ratio = 1.0
-	location_label.text = (tr("KEY_COMMON_LOCATION") + " " + datos_sujeto["ubicacion_frecuente"]).to_upper()
+	location_label.text = (tr("KEY_COMMON_LOCATION") + " " + datos_sujeto["custom_location"]).to_upper()
 	
 	animar_titulo()
 
@@ -65,7 +65,7 @@ func biography():
 	texto_contenido.bbcode_enabled = true
 	texto_contenido.clear()
 	
-	var bio_txt = str(datos_sujeto.get("descripcion", "")).strip_edges()
+	var bio_txt = str(datos_sujeto.get("description", "")).strip_edges()
 	texto_contenido.append_text(bio_txt)
 
 # --- ESPECÍFICO: Solo cambia el cuadro central por el Análisis ---
@@ -74,7 +74,7 @@ func psyco_analyse():
 	texto_contenido.bbcode_enabled = true
 	texto_contenido.clear()
 	
-	var analisis_txt = str(datos_sujeto.get("analisis_detallado", "")).strip_edges()
+	var analisis_txt = str(datos_sujeto.get("personal_analyse", "")).strip_edges()
 	
 	if analisis_txt == "" or analisis_txt == "null" or analisis_txt == "<null>":
 		texto_contenido.append_text("[color=#ffffff]ESTE SUJETO NO TIENE ANALISIS DETALLADO[/color]")
@@ -82,7 +82,7 @@ func psyco_analyse():
 		texto_contenido.append_text(analisis_txt)
 
 func subject_picture():
-	var ruta_foto = str(datos_sujeto.get("imagen_path", "")) 
+	var ruta_foto = str(datos_sujeto.get("image_path", "")) 
 	if ruta_foto != "" and ruta_foto != "null" and FileAccess.file_exists(ruta_foto):
 		var img = Image.load_from_file(ruta_foto)
 		if img:

@@ -41,24 +41,24 @@ func cargar_datos_para_editar(id_elegido):
 	print("[Animus OS] Cargando expediente para edición. ID: ", id_elegido)
 	
 	# Consultamos la base de datos de manera idéntica a detalles_sujeto.gd
-	var consulta = "SELECT * FROM sujetos WHERE id = " + str(id_elegido)
+	var consulta = "SELECT * FROM subjects WHERE id = " + str(id_elegido)
 	DB.db.query(consulta)
 	
 	if DB.db.query_result.size() > 0:
 		var datos_sujeto = DB.db.query_result[0]
 		
 		# 1. Rellenamos los LineEdits e Inputs de texto
-		input_nombre.text = str(datos_sujeto.get("nombre", ""))
-		input_apellido.text = str(datos_sujeto.get("apellido", ""))
+		input_nombre.text = str(datos_sujeto.get("name", ""))
+		input_apellido.text = str(datos_sujeto.get("last_name", ""))
 		input_anio.text = str(datos_sujeto.get("birth_year", ""))
 		if input_anio.text == "null" or input_anio.text == "0":
 			input_anio.text = ""
-		input_ubicacion.text = str(datos_sujeto.get("ubicacion_frecuente", ""))
-		input_descripcion.text = str(datos_sujeto.get("descripcion", ""))
-		inputAnalisis.text = str(datos_sujeto.get("analisis_detallado", ""))
+		input_ubicacion.text = str(datos_sujeto.get("custom_location", ""))
+		input_descripcion.text = str(datos_sujeto.get("description", ""))
+		inputAnalisis.text = str(datos_sujeto.get("custom_analyse", ""))
 		
 		# 2. Precargamos la imagen que ya tiene en la base de datos
-		ruta_imagen_original_db = str(datos_sujeto.get("imagen_path", ""))
+		ruta_imagen_original_db = str(datos_sujeto.get("image_path", ""))
 		
 		if ruta_imagen_original_db != "" and ruta_imagen_original_db != "null" and FileAccess.file_exists(ruta_imagen_original_db):
 			imagen_cargada_raw = Image.load_from_file(ruta_imagen_original_db)
@@ -99,8 +99,8 @@ func _on_foto_seleccionada_dialog(path: String):
 		
 		# --- MATEMÁTICA DE AJUSTE ANIMUS ---
 		# Forzamos que la foto cubra el visor de 300x400 adaptándose proporcionalmente
-		var escala_ancho = 300.0 / imagen_cargada_raw.get_width()
-		var escala_alto = 400.0 / imagen_cargada_raw.get_height()
+		var escala_ancho = 460.0 / imagen_cargada_raw.get_width()
+		var escala_alto = 300.0 / imagen_cargada_raw.get_height()
 		var factor_escala = max(escala_ancho, escala_alto)
 		
 		foto_original.size = imagen_cargada_raw.get_size() * factor_escala
@@ -119,7 +119,6 @@ func _on_confirm_btn_pressed() -> void:
 		$"Advice-PopUp".popup_centered()
 		return
 		
-	# YA NO LLAMAMOS A PROCESAR_RECORTE_FISICO() AQUÍ. 
 	# Guardamos el estado en memoria de que el encuadre está listo
 	foto_confirmada = true
 	
@@ -127,7 +126,7 @@ func _on_confirm_btn_pressed() -> void:
 	foto_original.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	
 	# Mostramos el Pop-up de preparación
-	$"Success-Pop_Up".dialog_text = "Sincronización facial preparada. El archivo se generará al guardar el sujeto."
+	$"Success-Pop_Up".dialog_text = "Foto confirmada correctamente. El archivo se generará al guardar el lugar."
 	$"Success-Pop_Up".popup_centered()
 
 func procesar_recorte_fisico():
@@ -206,14 +205,14 @@ func _on_save_all_btn_pressed() -> void:
 	# 3. FLUJO DE GUARDADO SEGÚN EL MODO (EDITAR VS INSERTAR)
 	if editando_sujeto:
 		# --- CONSULTA DE ACTUALIZACIÓN (UPDATE) ---
-		var consulta_update = "UPDATE sujetos SET " + \
-			"nombre = '" + input_nombre.text.replace("'", "''") + "', " + \
-			"apellido = '" + input_apellido.text.replace("'", "''") + "', " + \
+		var consulta_update = "UPDATE subjects SET " + \
+			"name = '" + input_nombre.text.replace("'", "''") + "', " + \
+			"last_name = '" + input_apellido.text.replace("'", "''") + "', " + \
 			"birth_year = '" + birth_year.replace("'", "''") + "', " + \
-			"imagen_path = '" + ruta_imagen_final + "', " + \
-			"descripcion = '" + input_descripcion.text.replace("'", "''") + "', " + \
-			"ubicacion_frecuente = '" + ubicacion.replace("'", "''") + "', " + \
-			"analisis_detallado = '" + analisis_detallado_txt.replace("'", "''") + "' " + \
+			"image_path = '" + ruta_imagen_final + "', " + \
+			"description = '" + input_descripcion.text.replace("'", "''") + "', " + \
+			"custom_location = '" + ubicacion.replace("'", "''") + "', " + \
+			"personal_analyse= '" + analisis_detallado_txt.replace("'", "''") + "' " + \
 			"WHERE id = " + str(id_sujeto_a_editar)
 			
 		DB.db.query(consulta_update)
@@ -235,13 +234,13 @@ func _on_save_all_btn_pressed() -> void:
 	else:
 		# --- COMPORTAMIENTO: INSERTAR NUEVO ---
 		var nuevos_datos = {
-			"nombre": input_nombre.text,
-			"apellido": input_apellido.text,
+			"name": input_nombre.text,
+			"last_name": input_apellido.text,
 			"birth_year": birth_year,
-			"imagen_path": ruta_imagen_final,
-			"descripcion": input_descripcion.text,
-			"ubicacion_frecuente": ubicacion,
-			"analisis_detallado": analisis_detallado_txt
+			"image_path": ruta_imagen_final,
+			"description": input_descripcion.text,
+			"custom_location": ubicacion,
+			"personal_analyse": analisis_detallado_txt
 		}
 		
 		var nuevo_id = DB.insertar_sujeto(nuevos_datos)
