@@ -1,0 +1,291 @@
+[gd_scene format=3 uid="uid://crybp5rmvehel"]
+
+[ext_resource type="Script" uid="uid://b3eqe8ko60ihk" path="res://places_editor.gd" id="1_pb3kv"]
+[ext_resource type="Shader" uid="uid://cse6pgsng1i6i" path="res://neblina_animus.gdshader" id="2_vs86q"]
+[ext_resource type="Script" uid="uid://ddgnqnf8j5kei" path="res://plexus_system.gd" id="3_uld4u"]
+[ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="4_k08w5"]
+[ext_resource type="Theme" uid="uid://ct7c6euirkk1h" path="res://buttons theme (wine).tres" id="5_dq61g"]
+[ext_resource type="PackedScene" uid="uid://bj647l5n4ft7w" path="res://animus_panel.tscn" id="6_vs86q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eqfkr"]
+shader = ExtResource("2_vs86q")
+shader_parameter/smoke_color = Color(0.85, 0.9, 0.95, 0.15)
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+colors = PackedColorArray(0.66245234, 0.66245234, 0.6624523, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w1b0f"]
+gradient = SubResource("Gradient_lquwl")
+fill = 1
+fill_from = Vector2(0.50427353, 0.51282054)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="FontVariation" id="FontVariation_eqfkr"]
+base_font = ExtResource("4_k08w5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k08w5"]
+bg_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uld4u"]
+bg_color = Color(0.20392157, 0.20392157, 0.20392157, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="FontVariation" id="FontVariation_cwbnt"]
+base_font = ExtResource("4_k08w5")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vs86q"]
+bg_color = Color(0.2036809, 0.20368093, 0.2036809, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="FontVariation" id="FontVariation_gmvqk"]
+base_font = ExtResource("4_k08w5")
+
+[node name="SubjectEditor" type="Control" unique_id=1562331428]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pb3kv")
+
+[node name="NeblinaAnimus" type="ColorRect" parent="." unique_id=1546591870]
+self_modulate = Color(1, 1, 1, 0.22745098)
+material = SubResource("ShaderMaterial_eqfkr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=1219955712]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8862745, 0.9098039, 0.9411765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1542375873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_w1b0f")
+
+[node name="PlexusSystem" type="Node2D" parent="." unique_id=329504298]
+script = ExtResource("3_uld4u")
+
+[node name="Advice-PopUp" type="AcceptDialog" parent="." unique_id=485530521]
+title = "Warning!"
+ok_button_text = "Accept"
+
+[node name="Success-Pop_Up" type="AcceptDialog" parent="." unique_id=1740477026]
+ok_button_text = "Success"
+
+[node name="AnimusPanel" parent="." unique_id=1470157803 instance=ExtResource("6_vs86q")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -304.0
+offset_right = 584.0
+offset_bottom = 328.0
+total_columnas = 28
+duracion_aparicion_columna = 0.1
+
+[node name="FileDialog_Image" type="FileDialog" parent="AnimusPanel" unique_id=2093619570]
+title = "Open a File"
+file_mode = 0
+access = 2
+filters = PackedStringArray("*.png", "*.jpg", "*.jpeg")
+
+[node name="returnBtn" type="Button" parent="AnimusPanel" unique_id=903624837]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 179.0
+offset_bottom = 71.0
+theme = ExtResource("5_dq61g")
+theme_override_constants/align_to_largest_stylebox = 2
+theme_override_fonts/font = ExtResource("4_k08w5")
+text = "KEY_REGRESAR"
+
+[node name="PictureEditor" type="ColorRect" parent="AnimusPanel" unique_id=1341836854]
+clip_contents = true
+custom_minimum_size = Vector2(460, 300)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = -168.0
+offset_right = -16.0
+offset_bottom = 132.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VisorContainer" type="Control" parent="AnimusPanel/PictureEditor" unique_id=1251214536]
+custom_minimum_size = Vector2(460, 300)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="ClipControl" type="Control" parent="AnimusPanel/PictureEditor/VisorContainer" unique_id=1339426351]
+clip_children = 2
+custom_minimum_size = Vector2(460, 300)
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="originalPicture" type="TextureRect" parent="AnimusPanel/PictureEditor/VisorContainer/ClipControl" unique_id=822800345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Border" type="ReferenceRect" parent="AnimusPanel/PictureEditor" unique_id=1001644392]
+custom_minimum_size = Vector2(460, 300)
+layout_mode = 0
+offset_right = 460.0
+offset_bottom = 300.0
+border_color = Color(0.30578822, 0.57404727, 0.68816876, 1)
+border_width = 2.6
+editor_only = false
+
+[node name="ConfirmBtn" type="Button" parent="AnimusPanel" unique_id=1977703552]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -240.0
+offset_top = -144.0
+offset_right = -25.0
+offset_bottom = -113.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("5_dq61g")
+theme_override_fonts/font = ExtResource("4_k08w5")
+text = "KEY_CONFIRM_PICTURE"
+
+[node name="SelectImageBtn" type="Button" parent="AnimusPanel" unique_id=1915978062]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -472.0
+offset_top = -144.0
+offset_right = -276.0
+offset_bottom = -113.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("5_dq61g")
+theme_override_fonts/font = ExtResource("4_k08w5")
+text = "KEY_SELECT_IMAGE"
+
+[node name="inputName" type="LineEdit" parent="AnimusPanel" unique_id=558413398]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+offset_left = 40.0
+offset_top = 136.0
+offset_right = 240.0
+offset_bottom = 166.0
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_eqfkr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k08w5")
+placeholder_text = "KEY_NAME"
+
+[node name="inputBirthYear" type="LineEdit" parent="AnimusPanel" unique_id=138368551]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 1
+offset_left = 40.0
+offset_top = 192.0
+offset_right = 240.0
+offset_bottom = 222.0
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_k08w5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_uld4u")
+placeholder_text = "KEY_PICTURE_DATE"
+
+[node name="inputDescription" type="TextEdit" parent="AnimusPanel" unique_id=1403310909]
+custom_minimum_size = Vector2(400, 240)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -60.0
+offset_right = 440.0
+offset_bottom = 180.0
+grow_vertical = 2
+size_flags_vertical = 6
+theme_override_fonts/font = SubResource("FontVariation_cwbnt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vs86q")
+placeholder_text = "KEY_PICTURE_DESCRIPTION"
+emoji_menu_enabled = false
+wrap_mode = 1
+autowrap_mode = 2
+scroll_past_end_of_file = true
+text_direction = 1
+
+[node name="SaveAllBtn" type="Button" parent="AnimusPanel" unique_id=335769098]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = -112.0
+offset_right = 208.0
+offset_bottom = -82.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme = ExtResource("5_dq61g")
+theme_override_fonts/font = SubResource("FontVariation_gmvqk")
+text = "KEY_SAVE_ALL"
+
+[connection signal="pressed" from="AnimusPanel/returnBtn" to="." method="_on_return_btn_pressed"]
