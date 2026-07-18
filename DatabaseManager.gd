@@ -52,37 +52,37 @@ func conectar_base_datos():
 #Funcion para la consulta de sujetos/personas
 func obtener_sujetos():
 	# Hacemos una consulta simple a la tabla que creamos en DB Browser
-	db.query("SELECT * FROM sujetos")
+	db.query("SELECT * FROM subjects")
 	return db.query_result
 
 func crear_tablas_si_no_existen():
 	db.query("PRAGMA foreign_keys = ON;")
 	
-	var query_sujetos = """
-	CREATE TABLE IF NOT EXISTS sujetos (
+	var query_sujects = """
+	CREATE TABLE IF NOT EXISTS subjects (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		nombre TEXT NOT NULL,
-		apellido TEXT,
+		name TEXT NOT NULL,
+		last_name TEXT,
 		birth_year TEXT,
-		imagen_path TEXT,
-		descripcion TEXT NOT NULL,
-		analisis_detallado TEXT,
-		ubicacion_frecuente TEXT
+		image_path TEXT,
+		description TEXT NOT NULL,
+		personal_analyse TEXT,
+		custom_location TEXT
 	);
 	"""
-	db.query(query_sujetos)
+	db.query(query_sujects)
 	
-	var query_recuerdos = """
+	var query_memories = """
 	CREATE TABLE IF NOT EXISTS recuerdos (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		sujeto_id INTEGER,
-		titulo TEXT,
+		subject_id INTEGER,
+		title TEXT,
 		media_path TEXT,
-		fecha_recuerdo TEXT,
-		FOREIGN KEY (sujeto_id) REFERENCES sujetos(id) ON DELETE CASCADE
+		date TEXT,
+		FOREIGN KEY (subject_id) REFERENCES subjects(id) ON DELETE CASCADE
 	);
 	"""
-	db.query(query_recuerdos)
+	db.query(query_memories)
 	
 	var query_places = """
 	CREATE TABLE IF NOT EXISTS places (
@@ -97,7 +97,7 @@ func crear_tablas_si_no_existen():
 	print("[Animus OS] Estructura de tablas validada.")
 
 func insertar_sujeto(datos: Dictionary) -> int:
-	var exito = db.insert_row("sujetos", datos)
+	var exito = db.insert_row("subjects", datos)
 	if exito:
 		db.query("SELECT last_insert_rowid() as id;")
 		return db.query_result[0]["id"]
@@ -105,14 +105,14 @@ func insertar_sujeto(datos: Dictionary) -> int:
 
 func eliminar_sujeto(id_sujeto: int):
 	# 1. Consultar la ruta de la imagen ANTES de borrar el registro del sujeto
-	db.query("SELECT imagen_path FROM sujetos WHERE id = " + str(id_sujeto))
+	db.query("SELECT imagen_path FROM subjects WHERE id = " + str(id_sujeto))
 	
 	var ruta_imagen: String = ""
 	if db.query_result.size() > 0:
-		ruta_imagen = str(db.query_result[0].get("imagen_path", ""))
+		ruta_imagen = str(db.query_result[0].get("image_path", ""))
 	
 	# 2. Ejecutar la consulta de borrado directo en la base de datos
-	db.query("DELETE FROM sujetos WHERE id = " + str(id_sujeto))
+	db.query("DELETE FROM subjects WHERE id = " + str(id_sujeto))
 	print("[DatabaseManager] Registro eliminado de la base de datos. ID: ", id_sujeto)
 	
 	# 3. Control de limpieza en el disco (AppData/user://)
