@@ -10,6 +10,7 @@ extends Control
 @onready var label_BG = $Interface/Label_BG
 @onready var edit_btn = $Interface/edit_subjectBtn
 @onready var back_btn = $Interface/backBtn
+@onready var add_btn = $Interface/add_subjectBtn
 var tiempo_ultimo_giro : float = 0.0
 var lista_filtrada = [] #Esto servira para que se guarde solo las tarjetas filtradas, una caja temporal de las tarjetas mientras se filtran.
 var escena_entrada = preload("res://entrada_sujeto.tscn")
@@ -68,6 +69,18 @@ func _ready():
 		
 	if edit_btn and not edit_btn.pressed.is_connected(_on_edit_subject_btn_pressed):
 		edit_btn.pressed.connect(_on_edit_subject_btn_pressed)
+		
+	if back_btn:
+		back_btn.text = tr("KEY_REGRESAR")
+		
+	if add_btn:
+		add_btn.text = tr("KEY_AÑADIR_SUJETOS")
+		
+	if edit_btn:
+		edit_btn.text = tr("KEY_EDITAR_SUJETOS")
+	
+	if delete_btn:
+		delete_btn.text = tr("KEY_BORRAR_SUJETOS")
 		
 	get_tree().root.size_changed.connect(ajustar_pantalla_animus)
 	
@@ -148,8 +161,8 @@ func _on_tarjeta_pulsada_en_carrusel(tarjeta_pulsada):
 				
 		EstadoInterfaz.MODO_PURGA:
 			tarjeta_a_eliminar = tarjeta_pulsada
-			var nombre = tarjeta_pulsada.datos_sujeto.get("nombre", "Desconocido")
-			var apellido = tarjeta_pulsada.datos_sujeto.get("apellido", "Desconocido")
+			var nombre = tarjeta_pulsada.datos_sujeto.get("name", "Desconocido")
+			var apellido = tarjeta_pulsada.datos_sujeto.get("last_name", "Desconocido")
 			
 			if pop_up_confirmacion:
 				pop_up_confirmacion.dialog_text = tr("KEY_DELETE_CONFIRMATION") + " " + nombre.to_upper() + " " + apellido.to_upper()
@@ -259,7 +272,7 @@ func _on_browser_text_changed(nuevo_texto: String) -> void:
 	lista_filtrada.clear()
 	var texto_buscar = nuevo_texto.strip_edges().to_lower()
 	for tarjeta in lista_instancias:
-		var nombre_completo = (tarjeta.datos_sujeto.get("nombre", "") + " " + tarjeta.datos_sujeto.get("apellido", "")).to_lower()
+		var nombre_completo = (tarjeta.datos_sujeto.get("name", "") + " " + tarjeta.datos_sujeto.get("last_name", "")).to_lower()
 		if texto_buscar == "" or texto_buscar in nombre_completo:
 			tarjeta.visible = true
 			lista_filtrada.append(tarjeta)
