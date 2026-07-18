@@ -260,57 +260,57 @@ metadata/_edit_use_anchors_ = true
 [node name="backBtn" type="Button" parent="Interface" unique_id=1185268169]
 offset_left = 98.0
 offset_top = 64.0
-offset_right = 175.0
+offset_right = 237.0
 offset_bottom = 95.0
 theme = ExtResource("6_ycdy4")
 theme_override_constants/align_to_largest_stylebox = 2
 theme_override_fonts/font = SubResource("FontVariation_w48qg")
-text = "KEY_REGRESAR"
+text = "RETURN"
 metadata/_edit_use_anchors_ = true
 
 [node name="add_subjectBtn" type="Button" parent="Interface" unique_id=1608818970]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -405.0
-offset_top = 64.0
-offset_right = -336.0
-offset_bottom = 95.0
+offset_left = -437.0
+offset_top = 62.0
+offset_right = -322.0
+offset_bottom = 93.0
 grow_horizontal = 0
 theme = ExtResource("6_ycdy4")
 theme_override_constants/align_to_largest_stylebox = 2
 theme_override_fonts/font = ExtResource("5_dg77c")
-text = "KEY_AÑADIR_SUJETOS"
+text = "Add"
 metadata/_edit_use_anchors_ = true
 
 [node name="edit_subjectBtn" type="Button" parent="Interface" unique_id=1888207766]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -199.0
-offset_top = 64.0
-offset_right = -130.0
-offset_bottom = 95.0
+offset_left = -178.0
+offset_top = 62.0
+offset_right = -66.0
+offset_bottom = 93.0
 grow_horizontal = 0
 theme = ExtResource("6_ycdy4")
 theme_override_constants/align_to_largest_stylebox = 2
 theme_override_fonts/font = ExtResource("5_dg77c")
-text = "KEY_EDITAR_SUJETOS"
+text = "EDIT"
 metadata/_edit_use_anchors_ = true
 
 [node name="delete_subjectBtn" type="Button" parent="Interface" unique_id=2059097515]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -304.0
-offset_top = 64.0
-offset_right = -231.0
-offset_bottom = 95.0
+offset_left = -306.0
+offset_top = 62.0
+offset_right = -194.0
+offset_bottom = 93.0
 grow_horizontal = 0
 theme = ExtResource("6_ycdy4")
 theme_override_constants/align_to_largest_stylebox = 2
 theme_override_fonts/font = ExtResource("5_dg77c")
-text = "KEY_BORRAR_SUJETOS"
+text = "DELETE"
 metadata/_edit_use_anchors_ = true
 
 [node name="Label_BG" type="ColorRect" parent="Interface" unique_id=1793092846]
