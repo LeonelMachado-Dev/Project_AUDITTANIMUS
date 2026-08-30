@@ -105,7 +105,7 @@ func insertar_sujeto(datos: Dictionary) -> int:
 
 func eliminar_sujeto(id_sujeto: int):
 	# 1. Consultar la ruta de la imagen ANTES de borrar el registro del sujeto
-	db.query("SELECT imagen_path FROM subjects WHERE id = " + str(id_sujeto))
+	db.query("SELECT image_path FROM subjects WHERE id = " + str(id_sujeto))
 	
 	var ruta_imagen: String = ""
 	if db.query_result.size() > 0:
