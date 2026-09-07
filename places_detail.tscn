@@ -1,0 +1,395 @@
+[gd_scene format=3 uid="uid://3w6outqn88l8"]
+
+[ext_resource type="Script" uid="uid://b2uq781ufgew2" path="res://places_detail.gd" id="1_ljx3g"]
+[ext_resource type="Shader" uid="uid://cse6pgsng1i6i" path="res://neblina_animus.gdshader" id="2_fgys8"]
+[ext_resource type="Theme" uid="uid://ct7c6euirkk1h" path="res://buttons theme (wine).tres" id="3_f38jb"]
+[ext_resource type="Script" uid="uid://ddgnqnf8j5kei" path="res://plexus_system.gd" id="4_5iaxg"]
+[ext_resource type="Shader" uid="uid://djeegke2uwutt" path="res://main.gdshader" id="5_pbwxh"]
+[ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="6_44tre"]
+[ext_resource type="StyleBox" uid="uid://boc45oqtbt22e" path="res://degraded button (wine) - hover.tres" id="7_1lmqp"]
+[ext_resource type="FontFile" uid="uid://7mkjdjpi3yw0" path="res://font/Cinzel-Regular.ttf" id="8_ug4et"]
+[ext_resource type="PackedScene" uid="uid://bj647l5n4ft7w" path="res://animus_panel.tscn" id="9_b1yyk"]
+[ext_resource type="AudioStream" uid="uid://bc1dyh2orq7f2" path="res://music/Glitch effect 6.mp3" id="10_yjkng"]
+[ext_resource type="PackedScene" path="res://media_viewer.tscn" id="11_media"]
+
+[sub_resource type="Gradient" id="Gradient_ig7tw"]
+colors = PackedColorArray(0.66245234, 0.66245234, 0.6624523, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rxel5"]
+gradient = SubResource("Gradient_ig7tw")
+fill = 1
+fill_from = Vector2(0.50427353, 0.51282054)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hceip"]
+shader = ExtResource("2_fgys8")
+shader_parameter/smoke_color = Color(0.85, 0.9, 0.95, 0.15)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6o2g0"]
+shader = ExtResource("5_pbwxh")
+
+[sub_resource type="Gradient" id="Gradient_mcw6r"]
+offsets = PackedFloat32Array(0.17405063, 1)
+colors = PackedColorArray(0.432765, 0, 0.106126174, 1, 0.8389994, 1.6869828e-05, 0.2445611, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eg6t8"]
+gradient = SubResource("Gradient_mcw6r")
+use_hdr = true
+fill_from = Vector2(0.552521, 0)
+fill_to = Vector2(0.54831934, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ld8hl"]
+texture = SubResource("GradientTexture2D_eg6t8")
+
+[sub_resource type="FontVariation" id="FontVariation_mcw6r"]
+base_font = ExtResource("6_44tre")
+
+[sub_resource type="LabelSettings" id="LabelSettings_jni1k"]
+font_size = 28
+font_color = Color(0.013624087, 0.03014388, 0.06406011, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vh67j"]
+
+[sub_resource type="FontVariation" id="FontVariation_ld8hl"]
+base_font = ExtResource("8_ug4et")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6o2g0"]
+font = SubResource("FontVariation_ld8hl")
+font_size = 22
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_p0ve4"]
+base_font = ExtResource("8_ug4et")
+
+[sub_resource type="LabelSettings" id="LabelSettings_eg6t8"]
+font = SubResource("FontVariation_p0ve4")
+font_size = 22
+font_color = Color(0.013624087, 0.03014388, 0.06406011, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_roiyv"]
+base_font = ExtResource("8_ug4et")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p0ve4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fsc"]
+bg_color = Color(0.03, 0.05, 0.09, 0.78)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+
+[sub_resource type="FontVariation" id="FontVariation_fsc"]
+base_font = ExtResource("8_ug4et")
+
+[sub_resource type="FontVariation" id="FontVariation_gvhc"]
+base_font = ExtResource("8_ug4et")
+
+[node name="DetallesSujeto" type="Control" unique_id=113065301]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ljx3g")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1111073406]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8862745, 0.9098039, 0.9411765, 1)
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=1173777784]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_rxel5")
+
+[node name="NeblinaAnimus" type="ColorRect" parent="Background" unique_id=1110996700]
+self_modulate = Color(1, 1, 1, 0.22745098)
+material = SubResource("ShaderMaterial_hceip")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_f38jb")
+
+[node name="PlexusSystem" type="Node2D" parent="Background" unique_id=1213776493]
+script = ExtResource("4_5iaxg")
+
+[node name="FiltroGlitch" type="ColorRect" parent="Background" unique_id=333221339]
+material = SubResource("ShaderMaterial_6o2g0")
+layout_mode = 0
+offset_left = 540.0
+offset_top = 431.0
+offset_right = 1190.0
+offset_bottom = 431.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="PostProcess" type="CanvasLayer" parent="Background" unique_id=1750601267]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=385096931]
+custom_minimum_size = Vector2(1150, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -395.5
+offset_top = -181.0
+offset_right = 395.5
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="ColumnaIzquierda" type="VBoxContainer" parent="HBoxContainer" unique_id=570897483]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="ContenedorBotones" type="HBoxContainer" parent="HBoxContainer/ColumnaIzquierda" unique_id=29142407]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="BtnVolver" type="Button" parent="HBoxContainer/ColumnaIzquierda/ContenedorBotones" unique_id=1459544967]
+layout_mode = 2
+theme = ExtResource("3_f38jb")
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_fonts/font = ExtResource("6_44tre")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ld8hl")
+theme_override_styles/hover = ExtResource("7_1lmqp")
+text = "VOLVER"
+
+[node name="BtnNota" type="Button" parent="HBoxContainer/ColumnaIzquierda/ContenedorBotones" unique_id=388844383]
+layout_mode = 2
+theme = ExtResource("3_f38jb")
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_fonts/font = SubResource("FontVariation_mcw6r")
+text = "NOTA"
+
+[node name="BtnResena" type="Button" parent="HBoxContainer/ColumnaIzquierda/ContenedorBotones" unique_id=388844384]
+layout_mode = 2
+theme = ExtResource("3_f38jb")
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_fonts/font = SubResource("FontVariation_mcw6r")
+text = "RESEÑA HISTORICA"
+
+[node name="PlaceMedia" parent="HBoxContainer/ColumnaIzquierda" instance=ExtResource("11_media")]
+unique_id = 978483109
+custom_minimum_size = Vector2(460, 300)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 0
+
+[node name="InfoDerecha" type="Control" parent="HBoxContainer" unique_id=91975568]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NombreLabel" type="Label" parent="HBoxContainer/InfoDerecha" unique_id=404194458]
+layout_mode = 0
+offset_left = 69.0
+offset_top = -7.0
+offset_right = 370.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("6_44tre")
+text = "KEY_SUBJECT_NAME"
+label_settings = SubResource("LabelSettings_jni1k")
+
+[node name="birthYear_label" type="Label" parent="HBoxContainer/InfoDerecha" unique_id=425796767]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 42.0
+offset_right = 538.0
+offset_bottom = 73.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vh67j")
+text = "AÑO DE NACIMIENTO:"
+label_settings = SubResource("LabelSettings_6o2g0")
+
+[node name="location_label" type="Label" parent="HBoxContainer/InfoDerecha" unique_id=239537413]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 82.0
+offset_right = 601.0
+offset_bottom = 121.0
+text = "LOCALIZACION FRECUENTE"
+label_settings = SubResource("LabelSettings_eg6t8")
+
+[node name="AnimusPanel" parent="HBoxContainer/InfoDerecha" unique_id=1470157803 instance=ExtResource("9_b1yyk")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -301.5
+offset_top = -152.0
+offset_right = 331.0
+offset_bottom = 280.0
+color_de_columnas = Color(0.1663743, 0.1663743, 0.16637424, 0.6862745)
+separacion_columnas = 0.8
+color_bordes_escena = Color(0.8446712, 0.17794243, 0.25538662, 1)
+
+[node name="TextoContenido" type="RichTextLabel" parent="HBoxContainer/InfoDerecha/AnimusPanel" unique_id=251896503]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.5
+offset_top = 46.0
+offset_right = -16.0
+offset_bottom = -63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 2
+theme_override_constants/outline_size = 0
+theme_override_fonts/normal_font = SubResource("FontVariation_roiyv")
+theme_override_font_sizes/normal_font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p0ve4")
+bbcode_enabled = true
+text = "TEXTO DE PRUEBA"
+text_direction = 1
+
+[node name="FullscreenOverlay" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+
+[node name="Dim" type="ColorRect" parent="FullscreenOverlay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.78)
+
+[node name="FullscreenViewer" parent="FullscreenOverlay" instance=ExtResource("11_media")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -280.0
+offset_right = 380.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CloseBtn" type="Button" parent="FullscreenOverlay"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -60.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 52.0
+grow_horizontal = 0
+theme = ExtResource("3_f38jb")
+theme_override_fonts/font = ExtResource("6_44tre")
+text = "X"
+
+[node name="VideoControlsBar" type="PanelContainer" parent="FullscreenOverlay"]
+custom_minimum_size = Vector2(0, 54)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -310.0
+offset_top = -70.0
+offset_right = 310.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fsc")
+
+[node name="HBox" type="HBoxContainer" parent="FullscreenOverlay/VideoControlsBar"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PlayPauseBtn" type="Button" parent="FullscreenOverlay/VideoControlsBar/HBox"]
+custom_minimum_size = Vector2(118, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_f38jb")
+theme_override_fonts/font = SubResource("FontVariation_fsc")
+theme_override_font_sizes/font_size = 16
+text = "PAUSAR"
+
+[node name="Slider" type="HSlider" parent="FullscreenOverlay/VideoControlsBar/HBox"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+max_value = 100.0
+step = 0.1
+
+[node name="TimeLabel" type="Label" parent="FullscreenOverlay/VideoControlsBar/HBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "0:00 / 0:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_gvhc")
+theme_override_font_sizes/font_size = 15
+
+[node name="MuteBtn" type="Button" parent="FullscreenOverlay/VideoControlsBar/HBox"]
+custom_minimum_size = Vector2(118, 0)
+layout_mode = 2
+focus_mode = 0
+theme = ExtResource("3_f38jb")
+theme_override_fonts/font = SubResource("FontVariation_fsc")
+theme_override_font_sizes/font_size = 16
+text = "SILENCIAR"
+
+[node name="GlitchSound" type="AudioStreamPlayer" parent="." unique_id=873212352]
+stream = ExtResource("10_yjkng")
+
+[node name="GlitchTimer" type="Timer" parent="." unique_id=289193025]
+autostart = true
+
+[connection signal="pressed" from="HBoxContainer/ColumnaIzquierda/ContenedorBotones/BtnVolver" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColumnaIzquierda/ContenedorBotones/BtnNota" to="." method="_on_btn_note_pressed"]
+[connection signal="pressed" from="HBoxContainer/ColumnaIzquierda/ContenedorBotones/BtnResena" to="." method="_on_btn_review_pressed"]
+[connection signal="gui_input" from="HBoxContainer/ColumnaIzquierda/PlaceMedia" to="." method="_on_place_media_gui_input"]
+[connection signal="gui_input" from="FullscreenOverlay/Dim" to="." method="_on_fullscreen_dim_gui_input"]
+[connection signal="pressed" from="FullscreenOverlay/CloseBtn" to="." method="_on_fullscreen_close_pressed"]
+[connection signal="pressed" from="FullscreenOverlay/VideoControlsBar/HBox/PlayPauseBtn" to="." method="_on_fs_play_pause_pressed"]
+[connection signal="pressed" from="FullscreenOverlay/VideoControlsBar/HBox/MuteBtn" to="." method="_on_fs_mute_pressed"]
+[connection signal="value_changed" from="FullscreenOverlay/VideoControlsBar/HBox/Slider" to="." method="_on_fs_slider_value_changed"]
+[connection signal="drag_started" from="FullscreenOverlay/VideoControlsBar/HBox/Slider" to="." method="_on_fs_slider_drag_started"]
+[connection signal="drag_ended" from="FullscreenOverlay/VideoControlsBar/HBox/Slider" to="." method="_on_fs_slider_drag_ended"]
+
+[editable path="HBoxContainer/InfoDerecha/AnimusPanel"]
