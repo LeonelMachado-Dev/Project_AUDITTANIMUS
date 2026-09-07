@@ -2,6 +2,7 @@ extends Node
 
 var click_effect : AudioStreamPlayer
 var sujeto_seleccionado_id: int = 0
+var selected_place_id: int = 0
 var indice_carrusel_guardado : int = 0
 var disclaimer_accepted: bool = false
 var sfx_permitido: bool = true
