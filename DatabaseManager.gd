@@ -33,6 +33,8 @@ func inicializar_sistema_archivos():
 	var dir_user = DirAccess.open("user://")
 	if dir_user and not dir_user.dir_exists("user://sujetos"):
 		dir_user.make_dir_recursive("user://sujetos")
+	if not dir_user.dir_exists("user://places"):
+		dir_user.make_dir_recursive("user://places")
 
 func conectar_base_datos():
 	db = SQLite.new()
@@ -53,6 +55,11 @@ func conectar_base_datos():
 func obtener_sujetos():
 	# Hacemos una consulta simple a la tabla que creamos en DB Browser
 	db.query("SELECT * FROM subjects")
+	return db.query_result
+	
+func get_places():
+	# Hacemos una consulta simple a la tabla que creamos en DB Browser
+	db.query("SELECT * FROM places")
 	return db.query_result
 
 func crear_tablas_si_no_existen():
@@ -87,13 +94,22 @@ func crear_tablas_si_no_existen():
 	var query_places = """
 	CREATE TABLE IF NOT EXISTS places (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
-		place_name TEXT
+		place_name TEXT,
 		place_description TEXT,
 		image_path TEXT,
-		picture_date TEXT
+		picture_date TEXT,
+		personal_analyse TEXT
 	);
 	"""
 	db.query(query_places)
+	
+	# Add missing columns in existing databases (safe migration)
+	db.query("PRAGMA table_info(places);")
+	var column_names = []
+	for column in db.query_result:
+		column_names.append(str(column.get("name", "")))
+	if "personal_analyse" not in column_names:
+		db.query("ALTER TABLE places ADD COLUMN personal_analyse TEXT;")
 	print("[Animus OS] Estructura de tablas validada.")
 
 func insertar_sujeto(datos: Dictionary) -> int:
@@ -102,6 +118,36 @@ func insertar_sujeto(datos: Dictionary) -> int:
 		db.query("SELECT last_insert_rowid() as id;")
 		return db.query_result[0]["id"]
 	return -1
+	
+func insert_place(datos: Dictionary) -> int:
+	var exito = db.insert_row("places", datos)
+	if exito:
+		db.query("SELECT last_insert_rowid() as id;")
+		return db.query_result[0]["id"]
+	return -1
+
+func eliminar_lugar(id_lugar: int):
+	# 1. Consultar la ruta de la imagen ANTES de borrar el registro del lugar
+	db.query("SELECT image_path FROM places WHERE id = " + str(id_lugar))
+	
+	var ruta_imagen: String = ""
+	if db.query_result.size() > 0:
+		ruta_imagen = str(db.query_result[0].get("image_path", ""))
+	
+	# 2. Ejecutar la consulta de borrado directo en la base de datos
+	db.query("DELETE FROM places WHERE id = " + str(id_lugar))
+	print("[DatabaseManager] Lugar eliminado de la base de datos. ID: ", id_lugar)
+	
+	# 3. Control de limpieza en el disco (AppData/user://)
+	if ruta_imagen != "" and ruta_imagen != "null" and ruta_imagen.begins_with("user://"):
+		if FileAccess.file_exists(ruta_imagen):
+			var error_borrado = DirAccess.remove_absolute(ruta_imagen)
+			if error_borrado == OK:
+				print("[DISCO] Imagen del lugar eliminada con éxito de user:// -> ", ruta_imagen)
+			else:
+				print("[Error] No se pudo borrar físicamente el archivo en: ", ruta_imagen)
+		else:
+			print("[DISCO] El archivo de imagen no existía físicamente en la ruta guardada.")
 
 func eliminar_sujeto(id_sujeto: int):
 	# 1. Consultar la ruta de la imagen ANTES de borrar el registro del sujeto
