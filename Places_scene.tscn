@@ -179,16 +179,24 @@ grow_vertical = 2
 
 [node name="Interface" type="CanvasLayer" parent="." unique_id=854450125]
 
+[node name="Label_BG" type="ColorRect" parent="Interface" unique_id=687089900]
+custom_minimum_size = Vector2(0, 32)
+offset_right = 440.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 0.624)
+metadata/_edit_use_anchors_ = true
+
 [node name="PlacesCarrousel" type="Control" parent="Interface" unique_id=1139058774]
+custom_minimum_size = Vector2(400, 700)
 layout_mode = 3
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -192.0
-offset_bottom = 240.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
 
 [node name="Carrousel" type="Control" parent="Interface/PlacesCarrousel" unique_id=893639066]
 layout_mode = 1
@@ -380,4 +388,17 @@ text = "/"
 label_settings = SubResource("LabelSettings_bqryl")
 metadata/_edit_use_anchors_ = true
 
+[node name="status" type="Label" parent="Interface" unique_id=1898963208]
+offset_right = 40.0
+offset_bottom = 23.0
+metadata/_edit_use_anchors_ = true
+
+[node name="PopUpConfirmacion" type="ConfirmationDialog" parent="." unique_id=1010480278]
+title = ""
+unresizable = true
+
 [connection signal="pressed" from="Interface/backBtn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="Interface/addPlacesBtn" to="." method="_on_add_places_btn_pressed"]
+[connection signal="text_changed" from="Interface/browser" to="." method="_on_browser_text_changed"]
+[connection signal="pressed" from="Interface/rightBtn" to="." method="_on_right_btn_pressed"]
+[connection signal="pressed" from="Interface/leftBtn" to="." method="_on_left_btn_pressed"]
