@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://ddgnqnf8j5kei" path="res://plexus_system.gd" id="3_uld4u"]
 [ext_resource type="FontFile" uid="uid://db4wbq23r1rjw" path="res://font/Cinzel-Bold.ttf" id="4_k08w5"]
 [ext_resource type="Theme" uid="uid://ct7c6euirkk1h" path="res://buttons theme (wine).tres" id="5_dq61g"]
-[ext_resource type="PackedScene" uid="uid://bj647l5n4ft7w" path="res://animus_panel.tscn" id="6_vs86q"]
+[ext_resource type="PackedScene" path="res://media_viewer.tscn" id="6_media"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eqfkr"]
 shader = ExtResource("2_vs86q")
@@ -112,25 +112,26 @@ ok_button_text = "Accept"
 [node name="Success-Pop_Up" type="AcceptDialog" parent="." unique_id=1740477026]
 ok_button_text = "Success"
 
-[node name="AnimusPanel" parent="." unique_id=1470157803 instance=ExtResource("6_vs86q")]
+[node name="AnimusPanel" type="Panel" parent="." unique_id=1114092017]
+custom_minimum_size = Vector2(1160, 632)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -576.0
-offset_top = -304.0
-offset_right = 584.0
-offset_bottom = 328.0
-total_columnas = 28
-duracion_aparicion_columna = 0.1
+offset_left = -580.0
+offset_top = -316.0
+offset_right = 580.0
+offset_bottom = 316.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="FileDialog_Image" type="FileDialog" parent="AnimusPanel" unique_id=2093619570]
 title = "Open a File"
 file_mode = 0
 access = 2
-filters = PackedStringArray("*.png", "*.jpg", "*.jpeg")
+filters = PackedStringArray("*.png ; Imágenes PNG", "*.jpg ; Imágenes JPG", "*.jpeg ; Imágenes JPEG", "*.gif ; GIF Animado", "*.mp4 ; Videos MP4", "*.webm ; Videos WEBM", "*.ogv ; Videos OGV")
 
 [node name="returnBtn" type="Button" parent="AnimusPanel" unique_id=903624837]
 layout_mode = 1
@@ -183,6 +184,15 @@ grow_vertical = 2
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 6
+
+[node name="EditorPreview" parent="AnimusPanel/PictureEditor" instance=ExtResource("6_media")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Border" type="ReferenceRect" parent="AnimusPanel/PictureEditor" unique_id=1001644392]
 custom_minimum_size = Vector2(460, 300)
@@ -240,7 +250,7 @@ theme_override_fonts/font = SubResource("FontVariation_eqfkr")
 theme_override_styles/normal = SubResource("StyleBoxFlat_k08w5")
 placeholder_text = "KEY_NAME"
 
-[node name="inputBirthYear" type="LineEdit" parent="AnimusPanel" unique_id=138368551]
+[node name="inputDate" type="LineEdit" parent="AnimusPanel" unique_id=138368551]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 offset_left = 40.0
@@ -273,6 +283,23 @@ autowrap_mode = 2
 scroll_past_end_of_file = true
 text_direction = 1
 
+[node name="inputAnalyse" type="TextEdit" parent="AnimusPanel" unique_id=1403310910]
+custom_minimum_size = Vector2(420, 90)
+layout_mode = 1
+offset_left = 260.0
+offset_top = 40.0
+offset_right = 680.0
+offset_bottom = 130.0
+size_flags_horizontal = 3
+theme_override_fonts/font = SubResource("FontVariation_cwbnt")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vs86q")
+placeholder_text = "KEY_PICTURE_NOTE"
+emoji_menu_enabled = false
+wrap_mode = 1
+autowrap_mode = 2
+scroll_past_end_of_file = true
+text_direction = 1
+
 [node name="SaveAllBtn" type="Button" parent="AnimusPanel" unique_id=335769098]
 layout_mode = 1
 anchors_preset = 2
@@ -289,3 +316,6 @@ theme_override_fonts/font = SubResource("FontVariation_gmvqk")
 text = "KEY_SAVE_ALL"
 
 [connection signal="pressed" from="AnimusPanel/returnBtn" to="." method="_on_return_btn_pressed"]
+[connection signal="pressed" from="AnimusPanel/ConfirmBtn" to="." method="_on_confirm_btn_pressed"]
+[connection signal="pressed" from="AnimusPanel/SelectImageBtn" to="." method="_on_select_image_btn_pressed"]
+[connection signal="pressed" from="AnimusPanel/SaveAllBtn" to="." method="_on_save_all_btn_pressed"]
