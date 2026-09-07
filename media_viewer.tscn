@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cubrnjspmbvxd"]
+
+[ext_resource type="Script" uid="uid://cqxaadnaae4iq" path="res://media_viewer.gd" id="1_mediaviewer"]
+
+[node name="MediaViewer" type="Control" unique_id=670405108]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mediaviewer")
+
+[node name="ImageRect" type="TextureRect" parent="." unique_id=2051000822]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VideoPlayer" type="VideoStreamPlayer" parent="." unique_id=2068700899]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+audio_track = -1
+expand = true
+
+[node name="PlaceholderLayer" type="ColorRect" parent="." unique_id=647482187]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
